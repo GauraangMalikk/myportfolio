@@ -56,10 +56,11 @@
     <link rel="stylesheet" href="https://use.typekit.net/kse0maf.css" />
     <!-- Custom overrides -->
     <style>
+      
       /* ─── Themed hero background ───────────────────────── */
       .landing-bg{position:absolute;inset:0;background-size:cover;background-position:center;z-index:-1;opacity:.25;}
-      html[data-theme="light"] .landing-bg{background-image:url("./assets/img/bg-light.jpg")}
-      html[data-theme="dark"]  .landing-bg{background-image:url("./assets/img/bg-dark.jpg")}
+      html[data-theme="light"] .landing-bg{background-image:url("./assets/img/bg-light.jpg")} 
+      html[data-theme="dark"] .landing-bg{background-image:url("./assets/img/bg-dark.jpg")}
       .decoration-note{font-size:.8rem;letter-spacing:.05em;opacity:.75;margin-top:.5rem;}
     
       /* circular portrait */
@@ -113,7 +114,20 @@
 .footer-links p{
   font-size: .95rem;        /* link rows */
 }
-
+/* show the Dark Mode label below the switch */
+.toggle-label {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: inherit;
+  text-align: center;
+}
+/* stack the switch and its caption vertically */
+.toggle-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
     </style>
     
 
@@ -153,9 +167,8 @@
         <!-- Dark-mode toggle keeps template’s switch -->
         <div class="toggle-container">
           <input type="checkbox" id="switch" name="theme" />
-          <label class="toggle" for="switch">Toggle</label>
+          <label class="toggle" for="switch"></label>
         </div>
-
         <div class="landing-text">
           <div class="landing-bg"></div><!-- decorative background -->
           <h1>Gauraang Malik</h1>
