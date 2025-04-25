@@ -1,193 +1,371 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Primary Meta Tags -->
-  <title>Gauraang Malik | AI Researcher & Technologist</title>
-  <meta name="title"       content="Gauraang Malik | AI Researcher & Technologist" />
-  <meta name="keywords"    content="Gauraang Malik, multi-agent LLM, AI researcher, data science, market forecasting, TinyLlama" />
-  <meta name="description" content="Gauraang Malik is a research-driven, human-centric technologist building multi-agent LLM systems, financial forecasting pipelines, and creative tech experiences." />
+    <!-- Primary Meta Tags -->
+    <title>Gauraang Malik | AI Researcher & Technologist</title>
+    <meta
+      name="title"
+      content="Gauraang Malik | AI Researcher & Technologist"
+    />
+    <meta
+      name="keywords"
+      content="Gauraang Malik, multi-agent LLM, AI researcher, information architecture, data science, market forecasting, TinyLlama"
+    />
+    <meta
+      name="description"
+      content="Gauraang Malik is a research-driven, human-centric technologist building multi-agent LLM systems, financial forecasting pipelines, and creative tech experiences."
+    />
 
-  <!-- Open Graph / Twitter -->
-  <meta property="og:type"  content="website" />
-  <meta property="og:url"   content="https://gauraangmalik.github.io/" />
-  <meta property="og:title" content="Gauraang Malik | AI Researcher & Technologist" />
-  <meta property="og:description" content="Research-driven technologist focused on multi-agent AI, data science and creative tech." />
-  <meta property="og:image" content="/assets/img/seo-img.png" />
+    <!-- Open Graph / Twitter (same copy) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://gauraangmalik.github.io/" />
+    <meta
+      property="og:title"
+      content="Gauraang Malik | AI Researcher & Technologist"
+    />
+    <meta
+      property="og:description"
+      content="Research-driven technologist focused on multi-agent AI, data science and creative tech."
+    />
+    <meta property="og:image" content="/assets/img/seo-img.png" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:url"
+      content="https://gauraangmalik.github.io/"
+    />
+    <meta
+      property="twitter:title"
+      content="Gauraang Malik | AI Researcher & Technologist"
+    />
+    <meta
+      property="twitter:description"
+      content="Research-driven technologist focused on multi-agent AI, data science and creative tech."
+    />
+    <meta
+      property="twitter:image"
+      content="https://gauraangmalik.github.io/assets/img/seo-img.png"
+    />
 
-  <meta property="twitter:card"  content="summary_large_image" />
-  <meta property="twitter:url"   content="https://gauraangmalik.github.io/" />
-  <meta property="twitter:title" content="Gauraang Malik | AI Researcher & Technologist" />
-  <meta property="twitter:description" content="Research-driven technologist focused on multi-agent AI, data science and creative tech." />
-  <meta property="twitter:image" content="https://gauraangmalik.github.io/assets/img/seo-img.png" />
+    <!-- Styles / favicon / fonts (leave paths as-is in the template) -->
+    <link rel="stylesheet" href="./assets/css/styles.min.css" />
+    <link rel="icon" type="image/svg+xml" href="./assets/img/favicon.svg" />
+    <link rel="stylesheet" href="https://use.typekit.net/kse0maf.css" />
+    <!-- Custom overrides -->
+    <style>
+      /* ─── Themed hero background ───────────────────────── */
+      .landing-bg{position:absolute;inset:0;background-size:cover;background-position:center;z-index:-1;opacity:.25;}
+      html[data-theme="light"] .landing-bg{background-image:url("./assets/img/bg-light.jpg")}
+      html[data-theme="dark"]  .landing-bg{background-image:url("./assets/img/bg-dark.jpg")}
+      .decoration-note{font-size:.8rem;letter-spacing:.05em;opacity:.75;margin-top:.5rem;}
+    
+      /* circular portrait */
+      .profile-img img{
+        width:240px;height:240px;object-fit:cover;border-radius:50%;
+        border:4px solid var(--clr-border,#444);box-shadow:0 6px 20px rgba(0,0,0,.25);
+      }
+    
+      /* Canva embeds */
+      .presentation-grid{
+        display:grid;gap:2rem;
+        grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+        margin-top:2rem;
+      }
+      .presentation-grid iframe{
+        width:100%;aspect-ratio:16/9;border:1px solid var(--clr-border,#444);
+      }
+    
+      /* smooth theme switch */
+      html.transition,html.transition *{
+        transition:background-color .6s,color .6s,border-color .6s;
+      }
+    
+      /* footer base layout (kept) */
+      .footer-contact{padding:2rem 0;text-align:center}
+      .footer-tagline{margin:.5rem 0 2rem;font-size:1rem;opacity:.8}
+      .footer-links.grid{
+        display:grid;gap:2rem;justify-content:center;
+        grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+      }
+      .footer-links h5{margin-bottom:.5rem;font-weight:600}
+      .footer-links a{color:inherit;text-decoration:none}
+      .footer-links a:hover{text-decoration:underline}
+    
+ /* ─── Footer font-size tweaks ─────────────────────────── */
+.footer-contact h2{
+  font-size: 1.5rem;        /* default ~2.25rem → smaller */
+  margin-bottom: .25rem;
+}
 
-  <!-- Styles / favicon / fonts -->
-  <link rel="stylesheet" href="./assets/css/styles.min.css" />
-  <link rel="icon" type="image/svg+xml" href="./assets/img/favicon.svg" />
-  <link rel="stylesheet" href="https://use.typekit.net/kse0maf.css" />
+.footer-tagline{
+  font-size: 1rem;          /* default ~1.25rem */
+}
 
-  <!-- Custom overrides -->
-  <style>
-    /* ─── Themed hero background ───────────────────────── */
-    .landing-bg{
-      position:absolute;inset:0;
-      background-size:cover;background-position:center;
-      z-index:-1;opacity:.25;
-    }
-    html[data-theme="light"] .landing-bg{background-image:url("./assets/img/bg-light.jpg");}
-    html[data-theme="dark"]  .landing-bg{background-image:url("./assets/img/bg-dark.jpg");}
-    .decoration-note{font-size:.8rem;letter-spacing:.05em;opacity:.75;margin-top:.5rem;}
+.footer-links h5{
+  font-size: .9rem;         /* section headings */
+  letter-spacing: .04em;
+}
 
-    /* Portrait */
-    .profile-img img{
-      width:240px;height:240px;object-fit:cover;border-radius:50%;
-      border:4px solid var(--clr-border,#444);box-shadow:0 6px 20px rgba(0,0,0,.25);
-    }
+.footer-links a,
+.footer-links p{
+  font-size: .95rem;        /* link rows */
+}
 
-    /* Canva grid (if used later) */
-    .presentation-grid{
-      display:grid;gap:2rem;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      margin-top:2rem;
-    }
-    .presentation-grid iframe{
-      width:100%;aspect-ratio:16/9;border:1px solid var(--clr-border,#444);
-    }
+    </style>
+    
 
-    /* Theme switch fade */
-    html.transition,html.transition *{
-      transition:background-color .6s,color .6s,border-color .6s;
-    }
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/gsap.min.js"></script>
+  </head>
 
-    /* Footer layout + sizing */
-    .footer-contact{padding:2rem 0;text-align:center}
-    .footer-tagline{margin:.5rem 0 2rem;font-size:1rem;opacity:.8}
-    .footer-links.grid{
-      display:grid;gap:1.25rem 2rem;justify-content:center;justify-items:center;
-      grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-      margin-top:1.75rem;
-    }
-    .footer-links h5{margin-bottom:.5rem;font-weight:600;font-size:.9rem}
-    .footer-links a{color:inherit;text-decoration:none;font-size:.95rem}
-    .footer-links a:hover{text-decoration:underline}
-    .footer-copy{margin-top:1.5rem;font-size:.85rem}
-  </style>
+  <body class="body-wrap">
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/gsap.min.js"></script>
-</head>
+    <!-- custom mouse -->
+    <div class="cursor-effect"></div>
 
-<body class="body-wrap">
-  <!-- custom cursor -->
-  <div class="cursor-effect"></div>
-
-  <div class="content">
-    <!-- ─── Hero ────────────────────────────────────────── -->
-    <header>
-      <!-- Decorative shapes -->
-      <div class="effect-wrap">
-        <div class="effect effect-1"></div>
-        <div class="effect effect-2"><div></div></div>
-        <div class="effect effect-3"></div>
-        <div class="effect effect-4"><div></div></div>
-      </div>
-
-      <a href="index.html" class="logo" aria-label="Home">
-        <img src="./assets/img/favicon.svg" alt="Logo">
-      </a>
-
-      <div class="inner">
-        <span>g</span>
-        <h1>Hello 👋</h1>
-        <p>
-          I’m Gauraang — an AI researcher &amp; technologist.<br>
-          Need an agent-based solution or data-science muscle?
-          <a href="#contact">Let’s chat.</a>
-        </p>
-      </div>
-
-      <!-- Dark-mode switch -->
-      <div class="toggle-container">
-        <input type="checkbox" id="switch" name="theme">
-        <label class="toggle" for="switch">Toggle</label>
-      </div>
-
-      <div class="landing-text">
-        <div class="landing-bg"></div>
-        <h1>Gauraang Malik</h1>
-        <p>Designing <b>multi-agent LLM</b> architectures, <b>market-prediction pipelines</b>, and creative tech.</p>
-        <p class="decoration-note">just part of the decoration</p>
-      </div>
-    </header>
-
-    <!-- ─── About ───────────────────────────────────────── -->
-    <main>
-      <section class="about" id="about">
-        <div class="container">
-          <div class="profile-img">
-            <img src="./assets/img/gauraang.jpg" alt="Gauraang Malik">
-          </div>
-
-          <div class="about-content">
-            <div class="about-heading"><h2>About Me</h2></div>
-            <p>
-              I’m a Master’s graduate (McGill ’25) and former market-research PM who now prototypes
-              <em>multi-agent LLM systems</em> for hallucination mitigation, builds
-              <em>financial-forecasting ensembles</em>, and explores creative AI (music &amp; astrology).<br><br>
-              My toolkit spans Python, TinyLlama, FAISS, PCA, H2O, Tailwind &amp; GSAP.
-              I care about usable, transparent AI that augments humans instead of replacing them.
-            </p>
-
-            <div class="about-cta">
-              <a href="./assets/pdf/Cover.pdf"  class="exp-cta" download>Download Cover Letter</a>
-              <span> — </span>
-              <a href="./assets/pdf/Resume.pdf" class="exp-cta" download>Download CV</a>
-            </div>
-          </div>
+    <div class="content">
+      <!-- ─── Header / Hero ───────────────────────────────────────────── -->
+      <header>
+        <!-- Shapes (original decorative SVGs) -->
+        <div class="effect-wrap">
+          <div class="effect effect-1"></div>
+          <div class="effect effect-2"><div></div><!-- lots ... --></div>
+          <div class="effect effect-3"></div>
+          <div class="effect effect-4"><div></div><!-- ... --></div>
         </div>
-      </section>
 
-      <!-- Services / Projects sections unchanged … -->
-      <!-- (keep your existing markup for services and projects) -->
+        <a href="index.html" class="logo" aria-label="Home">
+          <img src="./assets/img/favicon.svg" alt="Logo" />
+        </a>
 
-      <!-- ─── Footer / Contact ──────────────────────────── -->
+        <div class="inner">
+          <span>g</span>
+          <h1>Hello 👋</h1>
+          <p>
+            I’m Gauraang — an AI researcher & technologist.  
+            Need an agent-based solution or data science muscle?  
+            <a href="#contact">Let’s chat.</a>
+          </p>
+        </div>
+
+        <!-- Dark-mode toggle keeps template’s switch -->
+        <div class="toggle-container">
+          <input type="checkbox" id="switch" name="theme" />
+          <label class="toggle" for="switch">Toggle</label>
+        </div>
+
+        <div class="landing-text">
+          <div class="landing-bg"></div><!-- decorative background -->
+          <h1>Gauraang Malik</h1>
+          <p>Designing <b>multi-agent LLM</b> architectures,  <b>market-prediction pipelines</b>, and creative tech.</p>
+          <p class="decoration-note">just part of the decoration</p>
+        </div>
+        
+      </header>
+
+      <main>
+        <!-- ─── About ─────────────────────────────────────────────────── -->
+        <section class="about" id="about">
+          <div class="container">
+            <div class="profile-img">
+              <img src="/premier-portfolio/assets/img/gauraang.jpg" alt="Gauraang Malik" />
+            </div>
+
+            <div class="about-content">
+              <div class="about-heading"><h2>About Me</h2></div>
+              <p>
+                I’m a Master’s graduate (McGill ’25) and former market-research
+                PM who now prototypes <em>multi-agent LLM systems</em> for hallucination
+                mitigation, builds <em>financial-forecasting ensembles</em>, and
+                explores creative AI (music & astrology).
+                <br /><br />
+                My toolkit spans Python, TinyLlama, FAISS, PCA, H2O,
+                Tailwind & GSAP. I care about usable, transparent AI that
+                augments humans instead of replacing them.
+              </p>
+
+              <div class="about-cta">
+                <a href="./assets/pdf/Cover.pdf"   class="exp-cta" download>Download Cover Letter</a>
+                <span> — </span>
+                <a href="./assets/pdf/Resume.pdf"  class="exp-cta" download>Download CV</a>
+              </div>
+              
+          </div>
+        </section>
+
+        <!-- ─── Services ──────────────────────────────────────────────── -->
+        <section class="services" id="services">
+          <div class="container">
+            <div class="services-content">
+              <div class="services-heading"><h2>My Projects</h2></div>
+            </div>
+
+
+<!-- ▸▸▸ PROJECTS  ▸▸▸ -->
+<div class="project-item-container grid gap-10">
+
+  <!-- 1 — Multi-Agent LLM System -->
+  <div class="flex flex-col items-center">
+    <div class="project-box">
+      <a href="https://github.com/GauraangMalikk/Information-Model-an-LLM-Agent-Architecture"
+         target="_blank" class="project-box__absolute-link"></a>
+
+      <div class="relative pt-[56.25%] mb-4">
+        <iframe loading="lazy" class="absolute inset-0 w-full h-full border"
+                src="https://www.canva.com/design/DAGjtP7hnFw/wlhBScJbnenRiRYRx4yVoQ/view?embed"
+                allowfullscreen></iframe>
+      </div>
+
+      <div class="project-box__link">
+        <a href="https://github.com/GauraangMalikk/Information-Model-an-LLM-Agent-Architecture"
+           target="_blank" rel="noopener">
+          <ion-icon name="logo-github"></ion-icon>
+        </a>
+      </div>
+
+      <div class="project-box__content">
+        <h3>Multi-Agent LLM System</h3>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2 — Dental Age Estimator -->
+  <div class="flex flex-col items-center">
+    <div class="project-box">
+      <a href="https://www.canva.com/design/DAGkMaX5yrY/QzgkU9atqzHZFwoLEzTCKg/view"
+         target="_blank" class="project-box__absolute-link"></a>
+
+      <div class="relative pt-[56.25%] mb-4">
+        <iframe loading="lazy" class="absolute inset-0 w-full h-full border"
+                src="https://www.canva.com/design/DAGkMaX5yrY/QzgkU9atqzHZFwoLEzTCKg/view?embed"
+                allowfullscreen></iframe>
+      </div>
+
+      <div class="project-box__link">
+        <a href="https://www.canva.com/design/DAGkMaX5yrY/QzgkU9atqzHZFwoLEzTCKg/view"
+           target="_blank" rel="noopener">
+          <ion-icon name="open-outline"></ion-icon>
+        </a>
+      </div>
+
+      <div class="project-box__content">
+        <h3>Dental Age Estimator</h3>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3 — Precision Marketing & Ecosystems -->
+  <div class="flex flex-col items-center">
+    <div class="project-box">
+      <a href="https://www.canva.com/design/DAF_unA5II0/kuOK-JS9jm4p80AJN2DfBw/view"
+         target="_blank" class="project-box__absolute-link"></a>
+
+      <div class="relative pt-[56.25%] mb-4">
+        <iframe loading="lazy" class="absolute inset-0 w-full h-full border"
+                src="https://www.canva.com/design/DAF_unA5II0/kuOK-JS9jm4p80AJN2DfBw/view?embed"
+                allowfullscreen></iframe>
+      </div>
+
+      <div class="project-box__link">
+        <a href="https://www.canva.com/design/DAF_unA5II0/kuOK-JS9jm4p80AJN2DfBw/view"
+           target="_blank" rel="noopener">
+          <ion-icon name="open-outline"></ion-icon>
+        </a>
+      </div>
+
+      <div class="project-box__content">
+        <h3>Precision Marketing</h3>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4 — Recruitment Database Design -->
+  <div class="flex flex-col items-center">
+    <div class="project-box">
+      <a href="https://www.canva.com/design/DAGYFGwljf8/45N9P3FoUF4s3KrkdTK8zQ/view"
+         target="_blank" class="project-box__absolute-link"></a>
+
+      <div class="relative pt-[56.25%] mb-4">
+        <iframe loading="lazy" class="absolute inset-0 w-full h-full border"
+                src="https://www.canva.com/design/DAGYFGwljf8/45N9P3FoUF4s3KrkdTK8zQ/view?embed"
+                allowfullscreen></iframe>
+      </div>
+
+      <div class="project-box__link">
+        <a href="https://www.canva.com/design/DAGYFGwljf8/45N9P3FoUF4s3KrkdTK8zQ/view"
+           target="_blank" rel="noopener">
+          <ion-icon name="open-outline"></ion-icon>
+        </a>
+      </div>
+
+      <div class="project-box__content">
+        <h3>Recruitment Database Design</h3>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5 — Information Architecture Toolkit (no iframe) -->
+  <div class="flex flex-col items-center mt-8">
+    <div class="project-box mx-auto">
+      <a href="https://gauraangmalikk.github.io/gauraangmalik.github.io/"
+         target="_blank" class="project-box__absolute-link"></a>
+
+      <div class="project-box__link">
+        <a href="https://gauraangmalikk.github.io/gauraangmalik.github.io/"
+           target="_blank" rel="noopener">
+          <ion-icon name="open-outline"></ion-icon>
+        </a>
+      </div>
+
+      <div class="project-box__content">
+        <h3>Information Architecture Toolkit</h3>
+      </div>
+    </div>
+  </div>
+
+</div> <!-- end project-item-container -->
+
+
+
+      <!-- ─── Footer ────────────────────────────────────────────────── -->
       <footer class="footer" id="contact">
-        <hr>
-
+        <hr />
+      
         <div class="footer-contact">
           <h2>Contact Me</h2>
-          <p class="footer-tagline">Have a project or research idea? Let’s connect.</p>
-
+          <p class="footer-tagline">
+            Have a project or research idea? Let’s connect.
+          </p>
+      
           <div class="footer-links grid">
             <div>
               <h5>Email</h5>
               <p><a href="mailto:gauraangmalik1@gmail.com">gauraangmalik1@gmail.com</a></p>
             </div>
-
+      
             <div>
               <h5>Social</h5>
               <p><a href="https://www.instagram.com/gauraangmalik_/" target="_blank">Instagram</a></p>
               <p><a href="https://linkedin.com/in/grauraang-malik"   target="_blank">LinkedIn</a></p>
               <p><a href="https://github.com/GauraangMalikk"         target="_blank">GitHub</a></p>
             </div>
-
+      
             <div>
               <h5>Instant Message</h5>
               <p><a href="https://wa.me/15145555555" target="_blank">WhatsApp</a></p>
             </div>
           </div>
         </div>
-
+      
         <div class="footer-copy">&copy; Gauraang Malik 2025</div>
-      </footer>
-    </main>
-  </div>
+      </footer>      
+    </div>
 
-  <!-- Icons + JS -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-  <script src="./assets/js/app.js"></script>
-</body>
-</html>
+    <!-- Icons + app.js -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="./assets/js/app.js"></script>
+
+  </body>
