@@ -54,6 +54,8 @@
     <link rel="stylesheet" href="./assets/css/styles.min.css" />
     <link rel="icon" type="image/svg+xml" href="./assets/img/favicon.svg" />
     <link rel="stylesheet" href="https://use.typekit.net/kse0maf.css" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.2.7/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/styles.min.css" />
     <!-- Custom overrides -->
     <style>
       
@@ -94,7 +96,16 @@
       .footer-links h5{margin-bottom:.5rem;font-weight:600}
       .footer-links a{color:inherit;text-decoration:none}
       .footer-links a:hover{text-decoration:underline}
-    
+      .about-link {
+  color:inherit;              /* a gentle indigo accent */
+  text-decoration: none;
+  border-bottom: 1px dashed #6366f1;
+  transition: color 0.2s, border-bottom-color 0.2s;
+}
+.about-link:hover {
+  color: #818cf8;              /* slightly lighter on hover */
+  border-bottom-color: #818cf8;
+}
  /* ─── Footer font-size tweaks ─────────────────────────── */
 .footer-contact h2{
   font-size: 1.5rem;        /* default ~2.25rem → smaller */
@@ -172,8 +183,7 @@
         <div class="landing-text">
           <div class="landing-bg"></div><!-- decorative background -->
           <h1>Gauraang Malik</h1>
-          <p>Designing <b>multi-agent LLM</b> architectures,  <b>market-prediction pipelines</b>, and creative tech.</p>
-          <p class="decoration-note">just part of the decoration</p>
+          <p class="decoration-note">I see myself as part of my own decoration</p>
         </div>
         
       </header>
@@ -189,7 +199,7 @@
             <div class="about-content">
               <div class="about-heading">
                 <h2>
-                  <a href="./about/index.html" class="no-underline hover:underline cursor-pointer">
+                  <a href="./about/index.html" class="about-link">
                     About Me 
                   </a>
                 </h2>
@@ -204,7 +214,7 @@
                 Tailwind & GSAP. I care about usable, transparent AI that
                 augments humans instead of replacing them.
                 <br /><br />
-                <center><h6 class="mt-1 text-sm text-gray-500">click about me read more<h6></center>
+                <center><h6 class="mt-1 text-sm text-gray-500">click about me to read more<h6></center>
               </p>
 
               <div class="about-cta">
