@@ -1,6 +1,7 @@
 .<!DOCTYPE html>
 <html lang="en" data-theme="dark">
   <head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -181,21 +182,38 @@
           <input type="checkbox" id="switch" name="theme" />
           <label class="toggle" for="switch"></label>
         </div>
+      
+      
         <div class="landing-text">
-          <div class="landing-bg"></div><!-- decorative background -->
-          <h1>Gauraang Malik</h1>
-          <p class="decoration-note">AI & Market Research Product Manager | Multi-Agent LLM Systems | Evidence-Based, Data-Driven Decision Making</p>
-        </div>
+  <div class="landing-bg"></div> <!-- decorative background -->
+
+<h1>
+  <a href="./about/index.html"
+     class="inline-block font-bold text-xl text-blue-600 underline underline-offset-4 decoration-dotted 
+            transition duration-300 ease-in-out transform 
+            hover:scale-110 hover:-rotate-2 hover:text-blue-800 hover:decoration-wavy hover:drop-shadow-xl 
+            active:scale-95 focus:outline-none focus:ring-2 focus:ring-blue-400 cursor-pointer">
+    Gauraang Malik
+  </a>
+</h1>
+  <p class="decoration-note">
+    AI & Market Research Product Manager | Multi-Agent LLM Systems | Evidence-Based, Data-Driven Decision Making
+  </p>
+</div>
         
       </header>
 
       <main>
         <!-- ─── About ─────────────────────────────────────────────────── -->
-        <section class="about" id="about">
-          <div class="container">
-            <div class="profile-img">
-              <img src="assets/img/gauraang.jpg" alt="Gauraang Malik" />
-            </div>
+<section class="about" id="about">
+  <div class="container">
+    <a href="./about/index.html" class="inline-block">
+      <div class="profile-img">
+        <img src="assets/img/gauraang.jpg" alt="Gauraang Malik"
+             class="transition duration-300 ease-in-out transform rounded-full cursor-pointer
+                    hover:scale-105 hover:rotate-2 hover:shadow-lg active:scale-95" />
+      </div>
+    </a>
 
             <div class="about-content">
               <div class="about-heading">
@@ -215,7 +233,7 @@
                 I care about usable, transparent AI that
                 augments humans instead of replacing them.
                 <br /><br />
-                <center><h6 class="mt-1 text-sm text-gray-500">click about me to read more<h6></center>
+                <center><h6 class="mt-1 text-sm text-gray-500">click about me or my photo to read more<h6></center>
               </p>
 
               <div class="about-cta">
@@ -310,37 +328,32 @@
       </div>
 
       <div class="project-box__content">
-        <h3>Precision Marketing &amp; Ecosystems</h3>
-        <h5>Decision Trees · Ad Targeting Study</h5>
+        <h3>Precision Marketing</h3>
       </div>
     </div>
   </div>
 
-  <!-- 4 — Recruitment Database Design -->
-  <div class="flex flex-col items-center">
-    <div class="project-box">
+<!-- Recruitment Database Design -->
+<div class="flex flex-col items-center">
+  <div class="project-box mx-auto">
+    <a href="https://www.canva.com/design/DAGYFGwljf8/45N9P3FoUF4s3KrkdTK8zQ/view"
+       target="_blank" class="project-box__absolute-link"></a>
+
+    <!-- Optional GitHub or external icon -->
+    <div class="project-box__link">
       <a href="https://www.canva.com/design/DAGYFGwljf8/45N9P3FoUF4s3KrkdTK8zQ/view"
-         target="_blank" class="project-box__absolute-link"></a>
+         target="_blank" rel="noopener">
+        <ion-icon name="open-outline"></ion-icon>
+      </a>
+    </div>
 
-      <div class="relative pt-[56.25%] mb-4">
-        <iframe loading="lazy" class="absolute inset-0 w-full h-full border"
-                src="https://www.canva.com/design/DAGYFGwljf8/45N9P3FoUF4s3KrkdTK8zQ/view?embed"
-                allowfullscreen></iframe>
-      </div>
-
-      <div class="project-box__link">
-        <a href="https://www.canva.com/design/DAGYFGwljf8/45N9P3FoUF4s3KrkdTK8zQ/view"
-           target="_blank" rel="noopener">
-          <ion-icon name="open-outline"></ion-icon>
-        </a>
-      </div>
-
-      <div class="project-box__content">
-        <h3>Recruitment Database Design</h3>
-        <h5>Relational Schema · Talent Matching</h5>
-      </div>
+    <!-- Title and Subtitle Inside Box -->
+    <div class="project-box__content text-center">
+      <h3 class="text-lg font-semibold"> Recruitment Database Design</h3>
+      <H5>Database Design · SQL</h5>
     </div>
   </div>
+</div>
 
   <!-- 6 — Astrology with TinyLlama -->
   <div class="flex flex-col items-center">
@@ -357,7 +370,7 @@
 
       <div class="project-box__content">
         <h3>Astrology with TinyLlama</h3>
-        <h5>Vedic Astrology · LLM Integration</h5>
+        <h5>Prediction based on planitory movement · LLM Integration</h5>
       </div>
     </div>
   </div>
@@ -426,3 +439,4 @@
     <script src="./assets/js/app.js"></script>
 
   </body>
+  </html>
