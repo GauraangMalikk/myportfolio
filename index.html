@@ -5,53 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Primary Meta Tags -->
     <title>Le Laboratoire Kalkin | Gauraang Malik</title>
     <meta name="title" content="Gauraang Malik | AI Researcher & Technologist" />
     <meta name="keywords" content="Gauraang Malik, multi-agent LLM, AI researcher, information architecture, data science, market forecasting, TinyLlama, Le Laboratoire Kalkin" />
     <meta name="description" content="Gauraang Malik is a research-driven technologist building multi-agent LLM systems, financial forecasting pipelines, and creative tech experiences." />
 
-    <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://gauraangmalik.github.io/" />
     <meta property="og:title" content="Gauraang Malik | AI Researcher & Technologist" />
     <meta property="og:description" content="Research-driven technologist focused on multi-agent AI, data science and creative tech." />
     <meta property="og:image" content="./assets/img/gauraang.jpg" />
-
-    <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://gauraangmalik.github.io/" />
     <meta property="twitter:title" content="Gauraang Malik | AI Researcher & Technologist" />
     <meta property="twitter:description" content="Research-driven technologist focused on multi-agent AI, data science and creative tech." />
     <meta property="twitter:image" content="https://gauraangmalik.github.io/assets/img/gauraang.jpg" />
 
-    <!-- Styles -->
     <link rel="stylesheet" href="./assets/css/styles.css" />
     <link rel="icon" type="image/svg+xml" href="./assets/img/favicon.svg" />
-
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-
-    <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
   </head>
 
-  <body class="body-wrap">
-    <!-- Custom cursor -->
-    <div class="cursor-effect"></div>
-
-    <!-- Particle canvas -->
-    <canvas id="particle-canvas" aria-hidden="true"></canvas>
-
+  <body>
     <!-- ─── NAVBAR ─────────────────────────────────────────────── -->
     <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
       <a href="./index.html" class="navbar__logo" aria-label="Home">
         <img src="./assets/img/favicon.svg" alt="Kalkin logo" />
         <span class="navbar__logo-text">KALKIN</span>
       </a>
-
       <div class="navbar__links">
         <a href="#dashboard" class="navbar__link">Work</a>
         <a href="#projects"  class="navbar__link">Projects</a>
@@ -60,19 +43,16 @@
         <a href="./about/index.html" class="navbar__link">About</a>
         <a href="#contact"   class="navbar__link">Contact</a>
       </div>
-
       <div class="navbar__actions">
         <button id="theme-toggle" aria-label="Toggle theme"></button>
         <button class="navbar__hamburger" aria-label="Open menu" aria-expanded="false">
-          <span></span>
-          <span></span>
-          <span></span>
+          <span></span><span></span><span></span>
         </button>
       </div>
     </nav>
 
     <!-- Mobile nav overlay -->
-    <div class="nav-overlay" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <div class="nav-overlay" role="dialog" aria-modal="true">
       <a href="#dashboard" class="navbar__link">Work</a>
       <a href="#projects"  class="navbar__link">Projects</a>
       <a href="#services"  class="navbar__link">Services</a>
@@ -92,24 +72,24 @@
         <a href="#contact"  class="btn btn--outline">Get in Touch</a>
       </div>
       <div class="hero__social">
-        <a href="https://linkedin.com/in/gauraang-malik" target="_blank" rel="noopener" aria-label="LinkedIn">
-          <ion-icon name="logo-linkedin"></ion-icon>
+        <a href="https://www.linkedin.com/in/grauraang-malik/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
         </a>
         <a href="https://github.com/GauraangMalikk" target="_blank" rel="noopener" aria-label="GitHub">
-          <ion-icon name="logo-github"></ion-icon>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
         </a>
         <a href="https://wa.me/15145770030" target="_blank" rel="noopener" aria-label="WhatsApp">
-          <ion-icon name="logo-whatsapp"></ion-icon>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         </a>
       </div>
       <div class="hero__scroll" aria-hidden="true">
-        <ion-icon name="chevron-down-outline"></ion-icon>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         <span>scroll</span>
       </div>
     </section>
 
     <main>
-      <!-- ─── ABOUT (brief) ─────────────────────────────────────── -->
+      <!-- ─── ABOUT ──────────────────────────────────────────────── -->
       <section class="about" id="about">
         <div class="container">
           <div class="about__inner">
@@ -121,14 +101,11 @@
             <div class="about__text">
               <span class="section-label">// About</span>
               <h2 class="section-title">Founder, Le Laboratoire Kalkin</h2>
-              <p>
-                Master's graduate (McGill '25) and former market-research PM, currently pursuing a PhD in Building Engineering. Work focuses on prototyping <em>multi-agent LLM systems</em> for <em>hallucination mitigation</em>, building <em>financial-forecasting ensembles</em>, and exploring creative AI in music and astrology.
-              </p>
-              <p>
-                At <em>Le Laboratoire Kalkin</em>, the work spans applied machine learning, artificial intelligence, and software development across agriculture (Bioponix), legal tech, and fitness.
-              </p>
+              <p>Master's graduate (McGill '25) and former market-research PM, currently pursuing a PhD in Building Engineering. Work focuses on prototyping <em>multi-agent LLM systems</em> for <em>hallucination mitigation</em>, building <em>financial-forecasting ensembles</em>, and exploring creative AI in music and astrology.</p>
+              <p>At <em>Le Laboratoire Kalkin</em>, the work spans applied machine learning, artificial intelligence, and software development across agriculture (Bioponix), legal tech, and fitness.</p>
               <a href="./about/index.html" class="about__link">
-                Full bio &amp; CV <ion-icon name="arrow-forward-outline"></ion-icon>
+                Full bio &amp; CV
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
               </a>
             </div>
           </div>
@@ -142,7 +119,6 @@
           <h2 class="section-title">Control Panel</h2>
           <div class="dashboard__grid">
 
-            <!-- Memory -->
             <div class="module-card" data-module="memory">
               <div class="module-card__header">
                 <span class="module-card__icon">🧠</span>
@@ -159,7 +135,6 @@
               </div>
             </div>
 
-            <!-- Agents -->
             <div class="module-card" data-module="agents">
               <div class="module-card__header">
                 <span class="module-card__icon">⚙️</span>
@@ -176,7 +151,6 @@
               </div>
             </div>
 
-            <!-- Models -->
             <div class="module-card" data-module="models">
               <div class="module-card__header">
                 <span class="module-card__icon">📊</span>
@@ -193,7 +167,6 @@
               </div>
             </div>
 
-            <!-- Data Streams -->
             <div class="module-card" data-module="streams">
               <div class="module-card__header">
                 <span class="module-card__icon">📡</span>
@@ -221,11 +194,11 @@
           <h2 class="section-title">Selected Work</h2>
           <div class="projects__grid">
 
-            <!-- 1. Multi-Agent LLM System -->
+            <!-- GitHub projects -->
             <div class="project-card">
               <span class="project-card__label">GitHub · Research</span>
               <h3 class="project-card__title">Multi-Agent LLM System</h3>
-              <p class="project-card__desc">Agent vector search using cosine &amp; euclidean similarity with research triangulation to mitigate LLM hallucinations. On-prem LLM deployment.</p>
+              <p class="project-card__desc">Agent vector search using cosine &amp; euclidean similarity with research triangulation to mitigate LLM hallucinations. On-prem deployment.</p>
               <div class="project-card__tags">
                 <span class="project-card__tag">FAISS</span>
                 <span class="project-card__tag">PCA</span>
@@ -233,11 +206,11 @@
                 <span class="project-card__tag">On-prem LLM</span>
               </div>
               <a href="https://github.com/GauraangMalikk/Information-Model-an-LLM-Agent-Architecture" target="_blank" rel="noopener" class="project-card__link">
-                <ion-icon name="logo-github"></ion-icon> View on GitHub
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                View on GitHub
               </a>
             </div>
 
-            <!-- 2. AIOS -->
             <div class="project-card">
               <span class="project-card__label">GitHub · Systems</span>
               <h3 class="project-card__title">AIOS – Local AI Operating System</h3>
@@ -248,11 +221,11 @@
                 <span class="project-card__tag">Python</span>
               </div>
               <a href="https://github.com/GauraangMalikk/AIOS" target="_blank" rel="noopener" class="project-card__link">
-                <ion-icon name="logo-github"></ion-icon> View on GitHub
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                View on GitHub
               </a>
             </div>
 
-            <!-- 3. Astrology with TinyLlama -->
             <div class="project-card">
               <span class="project-card__label">GitHub · Creative AI</span>
               <h3 class="project-card__title">Astrology with TinyLlama</h3>
@@ -260,37 +233,37 @@
               <div class="project-card__tags">
                 <span class="project-card__tag">TinyLlama</span>
                 <span class="project-card__tag">Planetary API</span>
-                <span class="project-card__tag">LLM Integration</span>
+                <span class="project-card__tag">LLM</span>
               </div>
               <a href="https://github.com/GauraangMalikk/Astrology-with-tinyllama" target="_blank" rel="noopener" class="project-card__link">
-                <ion-icon name="logo-github"></ion-icon> View on GitHub
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                View on GitHub
               </a>
             </div>
 
-            <!-- 4. Stock Market Ensemble -->
             <div class="project-card">
               <span class="project-card__label">GitHub · Finance</span>
               <h3 class="project-card__title">Stock Market Ensemble with Sentiment Analysis</h3>
-              <p class="project-card__desc">Ensemble forecasting model combining technical indicators with NLP-based sentiment analysis of financial news.</p>
+              <p class="project-card__desc">Ensemble forecasting combining technical indicators with NLP-based sentiment analysis of financial news.</p>
               <div class="project-card__tags">
                 <span class="project-card__tag">Ensemble Learning</span>
                 <span class="project-card__tag">Sentiment NLP</span>
                 <span class="project-card__tag">LSTM</span>
               </div>
               <a href="https://github.com/GauraangMalikk/Stock-Market-ensemble-with-sentiment-analysis" target="_blank" rel="noopener" class="project-card__link">
-                <ion-icon name="logo-github"></ion-icon> View on GitHub
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                View on GitHub
               </a>
             </div>
 
-            <!-- 5. Recruitment Database Design (Canva) -->
+            <!-- Canva projects — click-to-load -->
             <div class="project-card">
               <span class="project-card__label">Canva · Database Design</span>
               <h3 class="project-card__title">Recruitment Database</h3>
-              <div class="project-card__embed">
-                <iframe loading="lazy"
-                  src="https://www.canva.com/design/DAGYFGwljf8/45N9P3FoUF4s3KrkdTK8zQ/view?embed"
-                  allowfullscreen
-                  title="Recruitment Database Design Presentation"></iframe>
+              <div class="canva-loader" data-src="https://www.canva.com/design/DAGYFGwljf8/45N9P3FoUF4s3KrkdTK8zQ/view?embed" role="button" tabindex="0" aria-label="Load Recruitment Database presentation">
+                <span class="canva-loader__icon">🎞</span>
+                <span class="canva-loader__text">PRESENTATION · CANVA</span>
+                <span class="canva-loader__btn">Load Presentation</span>
               </div>
               <div class="project-card__tags">
                 <span class="project-card__tag">Database Design</span>
@@ -298,19 +271,18 @@
                 <span class="project-card__tag">ERD</span>
               </div>
               <a href="https://www.canva.com/design/DAGYFGwljf8/45N9P3FoUF4s3KrkdTK8zQ/view" target="_blank" rel="noopener" class="project-card__link">
-                <ion-icon name="open-outline"></ion-icon> Open Presentation
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Open in Canva
               </a>
             </div>
 
-            <!-- 6. Dental Age Estimator (Canva) -->
             <div class="project-card">
               <span class="project-card__label">Canva · ML · Health</span>
               <h3 class="project-card__title">Dental Age Estimator</h3>
-              <div class="project-card__embed">
-                <iframe loading="lazy"
-                  src="https://www.canva.com/design/DAGkMaX5yrY/QzgkU9atqzHZFwoLEzTCKg/view?embed"
-                  allowfullscreen
-                  title="Dental Age Estimator ML Evaluation"></iframe>
+              <div class="canva-loader" data-src="https://www.canva.com/design/DAGkMaX5yrY/QzgkU9atqzHZFwoLEzTCKg/view?embed" role="button" tabindex="0" aria-label="Load Dental Age Estimator presentation">
+                <span class="canva-loader__icon">🎞</span>
+                <span class="canva-loader__text">PRESENTATION · CANVA</span>
+                <span class="canva-loader__btn">Load Presentation</span>
               </div>
               <div class="project-card__tags">
                 <span class="project-card__tag">ML Evaluation</span>
@@ -318,19 +290,18 @@
                 <span class="project-card__tag">Scikit-Learn</span>
               </div>
               <a href="https://www.canva.com/design/DAGkMaX5yrY/QzgkU9atqzHZFwoLEzTCKg/view" target="_blank" rel="noopener" class="project-card__link">
-                <ion-icon name="open-outline"></ion-icon> Open Presentation
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Open in Canva
               </a>
             </div>
 
-            <!-- 7. Implicit Data Inference (Canva) -->
             <div class="project-card">
               <span class="project-card__label">Canva · Privacy · Research</span>
               <h3 class="project-card__title">Implicit Data Inference</h3>
-              <div class="project-card__embed">
-                <iframe loading="lazy"
-                  src="https://www.canva.com/design/DAF_unA5II0/kuOK-JS9jm4p80AJN2DfBw/view?embed"
-                  allowfullscreen
-                  title="Implicit Data Inference Survey Study"></iframe>
+              <div class="canva-loader" data-src="https://www.canva.com/design/DAF_unA5II0/kuOK-JS9jm4p80AJN2DfBw/view?embed" role="button" tabindex="0" aria-label="Load Implicit Data Inference presentation">
+                <span class="canva-loader__icon">🎞</span>
+                <span class="canva-loader__text">PRESENTATION · CANVA</span>
+                <span class="canva-loader__btn">Load Presentation</span>
               </div>
               <div class="project-card__tags">
                 <span class="project-card__tag">Survey Study</span>
@@ -338,7 +309,8 @@
                 <span class="project-card__tag">Qualitative</span>
               </div>
               <a href="https://www.canva.com/design/DAF_unA5II0/kuOK-JS9jm4p80AJN2DfBw/view" target="_blank" rel="noopener" class="project-card__link">
-                <ion-icon name="open-outline"></ion-icon> Open Presentation
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Open in Canva
               </a>
             </div>
 
@@ -355,7 +327,7 @@
 
             <div class="service-card">
               <div class="service-card__icon">
-                <ion-icon name="git-network-outline"></ion-icon>
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M13 6h3a2 2 0 0 1 2 2v7"/><line x1="6" y1="9" x2="6" y2="21"/></svg>
               </div>
               <h3 class="service-card__title">AI Consulting</h3>
               <p class="service-card__desc">Strategy and architecture for teams adopting LLMs, RAG, and multi-agent systems. Privacy-first, on-premises when required.</p>
@@ -369,7 +341,7 @@
 
             <div class="service-card">
               <div class="service-card__icon">
-                <ion-icon name="construct-outline"></ion-icon>
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
               </div>
               <h3 class="service-card__title">Multi-Agent Builds</h3>
               <p class="service-card__desc">End-to-end development of multi-agent pipelines for research, automation, and data-driven decision-making.</p>
@@ -383,7 +355,7 @@
 
             <div class="service-card">
               <div class="service-card__icon">
-                <ion-icon name="school-outline"></ion-icon>
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
               </div>
               <h3 class="service-card__title">Coaching &amp; Training</h3>
               <p class="service-card__desc">AI literacy workshops and hands-on coaching for individuals and teams. Practical, jargon-free, results-focused.</p>
@@ -408,10 +380,11 @@
 
             <div class="talk-card">
               <div class="talk-card__embed">
-                <iframe loading="lazy"
-                  src="https://www.canva.com/design/DAG2MOxF0tY/-ZkPRPADrcql62Pn5y7KWg/view?embed"
-                  allowfullscreen
-                  title="AI Basics at McGill lecture deck"></iframe>
+                <div class="canva-loader" data-src="https://www.canva.com/design/DAG2MOxF0tY/-ZkPRPADrcql62Pn5y7KWg/view?embed" role="button" tabindex="0" aria-label="Load AI Basics at McGill presentation" style="aspect-ratio:16/9;border-radius:0;">
+                  <span class="canva-loader__icon">🎞</span>
+                  <span class="canva-loader__text">LECTURE DECK · CANVA</span>
+                  <span class="canva-loader__btn">Load Presentation</span>
+                </div>
               </div>
               <div class="talk-card__info">
                 <p class="talk-card__title">AI Basics @ McGill</p>
@@ -423,13 +396,13 @@
         </div>
       </section>
 
-      <!-- ─── FOOTER / CONTACT ──────────────────────────────────── -->
+      <!-- ─── FOOTER ────────────────────────────────────────────── -->
       <footer class="footer" id="contact">
         <div class="container">
           <div class="footer__inner">
             <div>
               <h2 class="footer__headline">Let's build something.</h2>
-              <p class="footer__tagline">Have a project or research idea? I'm open to collaborations, consulting, and research partnerships.</p>
+              <p class="footer__tagline">Have a project or research idea? Open to collaborations, consulting, and research partnerships.</p>
               <div class="footer__cta">
                 <a href="mailto:gauraangmalik1@gmail.com" class="btn btn--primary">Send an Email</a>
                 <a href="https://wa.me/15145770030" target="_blank" rel="noopener" class="btn btn--outline">WhatsApp</a>
@@ -443,7 +416,7 @@
               <div class="footer__links-col">
                 <h5>Social</h5>
                 <a href="https://www.instagram.com/gauraangmalik_/" target="_blank" rel="noopener">Instagram</a>
-                <a href="https://linkedin.com/in/gauraang-malik" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://www.linkedin.com/in/grauraang-malik/" target="_blank" rel="noopener">LinkedIn</a>
                 <a href="https://github.com/GauraangMalikk" target="_blank" rel="noopener">GitHub</a>
               </div>
               <div class="footer__links-col">
@@ -454,17 +427,12 @@
           </div>
           <div class="footer__bottom">
             <span>&copy; Gauraang Malik 2026</span>
-            <span style="font-family: var(--font-mono); font-size: 0.65rem;">Le Laboratoire Kalkin</span>
+            <span style="font-family:var(--font-mono);font-size:.65rem;">Le Laboratoire Kalkin</span>
           </div>
         </div>
       </footer>
     </main>
 
-    <!-- Icons -->
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <!-- App scripts -->
-    <script src="./assets/js/particles.js"></script>
     <script src="./assets/js/app.js"></script>
   </body>
 </html>

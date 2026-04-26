@@ -2,26 +2,7 @@
    Le Laboratoire Kalkin — app.js
    ============================================================ */
 
-/* === 1. CUSTOM CURSOR ===================================== */
-(function () {
-  const cursor = document.querySelector(".cursor-effect");
-  if (!cursor) return;
-
-  window.addEventListener("mousemove", e => {
-    cursor.style.top  = e.pageY + "px";
-    cursor.style.left = e.pageX + "px";
-  });
-
-  const hoverTargets = document.querySelectorAll(
-    "a, button, .project-card, .module-card, .service-card, .talk-card"
-  );
-  hoverTargets.forEach(el => {
-    el.addEventListener("mouseover",  () => cursor.classList.add("link-grow"));
-    el.addEventListener("mouseleave", () => cursor.classList.remove("link-grow"));
-  });
-})();
-
-/* === 2. THEME TOGGLE ====================================== */
+/* === 1. THEME TOGGLE ====================================== */
 (function () {
   const btn    = document.getElementById("theme-toggle");
   const root   = document.documentElement;
@@ -97,37 +78,36 @@
   });
 })();
 
-/* === 5. GSAP ANIMATIONS =================================== */
+/* === 5. SCROLL REVEAL (IntersectionObserver) ============== */
 (function () {
-  if (typeof gsap === "undefined") return;
-
-  const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
-
-  // Hero sequence
-  const heroEyebrow = document.querySelector(".hero__eyebrow");
-  const heroName    = document.querySelector(".hero__name");
-  const heroTag     = document.querySelector(".hero__tagline");
-  const heroSub     = document.querySelector(".hero__sub");
-  const heroCta     = document.querySelector(".hero__cta");
-  const heroSocial  = document.querySelector(".hero__social");
-
-  if (heroName) {
-    tl.fromTo(heroEyebrow, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6 }, 0.2)
-      .fromTo(heroName,    { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.8 }, 0.4)
-      .fromTo(heroTag,     { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6 }, 0.7)
-      .fromTo(heroSub,     { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.5 }, 0.9)
-      .fromTo(heroCta,     { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.5 }, 1.0)
-      .fromTo(heroSocial,  { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.5 }, 1.1);
-  }
-
-  // Scroll-triggered fade-ins for section titles
-  document.querySelectorAll(".section-label, .section-title").forEach(el => {
-    gsap.fromTo(el,
-      { opacity: 0, y: 30 },
-      {
-        opacity: 1, y: 0, duration: 0.7,
-        scrollTrigger: { trigger: el, start: "top 85%" }
+  const els = document.querySelectorAll(".section-label, .section-title");
+  if (!els.length) return;
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add("visible");
+        io.unobserve(e.target);
       }
-    );
+    });
+  }, { threshold: 0.15 });
+  els.forEach(el => io.observe(el));
+})();
+
+/* === 6. CANVA CLICK-TO-LOAD =============================== */
+(function () {
+  document.querySelectorAll(".canva-loader").forEach(loader => {
+    function load() {
+      const src    = loader.dataset.src;
+      const parent = loader.parentElement;
+      const iframe = document.createElement("iframe");
+      iframe.src              = src;
+      iframe.className        = "canva-embed-frame";
+      iframe.allowFullscreen  = true;
+      iframe.loading          = "lazy";
+      iframe.title            = "Canva presentation";
+      parent.replaceChild(iframe, loader);
+    }
+    loader.addEventListener("click", load);
+    loader.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") load(); });
   });
 })();
