@@ -821,6 +821,34 @@ section {
   letter-spacing: 0.06em;
 }
 
+.talk-card--text {
+  justify-content: center;
+  min-height: 180px;
+}
+.talk-card__role {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--cyan);
+  letter-spacing: 0.15em;
+  display: block;
+  margin-bottom: 10px;
+}
+.talk-card__desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 2px 0 10px;
+  line-height: 1.55;
+}
+.talk-card__link {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--cyan);
+  text-decoration: none;
+  opacity: 0.75;
+  transition: opacity 0.2s;
+}
+.talk-card__link:hover { opacity: 1; }
+
 /* === FOOTER / CONTACT ====================================== */
 .footer {
   background: var(--bg-surface);
