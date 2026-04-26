@@ -4,233 +4,255 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../assets/css/styles.min.css" />
-    <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg" />
 
-    <!-- Primary Meta Tags -->
-    <title>Gauraang Malik | About Me</title>
-    <meta
-      name="keywords"
-      content="Gauraang Malik, AI Researcher, Project Manager, LLM Agents, Data Mining, McGill University"
-    />
-    <meta
-      name="description"
-      content="Results-driven Project Manager and AI researcher specializing in multi-agent LLM architectures, financial forecasting, and creative tech."
-    />
+    <title>About | Gauraang Malik</title>
+    <meta name="keywords" content="Gauraang Malik, AI Researcher, Project Manager, LLM Agents, Data Mining, McGill University" />
+    <meta name="description" content="Results-driven AI researcher and project manager specializing in multi-agent LLM architectures, financial forecasting, and creative tech." />
 
-    <!-- Open Graph / Facebook -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://gauraangmalik.com/" />
-    <meta
-      property="og:title"
-      content="Gauraang Malik | Project Manager & AI Researcher"
-    />
-    <meta
-      property="og:description"
-      content="Results-driven Project Manager and AI researcher specializing in multi-agent LLM architectures, financial forecasting, and creative tech."
-    />
+    <meta property="og:url" content="https://gauraangmalik.github.io/about/" />
+    <meta property="og:title" content="Gauraang Malik | AI Researcher & Project Manager" />
+    <meta property="og:description" content="Results-driven AI researcher and project manager specializing in multi-agent LLM architectures, financial forecasting, and creative tech." />
     <meta property="og:image" content="../assets/img/gauraang.jpg" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://gauraangmalik.com/" />
-    <meta
-      property="twitter:title"
-      content="Gauraang Malik | Project Manager & AI Researcher"
-    />
-    <meta
-      property="twitter:description"
-      content="Results-driven Project Manager and AI researcher specializing in multi-agent LLM architectures, financial forecasting, and creative tech."
-    />
+    <meta property="twitter:url" content="https://gauraangmalik.github.io/about/" />
+    <meta property="twitter:title" content="Gauraang Malik | AI Researcher & Project Manager" />
+    <meta property="twitter:description" content="Results-driven AI researcher and project manager specializing in multi-agent LLM architectures, financial forecasting, and creative tech." />
     <meta property="twitter:image" content="../assets/img/gauraang.jpg" />
 
-    <link rel="stylesheet" href="https://use.typekit.net/kse0maf.css" />
+    <!-- Styles -->
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+    <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
   </head>
 
   <body>
+    <!-- Custom cursor -->
     <div class="cursor-effect"></div>
-    <a href="../index.html" class="logo">
-      <img src="../assets/img/favicon.svg" alt="Logo" />
-    </a>
 
+    <!-- Particle canvas -->
+    <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+    <!-- ─── NAVBAR ─────────────────────────────────────────────── -->
+    <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+      <a href="../index.html" class="navbar__logo" aria-label="Home">
+        <img src="../assets/img/favicon.svg" alt="Kalkin logo" />
+        <span class="navbar__logo-text">KALKIN</span>
+      </a>
+
+      <div class="navbar__links">
+        <a href="../index.html#dashboard" class="navbar__link">Work</a>
+        <a href="../index.html#projects"  class="navbar__link">Projects</a>
+        <a href="../index.html#services"  class="navbar__link">Services</a>
+        <a href="../index.html#talks"     class="navbar__link">Talks</a>
+        <a href="../about/index.html"     class="navbar__link" aria-current="page">About</a>
+        <a href="../index.html#contact"   class="navbar__link">Contact</a>
+      </div>
+
+      <div class="navbar__actions">
+        <button id="theme-toggle" aria-label="Toggle theme"></button>
+        <button class="navbar__hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile nav overlay -->
+    <div class="nav-overlay" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+      <a href="../index.html#dashboard" class="navbar__link">Work</a>
+      <a href="../index.html#projects"  class="navbar__link">Projects</a>
+      <a href="../index.html#services"  class="navbar__link">Services</a>
+      <a href="../index.html#talks"     class="navbar__link">Talks</a>
+      <a href="../about/index.html"     class="navbar__link">About</a>
+      <a href="../index.html#contact"   class="navbar__link">Contact</a>
+    </div>
+
+    <!-- ─── ABOUT ─────────────────────────────────────────────── -->
     <section class="more-about">
       <div class="container">
-        <div class="section-title">
+
+        <div class="more-about__header">
+          <span class="section-label">// About</span>
           <h2>Gauraang <span>Malik</span>.</h2>
         </div>
 
-        <div class="more-about-content">
-          <div class="more-about-img">
+        <div class="more-about__layout">
+
+          <!-- Sticky portrait -->
+          <div class="more-about__img">
             <img src="../assets/img/gauraang.jpg" alt="Gauraang Malik" />
           </div>
 
-          <div class="more-about-text">
-            <p>
-              Results-driven Project Manager with an excellent record in managing quantitative research and AI-agent projects. Experienced with ReAct, SmolAgents, LangChain, and RAG systems. Skilled multitasker and team player with strong analytical and communication skills.
+          <div class="more-about__content">
+
+            <p class="more-about__intro">
+              Results-driven Project Manager with an excellent record managing quantitative research and AI-agent projects. Experienced with ReAct, SmolAgents, LangChain, and RAG systems. Skilled multitasker and team player with strong analytical and communication skills.
             </p>
 
-            <h3>Technical Skills </h3>
-            <div class="skills">
-              <div class="skill-item">Programming Languages - Python, PHP, R, C++, C, C#, JavaScript, HTML, CSS </div>
-              <div class="skill-item">Machine Learning & Frameworks (TensorFlow, PyTorch, Scikit-Learn, Keras)</div>
-              <div class="skill-item">Data Analysis & Visualization (pandas, NumPy, matplotlib/Seaborn, Tableau)</div>
-              <div class="skill-item">Data Engineering & Big Data - SQL, NoSQL, vector search (FAISS)  </div>
-              <div class="skill-item">Qualitative Sampling</div>
-              <div class="skill-item">Game Developer on Gamemaker studio</div>
-              <div class="skill-item">Microsoft Office Suite</div>
+            <!-- AI Philosophy -->
+            <div class="philosophy">
+              <h3>// AI Philosophy</h3>
+              <div class="philosophy__grid">
+                <div class="philosophy__item">
+                  <strong>Privacy-First AI</strong>
+                  <p>AI systems should augment human judgment without harvesting data. On-premises deployment and local LLMs aren't limitations — they're design choices.</p>
+                </div>
+                <div class="philosophy__item">
+                  <strong>Local-First Systems</strong>
+                  <p>Infrastructure that runs on your hardware keeps you in control. Cloud dependency is a liability; reproducibility and ownership matter.</p>
+                </div>
+                <div class="philosophy__item">
+                  <strong>RAG vs. Agents</strong>
+                  <p>RAG retrieves. Agents reason. Most real-world problems need both working in concert, with hard guardrails against hallucination at every node.</p>
+                </div>
+                <div class="philosophy__item">
+                  <strong>Why Most AI Products Fail</strong>
+                  <p>Over-promising, under-constraining, and ignoring domain knowledge. Good AI is 20% model and 80% pipeline, data quality, and human oversight.</p>
+                </div>
+              </div>
             </div>
-            <h3>Project Management Skills</h3>
-            <div class="skills">
-              <div class="skill-item">Scope, Schedule & Resource Planning</div>
-              <div class="skill-item">Risk & Change Management</div>
-              <div class="skill-item">Budget & Cost Control</div>
-              <div class="skill-item">Quality Assurance & Control</div>
-              <div class="skill-item">Agile & Scrum Methodologies</div>
-              <div class="skill-item">Stakeholder Engagement & Communication</div>
-              <div class="skill-item">Servant Leadership & Team Building</div>
-              <div class="skill-item">Organizational Skills</div>
-              <div class="skill-item">Attention to Detail</div>
+
+            <!-- Technical Skills -->
+            <div class="skills-section">
+              <h3>Technical Skills</h3>
+              <div class="skill-tags">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">PHP</span>
+                <span class="skill-tag">R</span>
+                <span class="skill-tag">C++</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">HTML / CSS</span>
+                <span class="skill-tag">TensorFlow</span>
+                <span class="skill-tag">PyTorch</span>
+                <span class="skill-tag">Scikit-Learn</span>
+                <span class="skill-tag">Keras</span>
+                <span class="skill-tag">pandas</span>
+                <span class="skill-tag">NumPy</span>
+                <span class="skill-tag">Tableau</span>
+                <span class="skill-tag">SQL</span>
+                <span class="skill-tag">FAISS</span>
+                <span class="skill-tag">PostgreSQL</span>
+                <span class="skill-tag">Supabase</span>
+                <span class="skill-tag">GSAP</span>
+              </div>
+
+              <h3>Project Management</h3>
+              <div class="skill-tags">
+                <span class="skill-tag">Scope &amp; Schedule Planning</span>
+                <span class="skill-tag">Risk Management</span>
+                <span class="skill-tag">Agile / Scrum</span>
+                <span class="skill-tag">Budget Control</span>
+                <span class="skill-tag">Stakeholder Engagement</span>
+                <span class="skill-tag">Quality Assurance</span>
+              </div>
+
+              <h3>Soft Skills</h3>
+              <div class="skill-tags">
+                <span class="skill-tag">Critical Thinking</span>
+                <span class="skill-tag">Communication</span>
+                <span class="skill-tag">Collaboration</span>
+                <span class="skill-tag">Adaptability</span>
+                <span class="skill-tag">Empathy</span>
+                <span class="skill-tag">Time Management</span>
+              </div>
             </div>
-            
-            <h3>Soft Skills</h3>
-            <div class="skills">
-              <div class="skill-item">Critical Thinking & Problem Solving</div>
-              <div class="skill-item">Effective Communication & Presentation</div>
-              <div class="skill-item">Collaboration & Teamwork</div>
-              <div class="skill-item">Adaptability & Continuous Learning</div>
-              <div class="skill-item">Empathy</div>
-              <div class="skill-item">Time Management & Prioritization</div>
-              <div class="skill-item">Resilience & Stress Management</div>
-            </div>
-            
-            
+
+            <!-- Experience / Education tabs -->
             <div class="tabs">
-              <button
-                type="button"
-                class="tab-item active"
-                data-target="#experience"
-              >
-                Experience
-              </button>
-              <button
-                type="button"
-                class="tab-item"
-                data-target="#education"
-              >
-                Education
-              </button>
+              <button type="button" class="tab-item active" data-target="#experience">Experience</button>
+              <button type="button" class="tab-item" data-target="#education">Education</button>
             </div>
 
-<!-- Experience -->
-<div class="tab-content active" id="experience">
-  <div class="timeline">
-    <div class="timeline-item">
-      <span class="date">Apr 2024 – Ongoing</span>
-      <h4>
-        Research on LLM-Agent Architecture – 
-        <span>McGill University</span>
-      </h4>
-      <ul class="mt-2 list-disc list-inside text-sm text-gray-700">
-        <li>
-          <strong>Literature Review (May 2024 – Aug 2024):</strong> Gained in-depth understanding of encoder/decoder transformer models; analyzed AI hallucination causes, types, and detection methods; explored mitigation via LLM agents and RAG systems.
-        </li>
-        <li>
-          <strong>Implementation (Jan 2025 – Present):</strong> Applying findings to prototype multi-agent architectures in open-source frameworks (SmolAgents, LangChain, AutoGen), evaluating performance and reducing hallucinations.
-        </li>
-      </ul>
-    </div>
+            <!-- Experience -->
+            <div class="tab-content active" id="experience">
+              <div class="timeline">
 
-    <div class="timeline-item">
-      <span class="date">Mar 2021 – Feb 2022</span>
-      <h4>
-        Project Manager – 
-        <span>Schlesinger Group</span>
-      </h4>
-      <ul class="mt-2 list-disc list-inside text-sm text-gray-700">
-        <li>Delivered multiple B2B and B2C quantitative research projects across industries, providing actionable insights.</li>
-        <li>Coordinated stakeholders to resolve project challenges proactively, ensuring smooth execution.</li>
-        <li>Managed end-to-end research functions—data collection, processing, programming, tabulation, and translation—for high-quality outcomes.</li>
-      </ul>
-    </div>
+                <div class="timeline-item">
+                  <span class="date">Apr 2024 – Ongoing</span>
+                  <h4>Research on LLM-Agent Architecture – <span>McGill University</span></h4>
+                  <ul>
+                    <li><strong>Literature Review (May–Aug 2024):</strong> In-depth study of encoder/decoder transformer models, AI hallucination causes, detection, and mitigation via LLM agents and RAG systems.</li>
+                    <li><strong>Implementation (Jan 2025–Present):</strong> Prototyping multi-agent architectures in SmolAgents, LangChain, and AutoGen; evaluating performance and hallucination reduction.</li>
+                  </ul>
+                </div>
 
-    <div class="timeline-item">
-      <span class="date">Feb 2020 – Feb 2021</span>
-      <h4>
-        Associate Project Manager – 
-        <span>Progresso Research</span>
-      </h4>
-      <ul class="mt-2 list-disc list-inside text-sm text-gray-700">
-        <li>Oversaw 30+ B2B and B2C sample-only quantitative projects monthly, maintaining on-time delivery.</li>
-        <li>Led RFQ and bidding processes to secure optimal vendor partnerships and project budgets.</li>
-        <li>Monitored survey quotas and inference rates, controlling cost per respondent effectively.</li>
-      </ul>
-    </div>
+                <div class="timeline-item">
+                  <span class="date">Mar 2021 – Feb 2022</span>
+                  <h4>Project Manager – <span>Schlesinger Group</span></h4>
+                  <ul>
+                    <li>Delivered multiple B2B and B2C quantitative research projects, providing actionable insights.</li>
+                    <li>Managed end-to-end research functions — data collection, processing, programming, and tabulation.</li>
+                  </ul>
+                </div>
 
-    <div class="timeline-item">
-      <span class="date">May 2019 – Jul 2019</span>
-      <h4>
-        Magento & WordPress Developer – 
-        <span>Digital Empowerment Foundation</span>
-      </h4>
-      <ul class="mt-2 list-disc list-inside text-sm text-gray-700">
-        <li>Developed and launched Digikargha.in, a handloom e-commerce site using Magento.</li>
-        <li>Integrated secure payment gateway solutions for both Magento and WordPress platforms.</li>
-      </ul>
-    </div>
-  </div>
-</div>
+                <div class="timeline-item">
+                  <span class="date">Feb 2020 – Feb 2021</span>
+                  <h4>Associate Project Manager – <span>Progresso Research</span></h4>
+                  <ul>
+                    <li>Oversaw 30+ B2B and B2C quantitative projects monthly, maintaining on-time delivery.</li>
+                    <li>Led RFQ and bidding processes; monitored survey quotas and cost per respondent.</li>
+                  </ul>
+                </div>
 
-<!-- Education -->
-<div class="tab-content" id="education">
-  <div class="timeline">
+                <div class="timeline-item">
+                  <span class="date">May 2019 – Jul 2019</span>
+                  <h4>Magento &amp; WordPress Developer – <span>Digital Empowerment Foundation</span></h4>
+                  <ul>
+                    <li>Developed and launched Digikargha.in, a handloom e-commerce site using Magento.</li>
+                    <li>Integrated secure payment gateway solutions for Magento and WordPress platforms.</li>
+                  </ul>
+                </div>
 
-    <div class="timeline-item">
-      <span class="date">2023 – 2025</span>
-      <h4>
-        Masters of Information Studies – 
-        <span>McGill University</span>
-      </h4>
-      <ul class="mt-2 list-disc list-inside text-sm text-gray-700">
-        <li>Relevant Coursework: Artificial Intelligence, Data Science, Data Mining, Information Organization, Information Architecture, Research Principles, Information Security.</li>
-        <li>Conducted independent research on LLM hallucination mitigation as part of thesis project.</li>
-      </ul>
-    </div>
+              </div>
+            </div>
 
-    <div class="timeline-item">
-      <span class="date">2017 – 2020</span>
-      <h4>
-        BSc in Information Technology – 
-        <span>Amity University</span>
-      </h4>
-      <ul class="mt-2 list-disc list-inside text-sm text-gray-700">
-        <li>Relevant Coursework: Programming (C++, PHP), RDBMS, Web Development (HTML, CSS, JavaScript), Network Fundamentals.</li>
-        <li>Final Year Project: Developed a web-based inventory management system.</li>
-      </ul>
-    </div>
+            <!-- Education -->
+            <div class="tab-content" id="education">
+              <div class="timeline">
 
-  </div>
-</div>
-      </div>
+                <div class="timeline-item">
+                  <span class="date">2023 – 2025</span>
+                  <h4>Masters of Information Studies – <span>McGill University</span></h4>
+                  <ul>
+                    <li>Coursework: Artificial Intelligence, Data Science, Data Mining, Information Architecture, Research Principles, Information Security.</li>
+                    <li>Independent research on LLM hallucination mitigation as part of thesis project.</li>
+                  </ul>
+                </div>
+
+                <div class="timeline-item">
+                  <span class="date">2017 – 2020</span>
+                  <h4>BSc in Information Technology – <span>Amity University</span></h4>
+                  <ul>
+                    <li>Coursework: Programming (C++, PHP), RDBMS, Web Development (HTML, CSS, JavaScript), Network Fundamentals.</li>
+                    <li>Final Year Project: Web-based inventory management system.</li>
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+
+          </div><!-- /.more-about__content -->
+        </div><!-- /.more-about__layout -->
+      </div><!-- /.container -->
     </section>
 
-    <script>
-      const tabsContainer = document.querySelector(".tabs");
-      const moreAboutSection = document.querySelector(".more-about");
-
-      tabsContainer.addEventListener("click", (e) => {
-        if (
-          e.target.classList.contains("tab-item") &&
-          !e.target.classList.contains("active")
-        ) {
-          tabsContainer.querySelector(".active").classList.remove("active");
-          e.target.classList.add("active");
-          const target = e.target.getAttribute("data-target");
-          moreAboutSection
-            .querySelector(".tab-content.active")
-            .classList.remove("active");
-          moreAboutSection.querySelector(target).classList.add("active");
-        }
-      });
-    </script>
+    <!-- Icons -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <!-- App scripts -->
+    <script src="../assets/js/particles.js"></script>
+    <script src="../assets/js/app.js"></script>
   </body>
 </html>

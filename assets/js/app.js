@@ -1,73 +1,133 @@
-/* ──────────────────────────────────────────────────────────
-   1.  Custom cursor grow / shrink
-   ────────────────────────────────────────────────────────── */
-   const mouseCursor = document.querySelector(".cursor-effect");
-   const ctaLinks    = document.querySelectorAll(
-     ".about-content a, .footer-links a, .more-about a"
-   );
-   const projectIcons = document.querySelectorAll(".project-box__link a ion-icon");
-   
-   window.addEventListener("mousemove", e => {
-     mouseCursor.style.top  = `${e.pageY}px`;
-     mouseCursor.style.left = `${e.pageX}px`;
-   });
-   
-   [...ctaLinks, ...projectIcons].forEach(link => {
-     link.addEventListener("mouseover", ()  => mouseCursor.classList.add("link-grow"));
-     link.addEventListener("mouseleave", () => mouseCursor.classList.remove("link-grow"));
-   });
-   
-   /* ──────────────────────────────────────────────────────────
-      2.  GSAP intro animations (unchanged)
-      ────────────────────────────────────────────────────────── */
-   function fadeOut () {
-     TweenMax.to(".intro-btn", 1, { opacity:0, y:-100 });
-     TweenMax.to(".text"     , 1, { y:"-100%"            });
-     TweenMax.to(".slider"   , 2, { y:"-100%", delay:1,   ease:Expo.easeInOut });
-     TweenMax.to(".slider-2" , 2, { y:"-100%", delay:1.4, ease:Power2.easeInOut });
-     TweenMax.to(".intro"    , 2, { y:"-100%", delay:2,   ease:Power2.easeInOut },"-=.5");
-     TweenMax.to(".content"  , 2, { y:0,                  ease:Power2.easeInOut });
-   }
-   
-   const tl = gsap.timeline({ defaults:{ ease:"power1.out" }});
-   tl.to(".text",{ y:"0%", duration:1, stagger:0.4 });
-   tl.from(".services-heading h2",{ y:300, opacity:0, duration:1 },"-=1");
-   tl.fromTo(".landing-text h1",{ opacity:0 },{ opacity:1, duration:.5, stagger:.5 });
-   tl.fromTo(".landing-text h5",{ opacity:0 },{ opacity:1, duration:1  });
-   [".effect-1",".effect-2",".effect-3",".effect-4",".inner"]
-     .forEach(sel => tl.fromTo(sel,{ opacity:0 },{ opacity:1, duration:1 }));
-   
-   /* ──────────────────────────────────────────────────────────
-      3.  Theme toggle  (persist to localStorage)
-      ────────────────────────────────────────────────────────── */
-   const themeToggle = document.querySelector("input[name=theme]");
-   const rootEl      = document.documentElement;
-   
-   /* Helper: apply theme value ("light" | "dark") */
-   function setTheme(theme){
-     rootEl.setAttribute("data-theme", theme);
-     localStorage.setItem("theme", theme);
-     themeToggle.checked = theme === "light";         // sync checkbox
-   }
-   
-   /* a)  initialise on first load */
-   (() => {
-     const saved = localStorage.getItem("theme");
-     if (saved){
-       setTheme(saved);
-     }else{
-       setTheme(rootEl.getAttribute("data-theme") || "dark"); // default in HTML
-     }
-   })();
-   
-   /* b)  respond to checkbox changes */
-   themeToggle.addEventListener("change", () =>
-     setTheme(themeToggle.checked ? "light" : "dark")
-   );
-   
-   /* optional: listen to system-pref change, if you wish
-   matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-     if(!localStorage.getItem("theme")) setTheme(e.matches ? 'dark' : 'light');
-   });
-   */
-   
+/* ============================================================
+   Le Laboratoire Kalkin — app.js
+   ============================================================ */
+
+/* === 1. CUSTOM CURSOR ===================================== */
+(function () {
+  const cursor = document.querySelector(".cursor-effect");
+  if (!cursor) return;
+
+  window.addEventListener("mousemove", e => {
+    cursor.style.top  = e.pageY + "px";
+    cursor.style.left = e.pageX + "px";
+  });
+
+  const hoverTargets = document.querySelectorAll(
+    "a, button, .project-card, .module-card, .service-card, .talk-card"
+  );
+  hoverTargets.forEach(el => {
+    el.addEventListener("mouseover",  () => cursor.classList.add("link-grow"));
+    el.addEventListener("mouseleave", () => cursor.classList.remove("link-grow"));
+  });
+})();
+
+/* === 2. THEME TOGGLE ====================================== */
+(function () {
+  const btn    = document.getElementById("theme-toggle");
+  const root   = document.documentElement;
+  const MOON   = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
+  const SUN    = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`;
+
+  if (!btn) return;
+
+  function setTheme(theme) {
+    root.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+    btn.innerHTML = theme === "dark" ? MOON : SUN;
+    btn.setAttribute("aria-label", theme === "dark" ? "Switch to light mode" : "Switch to dark mode");
+  }
+
+  btn.addEventListener("click", () => {
+    const current = root.getAttribute("data-theme") || "dark";
+    setTheme(current === "dark" ? "light" : "dark");
+  });
+
+  // Init on load
+  setTheme(localStorage.getItem("theme") || "dark");
+})();
+
+/* === 3. MOBILE NAVBAR ===================================== */
+(function () {
+  const nav        = document.querySelector(".navbar");
+  const hamburger  = document.querySelector(".navbar__hamburger");
+  const overlay    = document.querySelector(".nav-overlay");
+  if (!hamburger || !overlay) return;
+
+  function openNav() {
+    nav.classList.add("navbar--open");
+    overlay.classList.add("open");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeNav() {
+    nav.classList.remove("navbar--open");
+    overlay.classList.remove("open");
+    document.body.style.overflow = "";
+  }
+
+  hamburger.addEventListener("click", () => {
+    nav.classList.contains("navbar--open") ? closeNav() : openNav();
+  });
+
+  // Close on link click or Escape
+  overlay.querySelectorAll(".navbar__link").forEach(link => {
+    link.addEventListener("click", closeNav);
+  });
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape") closeNav();
+  });
+})();
+
+/* === 4. TABS (about page) ================================= */
+(function () {
+  const tabsContainer = document.querySelector(".tabs");
+  const moreAbout     = document.querySelector(".more-about");
+  if (!tabsContainer || !moreAbout) return;
+
+  tabsContainer.addEventListener("click", e => {
+    const item = e.target.closest(".tab-item");
+    if (!item || item.classList.contains("active")) return;
+
+    tabsContainer.querySelector(".active").classList.remove("active");
+    item.classList.add("active");
+
+    const target = item.getAttribute("data-target");
+    moreAbout.querySelector(".tab-content.active").classList.remove("active");
+    moreAbout.querySelector(target).classList.add("active");
+  });
+})();
+
+/* === 5. GSAP ANIMATIONS =================================== */
+(function () {
+  if (typeof gsap === "undefined") return;
+
+  const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
+
+  // Hero sequence
+  const heroEyebrow = document.querySelector(".hero__eyebrow");
+  const heroName    = document.querySelector(".hero__name");
+  const heroTag     = document.querySelector(".hero__tagline");
+  const heroSub     = document.querySelector(".hero__sub");
+  const heroCta     = document.querySelector(".hero__cta");
+  const heroSocial  = document.querySelector(".hero__social");
+
+  if (heroName) {
+    tl.fromTo(heroEyebrow, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6 }, 0.2)
+      .fromTo(heroName,    { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.8 }, 0.4)
+      .fromTo(heroTag,     { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6 }, 0.7)
+      .fromTo(heroSub,     { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.5 }, 0.9)
+      .fromTo(heroCta,     { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.5 }, 1.0)
+      .fromTo(heroSocial,  { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.5 }, 1.1);
+  }
+
+  // Scroll-triggered fade-ins for section titles
+  document.querySelectorAll(".section-label, .section-title").forEach(el => {
+    gsap.fromTo(el,
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1, y: 0, duration: 0.7,
+        scrollTrigger: { trigger: el, start: "top 85%" }
+      }
+    );
+  });
+})();
