@@ -2,15 +2,6 @@
    LE LABORATOIRE KALKIN — Portfolio Styles
    ============================================================ */
 
-/* === FONT FACE ============================================= */
-@font-face {
-  font-family: "the_historia_demoregular";
-  src: url("../fonts/fontsfree-net-thehistoriademo-webfont.woff2") format("woff2"),
-       url("../fonts/fontsfree-net-thehistoriademo-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
 
 /* === DESIGN SYSTEM: VARIABLES ============================== */
 :root {
@@ -38,7 +29,7 @@
   --border-mid:    rgba(148, 163, 184, 0.15);
   --border-cyan:   rgba(0, 212, 255, 0.25);
 
-  --font-display:  "the_historia_demoregular", sans-serif;
+  --font-display:  "Space Grotesk", sans-serif;
   --font-body:     "Inter", "Open Sans", sans-serif;
   --font-mono:     "JetBrains Mono", "Courier New", monospace;
 
@@ -197,9 +188,22 @@ section {
   gap: 10px;
   text-decoration: none;
 }
-.navbar__logo img {
+.navbar__logo-icon {
+  display: flex;
+  animation: logoGlow 2.5s ease-in-out infinite;
+}
+.navbar__logo-icon svg {
+  animation: logoSpin 18s linear infinite;
   width: 28px;
   height: 28px;
+}
+@keyframes logoGlow {
+  0%, 100% { filter: drop-shadow(0 0 4px #00d4ff) drop-shadow(0 0 10px rgba(0,212,255,.25)); }
+  50%       { filter: drop-shadow(0 0 12px #00d4ff) drop-shadow(0 0 28px rgba(0,212,255,.55)); }
+}
+@keyframes logoSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
 .navbar__logo-text {
   font-family: var(--font-mono);
