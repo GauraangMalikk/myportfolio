@@ -621,6 +621,26 @@ section {
   color: var(--text-dim);
 }
 
+.module-card--link {
+  text-decoration: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+.module-card--link:hover {
+  border-color: var(--cyan);
+  box-shadow: 0 0 40px rgba(0, 212, 255, 0.2);
+}
+.module-card__status-dot--on {
+  background: var(--green-on);
+  box-shadow: 0 0 8px var(--green-on);
+}
+.module-card__badge--on {
+  color: var(--green-on);
+  background: rgba(34, 211, 165, 0.1);
+  border-color: rgba(34, 211, 165, 0.3);
+}
+
 /* === PROJECTS ============================================== */
 .projects__grid {
   display: grid;
@@ -820,6 +840,34 @@ section {
   color: var(--text-dim);
   letter-spacing: 0.06em;
 }
+
+.talk-card--text {
+  justify-content: center;
+  min-height: 180px;
+}
+.talk-card__role {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--cyan);
+  letter-spacing: 0.15em;
+  display: block;
+  margin-bottom: 10px;
+}
+.talk-card__desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 2px 0 10px;
+  line-height: 1.55;
+}
+.talk-card__link {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--cyan);
+  text-decoration: none;
+  opacity: 0.75;
+  transition: opacity 0.2s;
+}
+.talk-card__link:hover { opacity: 1; }
 
 /* === FOOTER / CONTACT ====================================== */
 .footer {
