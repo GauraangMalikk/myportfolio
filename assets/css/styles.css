@@ -621,6 +621,26 @@ section {
   color: var(--text-dim);
 }
 
+.module-card--link {
+  text-decoration: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+.module-card--link:hover {
+  border-color: var(--cyan);
+  box-shadow: 0 0 40px rgba(0, 212, 255, 0.2);
+}
+.module-card__status-dot--on {
+  background: var(--green-on);
+  box-shadow: 0 0 8px var(--green-on);
+}
+.module-card__badge--on {
+  color: var(--green-on);
+  background: rgba(34, 211, 165, 0.1);
+  border-color: rgba(34, 211, 165, 0.3);
+}
+
 /* === PROJECTS ============================================== */
 .projects__grid {
   display: grid;
