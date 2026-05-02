@@ -111,7 +111,48 @@
   });
 })();
 
-/* === 7. TALKS IFRAME LAZY-LOAD (IntersectionObserver) ===== */
+/* === 7. TALKS CAROUSEL ==================================== */
+(function () {
+  const carousel = document.getElementById("talksCarousel");
+  const prevBtn  = document.getElementById("talksPrev");
+  const nextBtn  = document.getElementById("talksNext");
+  if (!carousel || !prevBtn || !nextBtn) return;
+
+  function slideW() {
+    const slide = carousel.querySelector(".talk-slide");
+    return slide ? slide.offsetWidth + 18 : 326; // card + gap
+  }
+
+  prevBtn.addEventListener("click", () =>
+    carousel.scrollBy({ left: -slideW(), behavior: "smooth" })
+  );
+  nextBtn.addEventListener("click", () =>
+    carousel.scrollBy({ left: slideW(), behavior: "smooth" })
+  );
+
+  // Drag-to-scroll
+  let isDown = false, startX, scrollLeft;
+  carousel.addEventListener("mousedown", e => {
+    isDown = true;
+    carousel.classList.add("is-dragging");
+    startX     = e.pageX - carousel.offsetLeft;
+    scrollLeft = carousel.scrollLeft;
+  });
+  ["mouseleave", "mouseup"].forEach(ev =>
+    carousel.addEventListener(ev, () => {
+      isDown = false;
+      carousel.classList.remove("is-dragging");
+    })
+  );
+  carousel.addEventListener("mousemove", e => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - carousel.offsetLeft;
+    carousel.scrollLeft = scrollLeft - (x - startX);
+  });
+})();
+
+/* === 9. TALKS IFRAME LAZY-LOAD (IntersectionObserver) ===== */
 (function () {
   document.querySelectorAll("iframe[data-src]").forEach(iframe => {
     new IntersectionObserver((entries, obs) => {
