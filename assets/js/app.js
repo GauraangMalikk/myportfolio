@@ -92,22 +92,3 @@
   }, { threshold: 0.15 });
   els.forEach(el => io.observe(el));
 })();
-
-/* === 6. CANVA CLICK-TO-LOAD =============================== */
-(function () {
-  document.querySelectorAll(".canva-loader").forEach(loader => {
-    function load() {
-      const src    = loader.dataset.src;
-      const parent = loader.parentElement;
-      const iframe = document.createElement("iframe");
-      iframe.src              = src;
-      iframe.className        = "canva-embed-frame";
-      iframe.allowFullscreen  = true;
-      iframe.loading          = "lazy";
-      iframe.title            = "Canva presentation";
-      parent.replaceChild(iframe, loader);
-    }
-    loader.addEventListener("click", load);
-    loader.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") load(); });
-  });
-})();

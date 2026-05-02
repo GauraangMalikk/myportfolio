@@ -138,7 +138,7 @@ ul, ol { list-style: none; }
 }
 
 section {
-  padding: 100px 0;
+  padding: 60px 0;
 }
 
 .section-label {
@@ -1249,7 +1249,7 @@ section {
   .navbar__links { display: none; }
   .navbar__hamburger { display: flex; }
 
-  section { padding: 64px 0; }
+  section { padding: 40px 0; }
 
   .dashboard__grid {
     grid-template-columns: 1fr;
