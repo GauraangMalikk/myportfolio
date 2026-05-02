@@ -92,3 +92,33 @@
   }, { threshold: 0.15 });
   els.forEach(el => io.observe(el));
 })();
+
+/* === 6. CANVA CLICK-TO-LOAD (Selected Work only) ========== */
+(function () {
+  document.querySelectorAll(".canva-loader").forEach(loader => {
+    function load() {
+      const iframe = document.createElement("iframe");
+      iframe.src = loader.dataset.src;
+      iframe.className = "canva-embed-frame";
+      iframe.allowFullscreen = true;
+      iframe.loading = "lazy";
+      loader.parentElement.replaceChild(iframe, loader);
+    }
+    loader.addEventListener("click", load);
+    loader.addEventListener("keydown", e => {
+      if (e.key === "Enter" || e.key === " ") load();
+    });
+  });
+})();
+
+/* === 7. TALKS IFRAME LAZY-LOAD (IntersectionObserver) ===== */
+(function () {
+  document.querySelectorAll("iframe[data-src]").forEach(iframe => {
+    new IntersectionObserver((entries, obs) => {
+      if (entries[0].isIntersecting) {
+        iframe.src = iframe.dataset.src;
+        obs.disconnect();
+      }
+    }, { rootMargin: "200px" }).observe(iframe);
+  });
+})();
