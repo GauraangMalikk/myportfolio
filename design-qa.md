@@ -1,38 +1,41 @@
-**Design QA — Portfolio Founder, Navigation & Media Polish**
+**Design QA — Portfolio Navigation & Social Clarity**
 
 source visual truth path: `/Users/gauraangmalik/.codex/generated_images/019fc11b-04c9-7cd0-946a-4deea74b8b2e/exec-053098ef-f9aa-4fe9-932e-947acd9c8d0c.png`
 
-current public homepage reference: `/private/tmp/portfolio-contact-polish-before-home.png`
+current public homepage reference: `/private/tmp/portfolio-nav-social-before-1024.png`
 
 current public About reference: `/private/tmp/portfolio-contact-polish-before-about.png`
 
-implementation screenshot path: `/private/tmp/portfolio-final-1440x1024-dark.png`
+implementation screenshot path: `/private/tmp/portfolio-nav-social-after-1024.png`
 
 combined full-view comparison: `/private/tmp/portfolio-qa-side-by-side.png`
 
-latest homepage before/after comparison: `/private/tmp/portfolio-contact-polish-compare-home.png`
+latest homepage before/after comparison: `/private/tmp/portfolio-nav-social-comparison-1024.png`
+
+latest research-title comparison: `/private/tmp/portfolio-scrape-title-comparison-1024.png`
 
 latest About before/after comparison: `/private/tmp/portfolio-contact-polish-compare-about.png`
 
 focused demo comparison: `/private/tmp/portfolio-qa-demos-side-by-side.png`
 
-viewport: `1440 × 1024 CSS px`, desktop, dark theme, device density 1
+viewport: `1024 × 800 CSS px`, desktop, dark theme, device density 1; responsive checks also cover `320`, `390`, `768`, `960`, and `1440` CSS px.
 
-source pixels: `1487 × 1058`
+source pixels: `1019 × 796`
 
-implementation pixels: `1440 × 1024`
+implementation pixels: `1019 × 796`
 
-density normalization: the source was proportionally cropped and resampled to `1440 × 1024` for the combined comparison. Both sides were then reviewed at the same pixel dimensions and density.
+density normalization: the current public reference and local implementation were captured at the same `1024 × 800` CSS viewport and produced matching `1019 × 796` screenshots. They were combined without resampling.
 
-state: homepage at the top of `/`, dark theme, navigation closed, hero animations settled. The focused comparison uses `#dashboard` with all demo cards at rest.
+state: homepage at the top of `/`, dark theme, navigation closed, hero animations settled. A second matched comparison uses the top of `/please-scrape-me/` in dark theme.
 
 **Full-view comparison evidence**
 
 - The source direction and final browser render were placed together in one `2880 × 1068` comparison image.
 - The implementation retains the source’s dark observatory palette, cyan-to-violet identity treatment, fixed navigation, mono supporting type, three adjacent primary actions, and crisp editorial section dividers.
 - The simpler single-line name, removal of the coordinate ornament, larger social tiles, and placement of “Three connected practices” before Live Demos are intentional responses to the latest user direction.
-- The latest pass separates `Founder` from the main navigation beside the animated Kalkin identity, keeps `Please Scrape Me` in the primary navigation, and preserves Contact as the final main-nav item.
-- The homepage social treatment is now a border-led editorial rail with large, branded LinkedIn, GitHub, and WhatsApp marks, concise labels, and persistent external-link arrows. It is visually stronger and less card-like than the public reference.
+- The latest pass separates site sections from page-level destinations: Live Demos, Selected Work, Speaking, and Contact remain the central navigation; Home, About, Scrape Me, and the theme control form a distinct utility cluster.
+- Home is always a labelled circular control. It receives the cyan current-page treatment only on the homepage, while About and Scrape Me receive their own current-page states on their routes.
+- The homepage social treatment is now a border-led editorial rail with full `283 × 90` destinations, large branded marks, a single readable title, and persistent external-link arrows. The previous build inherited a base `44px` width that visibly compressed every link; the implementation explicitly resets width, height, alignment, radius, and typography.
 - Typography uses the existing Space Grotesk, Inter, and JetBrains Mono stack. The hierarchy, wrapping, weights, and line height remain readable at desktop and mobile widths without adding a font dependency.
 - Spacing is deliberately more generous than the original direction: the hero reads as a calm introduction, then hands off to the three-practice strip before the media-heavy work.
 - Colors continue to use the project’s existing cyan, violet, amber, surface, border, and light-theme tokens. Contrast and visible focus states were checked in both themes.
@@ -50,6 +53,9 @@ state: homepage at the top of `/`, dark theme, navigation closed, hero animation
 - The full About portrait changed from the public page’s dominant 4:5 rectangle to a true `340 × 340` circle on desktop and `250 × 250` on a 320 px viewport. The homepage and full About page now use the same portrait language.
 - AIOS and AI Interconnect received purpose-built concept visuals in the established dark observatory palette; both are visibly labelled “Concept visual.” The completed Everyday Data Scientists event uses the authentic 16:9 photograph from the supplied LinkedIn post.
 - The Live Demo reading order is now Building Energy Predictor, Building Archetype Semantic Search, Multi-Agent System, and Astrology with TinyLlama. Mobile media is intentionally shortened to approximately `2.2:1` at 320/390 px and `2:1` at 768 px.
+- `/private/tmp/portfolio-nav-social-comparison-1024.png` confirms that the social-link duplication is gone and the Home / About / Scrape Me hierarchy reads clearly at the last desktop breakpoint.
+- `/private/tmp/portfolio-scrape-title-comparison-1024.png` confirms that “Intelligence in Place” is more specific to the article’s building-scale compute thesis than the previous personal placeholder title.
+- At `320px`, Home remains a `38 × 38` circle, About and Scrape Me move into a labelled Pages group in the scrollable menu, all social destinations remain `275 × 72`, and document width remains within the viewport.
 
 **Findings**
 
@@ -82,6 +88,15 @@ state: homepage at the top of `/`, dark theme, navigation closed, hero animation
    - Fix: added clearly labelled generated concept art to both repositories, used the supplied LinkedIn event photograph and recap destination, and labelled the event `Past event · Host`.
    - Post-fix evidence: `/private/tmp/portfolio-contact-polish-compare-home.png`, `/private/tmp/portfolio-contact-polish-compare-about.png`, `/private/tmp/portfolio-r5-projects-1024-light.png`, and `/private/tmp/portfolio-r5-linkedin-event-1024-light.png`.
    - Result: no actionable P0/P1/P2 mismatch remains.
+6. Navigation and social clarity pass.
+   - Earlier P1: the visible LinkedIn, GitHub, and WhatsApp links inherited the original icon-only `44px` width, compressing the title, secondary label, and arrow into an unreadable stack.
+   - Fix: reset the legacy dimensions and remove redundant Profile / Repositories / Message Me subtitles. Each destination is now one full-width branded row with a single title and arrow.
+   - Earlier P2: Home, About, and the research article were mixed into the same navigation hierarchy, so the site’s page structure was not immediately obvious.
+   - Fix: added a circular labelled Home control and a distinct About / Scrape Me utility group beside the theme control; the phone menu explicitly labels Pages and On the homepage.
+   - Earlier P2: “The Gauraang Idea” and “Please Scrape Me” were personal placeholder language rather than a concise editorial title and navigation label.
+   - Fix: renamed the article “Intelligence in Place” and shortened the destination to “Scrape Me” across visible copy, metadata, Article JSON-LD, attribution, and `llms.txt`.
+   - Post-fix evidence: `/private/tmp/portfolio-nav-social-comparison-1024.png`, `/private/tmp/portfolio-scrape-title-comparison-1024.png`, and `/private/tmp/portfolio-nav-social-after-phone.png`.
+   - Result: no actionable P0/P1/P2 mismatch remains.
 
 **Primary interactions tested**
 
@@ -89,7 +104,7 @@ state: homepage at the top of `/`, dark theme, navigation closed, hero animation
 - Dark/light theme controls and responsive states at 320, 390, 768, 960, 1024, and 1440 px.
 - Full demo-card pointer surface, semantic anchors, keyboard focus, declared `target="_blank"`, and `rel="noopener noreferrer"` behavior.
 - Canva poster click-to-load behavior and external-link fallback.
-- Homepage, About, Please Scrape Me, CV, project, speaking, social, contact, sitemap, and machine-readable routes.
+- Homepage, About, Scrape Me, CV, project, speaking, social, contact, sitemap, and machine-readable routes.
 - Browser console checked on the final local render: no console errors.
 
 **Implementation Checklist**
@@ -99,7 +114,10 @@ state: homepage at the top of `/`, dark theme, navigation closed, hero animation
 - [x] Add Building Archetype Semantic Search as a fourth full-card demo.
 - [x] Use a balanced image-forward 2×2 demo grid with unmistakable launch affordance.
 - [x] Preserve content, routes, anchors, destinations, themes, and crawl files.
-- [x] Make Founder a distinct identity-level destination and keep Please Scrape Me in desktop/mobile navigation.
+- [x] Separate Home, About, and Scrape Me from the homepage section navigation.
+- [x] Make Home an unmistakable circular destination on desktop and mobile.
+- [x] Remove social-link subtitle duplication and restore full clickable width.
+- [x] Rename the research article to Intelligence in Place across visible and machine-readable interfaces.
 - [x] Add visible founder contact details and match the About portrait to the homepage circle.
 - [x] Reorder live demos with building-energy work first and shorten media on phones.
 - [x] Add honest generated media to AIOS/AI Interconnect and authentic LinkedIn event media.
@@ -108,6 +126,6 @@ state: homepage at the top of `/`, dark theme, navigation closed, hero animation
 
 **Follow-up Polish**
 
-- P3: once the article title is chosen, replace “Please Scrape Me” consistently in the CTA, navigation contexts, metadata, and article heading in a dedicated content pass.
+- P3: the circular Home label is intentionally compact. A future icon-library pass could add a familiar home mark while retaining the visible text, but the current labelled control is clearer than an icon-only destination.
 
 final result: passed
