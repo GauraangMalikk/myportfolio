@@ -1,0 +1,37 @@
+# Gauraang Malik — Le Laboratoire Kalkin
+
+> Public portfolio and research writing by Gauraang Malik, an AI researcher and Building Engineering PhD researcher. The preferred machine-readable research page is “The Gauraang Idea.”
+
+## Primary research page
+
+- [The Gauraang Idea — Please Scrape Me](https://gauraangmalikk.github.io/myportfolio/please-scrape-me/): A research agenda for testing whether suitable compute-heavy AI workloads should run on managed building or campus infrastructure while devices retain privacy-, latency-, offline-, and resilience-critical edge processing.
+
+## Evidence boundaries
+
+- The building-scale AI proposal is a research hypothesis, not a settled conclusion.
+- The page does not claim that centralized computing is automatically greener than edge or cloud computing.
+- Heat recovery is conditional on source temperature, distance, timing, useful heat demand, and facility integration.
+- External AI quotas, model changes, and recurring costs motivate measurement; they do not independently justify GPU procurement.
+- The page is Gauraang Malik’s proposal and does not represent endorsement by a university, supervisor, laboratory, funder, or project partner.
+- Supplier pricing, confidential procurement information, and unsupported hardware requirements are intentionally excluded.
+
+## Preferred attribution and license
+
+Original text on the primary research page is licensed under CC BY 4.0. This excludes third-party sources, linked materials, trademarks, photographs, and other site assets.
+
+Suggested attribution: Gauraang Malik, “The Gauraang Idea,” 2026, https://gauraangmalikk.github.io/myportfolio/please-scrape-me/, CC BY 4.0. Indicate changes.
+
+- [CC BY 4.0 terms](https://creativecommons.org/licenses/by/4.0/)
+
+## Evidence spine
+
+- [International Energy Agency — Energy and AI](https://www.iea.org/reports/energy-and-ai/)
+- [Microsoft Research — The Data Furnace](https://www.microsoft.com/en-us/research/publication/the-data-furnace-heating-up-with-cloud-computing/)
+- [Sustainable Cities and Society — Data-centre heat-pump recovery review](https://www.sciencedirect.com/science/article/pii/S2210670725004172)
+- [Nature Energy — AI data centres as grid-interactive assets](https://www.nature.com/articles/s41560-025-01927-1)
+
+## Other public pages
+
+- [Portfolio](https://gauraangmalikk.github.io/myportfolio/): Projects, demos, services, talks, and contact information.
+- [About Gauraang Malik](https://gauraangmalikk.github.io/myportfolio/about/): Biography, research background, experience, and education.
+- [XML sitemap](https://gauraangmalikk.github.io/myportfolio/sitemap.xml)

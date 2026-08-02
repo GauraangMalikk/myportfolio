@@ -37,13 +37,23 @@
   function openNav() {
     nav.classList.add("navbar--open");
     overlay.classList.add("open");
+    overlay.setAttribute("aria-hidden", "false");
+    hamburger.setAttribute("aria-expanded", "true");
+    hamburger.setAttribute("aria-label", "Close menu");
     document.body.style.overflow = "hidden";
+    const firstLink = overlay.querySelector(".navbar__link");
+    if (firstLink) firstLink.focus();
   }
 
   function closeNav() {
+    const returnFocus = overlay.contains(document.activeElement);
     nav.classList.remove("navbar--open");
     overlay.classList.remove("open");
+    overlay.setAttribute("aria-hidden", "true");
+    hamburger.setAttribute("aria-expanded", "false");
+    hamburger.setAttribute("aria-label", "Open menu");
     document.body.style.overflow = "";
+    if (returnFocus) hamburger.focus();
   }
 
   hamburger.addEventListener("click", () => {
