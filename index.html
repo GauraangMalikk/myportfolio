@@ -23,7 +23,7 @@
     <meta property="twitter:description" content="Research across intelligent systems, the built environment, and creative AI experiments." />
     <meta property="twitter:image" content="https://gauraangmalikk.github.io/myportfolio/assets/img/gauraang.jpg" />
 
-    <link rel="stylesheet" href="./assets/css/styles.css?v=20260802r2" />
+    <link rel="stylesheet" href="./assets/css/styles.css?v=20260802r4" />
     <link rel="icon" type="image/svg+xml" href="./assets/img/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -73,57 +73,73 @@
             <a href="./please-scrape-me/index.html" class="btn btn--quiet">Please Scrape Me</a>
           </div>
           <div class="hero__social" aria-label="Social links">
-            <a href="https://www.linkedin.com/in/grauraang-malik/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-            <a href="https://github.com/GauraangMalikk" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-            <a href="https://wa.me/15145770030" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a>
+            <a href="https://www.linkedin.com/in/grauraang-malik/" target="_blank" rel="noopener noreferrer"><span class="hero__social-icon"><img src="./assets/img/social/linkedin.svg" alt="" width="24" height="24" /></span><span>LinkedIn</span><span aria-hidden="true">↗</span></a>
+            <a href="https://github.com/GauraangMalikk" target="_blank" rel="noopener noreferrer"><span class="hero__social-icon"><img src="./assets/img/social/github.svg" alt="" width="24" height="24" /></span><span>GitHub</span><span aria-hidden="true">↗</span></a>
+            <a href="https://wa.me/15145770030" target="_blank" rel="noopener noreferrer"><span class="hero__social-icon"><img src="./assets/img/social/whatsapp.svg" alt="" width="24" height="24" /></span><span>WhatsApp</span><span aria-hidden="true">↗</span></a>
           </div>
         </div>
-        <aside class="hero__index" aria-label="Research coordinates">
-          <span>Montréal · 45.5019° N</span>
-          <span>Multi-agent systems</span>
-          <span>Building-energy ML</span>
-          <span>Research · culture · play</span>
-        </aside>
       </div>
     </header>
 
     <main id="main-content">
+      <section class="capabilities editorial-section" id="services">
+        <div class="container">
+          <span class="section-label">// 01</span><h2 class="section-title">Three connected practices</h2>
+          <div class="capabilities__strip">
+            <article><span>01</span><h3>Applied AI Systems</h3><p>Multi-agent architecture, retrieval, local-model evaluation, and research tools that make complex model behaviour easier to inspect.</p></article>
+            <article><span>02</span><h3>Building &amp; Energy ML</h3><p>Simulation-informed modelling, HVAC prediction, clustering, and explainability for the built environment.</p></article>
+            <article><span>03</span><h3>Research Communication</h3><p>Interactive demos, dashboards, workshops, and evidence-aware stories that connect technical work with people.</p></article>
+          </div>
+        </div>
+      </section>
+
       <section class="dashboard editorial-section" id="dashboard">
         <div class="container">
           <div class="section-heading-row">
-            <div><span class="section-label">// 01</span><h2 class="section-title">Live Demos</h2></div>
-            <p>Real interfaces, hosted on Hugging Face Spaces. A sleeping Space may take a moment to wake.</p>
+            <div><span class="section-label">// 02</span><h2 class="section-title">Live Demos</h2></div>
+            <p>Working experiments hosted on Hugging Face Spaces. Each card launches the real interface; a sleeping Space may take a moment to wake.</p>
           </div>
 
           <div class="demo-grid">
             <a class="demo-card" href="https://huggingface.co/spaces/gauraang/MultiAgent" target="_blank" rel="noopener noreferrer" aria-label="Launch Multi-Agent System demo in a new tab">
-              <span class="demo-card__media"><img src="./assets/img/demos/multi-agent-system.webp" alt="Multi-Agent response explorer showing clustered model outputs in a three-dimensional plot" width="1280" height="720" loading="eager" /></span>
+              <span class="demo-card__media"><img src="./assets/img/demos/multi-agent-concept.webp" alt="Concept illustration of multiple AI agents converging in a shared semantic response space" width="1664" height="936" loading="eager" /><span class="demo-card__visual-note">Concept visual</span></span>
               <span class="demo-card__body">
                 <span class="demo-card__kicker">Applied AI Systems</span>
                 <strong class="demo-card__title">Multi-Agent System</strong>
-                <span class="demo-card__desc">Explore 199 agent responses across tasks, models, and a rotatable response space.</span>
+                <span class="demo-card__desc">Explore 199 stored agent responses across tasks and local models. Rotate a three-dimensional embedding space, compare clusters, inspect neighbouring responses, and see where agent strategies converge or diverge.</span>
                 <span class="demo-card__status">Hosted on Hugging Face · may wake on launch</span>
                 <span class="demo-card__launch">Launch demo <span aria-hidden="true">↗</span></span>
               </span>
             </a>
 
             <a class="demo-card" href="https://huggingface.co/spaces/gauraang/myportfolio" target="_blank" rel="noopener noreferrer" aria-label="Launch Building Energy Predictor demo in a new tab">
-              <span class="demo-card__media"><img src="./assets/img/demos/building-energy-predictor.webp" alt="HVAC Energy Predictor interface with scenario controls and predicted energy charts" width="1280" height="720" loading="lazy" /></span>
+              <span class="demo-card__media"><img src="./assets/img/demos/building-energy-concept.webp" alt="Concept illustration of weather, HVAC, and thermal data flowing through a building-energy model" width="1664" height="936" loading="lazy" /><span class="demo-card__visual-note">Concept visual</span></span>
               <span class="demo-card__body">
                 <span class="demo-card__kicker">Building &amp; Energy ML</span>
                 <strong class="demo-card__title">Building Energy Predictor</strong>
-                <span class="demo-card__desc">Adjust weather and seasonal controls to inspect an LSTM-based HVAC energy prediction.</span>
+                <span class="demo-card__desc">Change weather and seasonal inputs to test an LSTM-based HVAC energy forecast. The interface exposes the scenario controls, predicted load, and recent trend so model behaviour can be explored rather than treated as a black box.</span>
                 <span class="demo-card__status">Hosted on Hugging Face · may wake on launch</span>
                 <span class="demo-card__launch">Launch demo <span aria-hidden="true">↗</span></span>
               </span>
             </a>
 
             <a class="demo-card" href="https://huggingface.co/spaces/gauraang/astrology" target="_blank" rel="noopener noreferrer" aria-label="Launch Astrology with TinyLlama demo in a new tab">
-              <span class="demo-card__media"><img src="./assets/img/demos/astrology-tinyllama.webp" alt="Vedic Astrology demo showing birth details, chart wheel, and interpretation controls" width="1280" height="720" loading="lazy" /></span>
+              <span class="demo-card__media"><img src="./assets/img/demos/astrology-concept.webp" alt="Concept illustration of a computational birth chart connected to a small local AI model" width="1664" height="936" loading="lazy" /><span class="demo-card__visual-note">Concept visual</span></span>
               <span class="demo-card__body">
                 <span class="demo-card__kicker">Creative Inquiry</span>
                 <strong class="demo-card__title">Astrology with TinyLlama</strong>
-                <span class="demo-card__desc">A playful experiment combining planetary calculations, text references, and local-model interpretation.</span>
+                <span class="demo-card__desc">Enter birth details to calculate planetary positions and a chart wheel, then examine a TinyLlama-assisted interpretation. It is framed as a creative AI experiment—not scientific evidence or personal guidance.</span>
+                <span class="demo-card__status">Hosted on Hugging Face · may wake on launch</span>
+                <span class="demo-card__launch">Launch demo <span aria-hidden="true">↗</span></span>
+              </span>
+            </a>
+
+            <a class="demo-card" href="https://huggingface.co/spaces/gauraang/Buildingarchetype_semantic_search" target="_blank" rel="noopener noreferrer" aria-label="Launch Building Archetype Semantic Search demo in a new tab">
+              <span class="demo-card__media"><img src="./assets/img/demos/building-archetype-semantic-search.webp" alt="Concept illustration of a semantic query being matched to ranked house, apartment, office, school, warehouse, laboratory, and data-centre archetypes" width="1672" height="941" loading="lazy" /><span class="demo-card__visual-note">Concept visual</span></span>
+              <span class="demo-card__body">
+                <span class="demo-card__kicker">Building Intelligence</span>
+                <strong class="demo-card__title">Building Archetype Semantic Search</strong>
+                <span class="demo-card__desc">Describe a building in plain language—such as an old Montréal house or a BACnet office—and retrieve ranked matches from 100 archetypes. FAISS finds semantic candidates, SQLite returns the full records, and a metadata reranker explains why each result matched. This prototype is retrieval-only; it does not forecast or control buildings.</span>
                 <span class="demo-card__status">Hosted on Hugging Face · may wake on launch</span>
                 <span class="demo-card__launch">Launch demo <span aria-hidden="true">↗</span></span>
               </span>
@@ -141,38 +157,43 @@
       <section class="projects editorial-section" id="projects">
         <div class="container">
           <div class="section-heading-row">
-            <div><span class="section-label">// 02</span><h2 class="section-title">Selected Work</h2></div>
+            <div><span class="section-label">// 03</span><h2 class="section-title">Selected Work</h2></div>
             <p>Research systems, local AI infrastructure, data products, and visual research communication.</p>
           </div>
           <div class="projects__grid projects__grid--editorial">
-            <article class="project-card">
+            <article class="project-card project-card--visual">
+              <a class="project-card__media-link" href="https://github.com/GauraangMalikk/Information-Model-an-LLM-Agent-Architecture" target="_blank" rel="noopener noreferrer" aria-label="Open Multi-Agent LLM System on GitHub"><img src="./assets/img/projects/multi-agent.webp" alt="Energy-efficient agent-routing diagram from the Multi-Agent LLM System repository" width="1280" height="720" loading="lazy" /></a>
               <span class="project-card__label">GitHub · Research</span><h3 class="project-card__title">Multi-Agent LLM System</h3>
-              <p class="project-card__desc">Agent vector search with research triangulation to investigate hallucination mitigation and response-space structure.</p>
-              <div class="project-card__tags"><span class="project-card__tag">FAISS</span><span class="project-card__tag">PCA</span><span class="project-card__tag">RAG</span><span class="project-card__tag">Local LLM</span></div>
+              <p class="project-card__desc">A local-model comparison and agent-routing framework evolved from hallucination-mitigation research. It stores responses in FAISS, studies semantic agreement with PCA and KMeans, and weighs task fit, consensus, runtime, and energy to favour the leanest capable model.</p>
+              <div class="project-card__tags"><span class="project-card__tag">FAISS</span><span class="project-card__tag">PCA</span><span class="project-card__tag">KMeans</span><span class="project-card__tag">Ollama</span></div>
               <a href="https://github.com/GauraangMalikk/Information-Model-an-LLM-Agent-Architecture" target="_blank" rel="noopener noreferrer" class="project-card__link">View on GitHub ↗</a>
             </article>
-            <article class="project-card">
+            <article class="project-card project-card--visual">
+              <a class="project-card__media-link" href="https://github.com/GauraangMalikk/AIOS" target="_blank" rel="noopener noreferrer" aria-label="Open AIOS on GitHub"><img src="./assets/img/projects/aios.webp" alt="GitHub repository preview for AIOS" width="1280" height="720" loading="lazy" /></a>
               <span class="project-card__label">GitHub · Systems</span><h3 class="project-card__title">AIOS: Local AI Operating System</h3>
-              <p class="project-card__desc">A modular on-premises AI system combining machine-learning and language-model pipelines for local inference.</p>
-              <div class="project-card__tags"><span class="project-card__tag">Local LLM</span><span class="project-card__tag">ML Pipeline</span><span class="project-card__tag">Python</span></div>
+              <p class="project-card__desc">A work-in-progress, privacy-first desktop automation layer. It captures screen context, extracts text and interface elements, asks a local or remote model to plan, and executes approved actions through input controls, APIs, or scripts with replayable logs and memory.</p>
+              <div class="project-card__tags"><span class="project-card__tag">OCR</span><span class="project-card__tag">Local LLM</span><span class="project-card__tag">FAISS</span><span class="project-card__tag">Python</span></div>
               <a href="https://github.com/GauraangMalikk/AIOS" target="_blank" rel="noopener noreferrer" class="project-card__link">View on GitHub ↗</a>
             </article>
-            <article class="project-card">
+            <article class="project-card project-card--visual">
+              <a class="project-card__media-link" href="https://github.com/GauraangMalikk/AI-Interconnect" target="_blank" rel="noopener noreferrer" aria-label="Open AI Interconnect on GitHub"><img src="./assets/img/projects/ai-interconnect.webp" alt="GitHub repository preview for AI Interconnect" width="1280" height="720" loading="lazy" /></a>
               <span class="project-card__label">GitHub · Systems</span><h3 class="project-card__title">AI Interconnect</h3>
-              <p class="project-card__desc">An integration layer for connecting heterogeneous local and cloud AI systems and pipelines.</p>
-              <div class="project-card__tags"><span class="project-card__tag">AI Integration</span><span class="project-card__tag">Python</span><span class="project-card__tag">Pipelines</span></div>
+              <p class="project-card__desc">The Apple-side node of AIOS: a SwiftUI app for macOS and iOS that unifies local MLX, Apple Intelligence, and Core ML backends, while connecting securely to the AIOS hub for devices, scenes, topology, and natural-language commands.</p>
+              <div class="project-card__tags"><span class="project-card__tag">SwiftUI</span><span class="project-card__tag">MLX</span><span class="project-card__tag">Core ML</span><span class="project-card__tag">AIOS Hub</span></div>
               <a href="https://github.com/GauraangMalikk/AI-Interconnect" target="_blank" rel="noopener noreferrer" class="project-card__link">View on GitHub ↗</a>
             </article>
-            <article class="project-card">
+            <article class="project-card project-card--visual">
+              <a class="project-card__media-link" href="https://github.com/GauraangMalikk/Astrology-with-tinyllama" target="_blank" rel="noopener noreferrer" aria-label="Open Astrology with TinyLlama on GitHub"><img src="./assets/img/projects/astrology.webp" alt="Birth-chart wheel produced by the Astrology with TinyLlama repository" width="1280" height="720" loading="lazy" /></a>
               <span class="project-card__label">GitHub · Creative Inquiry</span><h3 class="project-card__title">Astrology with TinyLlama</h3>
-              <p class="project-card__desc">A creative AI experiment using planetary movement data and language-model interpretation.</p>
-              <div class="project-card__tags"><span class="project-card__tag">TinyLlama</span><span class="project-card__tag">Planetary API</span><span class="project-card__tag">LLM</span></div>
+              <p class="project-card__desc">A command-line creative experiment that calculates planetary longitudes and the Ascendant with Swiss Ephemeris, draws an optional chart wheel, and passes a structured summary to a local TinyLlama model for interpretation.</p>
+              <div class="project-card__tags"><span class="project-card__tag">Swiss Ephemeris</span><span class="project-card__tag">TinyLlama</span><span class="project-card__tag">Ollama</span></div>
               <a href="https://github.com/GauraangMalikk/Astrology-with-tinyllama" target="_blank" rel="noopener noreferrer" class="project-card__link">View on GitHub ↗</a>
             </article>
-            <article class="project-card">
+            <article class="project-card project-card--visual">
+              <a class="project-card__media-link" href="https://github.com/GauraangMalikk/Stock-Market-ensemble-with-sentiment-analysis" target="_blank" rel="noopener noreferrer" aria-label="Open Stock Market Ensemble with Sentiment Analysis on GitHub"><img src="./assets/img/projects/stock-ensemble.webp" alt="Concept illustration of technical, sentiment, and machine-learning signals converging into an ensemble forecast" width="1664" height="936" loading="lazy" /><span class="project-card__visual-note">Concept visual</span></a>
               <span class="project-card__label">GitHub · Finance</span><h3 class="project-card__title">Stock Market Ensemble with Sentiment Analysis</h3>
-              <p class="project-card__desc">Ensemble forecasting that combines technical indicators with NLP-based analysis of financial news.</p>
-              <div class="project-card__tags"><span class="project-card__tag">Ensemble Learning</span><span class="project-card__tag">Sentiment NLP</span><span class="project-card__tag">LSTM</span></div>
+              <p class="project-card__desc">A NIFTY 50 forecasting pipeline combining Prophet, logistic regression, random forest, technical indicators, India VIX, and VADER sentiment from financial headlines, followed by a risk-controlled strategy simulation.</p>
+              <div class="project-card__tags"><span class="project-card__tag">Prophet</span><span class="project-card__tag">Random Forest</span><span class="project-card__tag">VADER</span><span class="project-card__tag">NIFTY 50</span></div>
               <a href="https://github.com/GauraangMalikk/Stock-Market-ensemble-with-sentiment-analysis" target="_blank" rel="noopener noreferrer" class="project-card__link">View on GitHub ↗</a>
             </article>
             <article class="project-card project-card--media">
@@ -200,31 +221,20 @@
       <section class="talks editorial-section" id="talks">
         <div class="container">
           <div class="section-heading-row">
-            <div><span class="section-label">// 03</span><h2 class="section-title">Speaking &amp; Presentations</h2></div>
+            <div><span class="section-label">// 04</span><h2 class="section-title">Speaking &amp; Presentations</h2></div>
             <p>Technical ideas made legible through workshops, talks, and community events.</p>
           </div>
           <div class="talks__grid talks__grid--editorial">
             <article class="talk-card">
               <div class="talk-card__embed"><div class="canva-loader canva-loader--talk" data-src="https://www.canva.com/design/DAG2MOxF0tY/-ZkPRPADrcql62Pn5y7KWg/view?embed" role="button" tabindex="0" aria-label="Load Cracking the Formula for AI and ML presentation"><img class="canva-loader__poster" src="./assets/img/presentations/talk-ai-ml.webp" alt="Orange ML and AI Back to School title slide" width="1280" height="720" loading="lazy" /><span class="canva-loader__overlay"><span class="canva-loader__text">Talk deck · Canva</span><span class="canva-loader__btn">Load preview</span></span></div></div>
-              <div class="talk-card__info"><span class="talk-card__role">Speaker</span><h3 class="talk-card__title">Cracking the Formula for AI &amp; ML</h3><p class="talk-card__meta">The AI Collective × McHacks &amp; Plotly · McGill University · 2025</p><p class="talk-card__desc">The AI hierarchy, supervised ML, RAG, and how vector embeddings help investigate hallucination.</p><a href="https://www.linkedin.com/posts/grauraang-malik_key-takeaways-from-thethe-ai-collective-ugcPost-7387285378489135104-tLOk" target="_blank" rel="noopener noreferrer" class="talk-card__link">View on LinkedIn ↗</a></div>
+              <div class="talk-card__info"><span class="talk-card__role">Past talk · Speaker</span><h3 class="talk-card__title">Cracking the Formula for AI &amp; ML</h3><p class="talk-card__meta">The AI Collective × McHacks · McGill University · Plotly-sponsored · October 2025</p><p class="talk-card__desc">A practical map of AI beyond language models: supervised and unsupervised learning for structure, RAG for factual grounding, and agents for planning, memory, and action. A playful embedding-space example showed how relationships in meaning space can help explain one path to model hallucination.</p><a href="https://www.linkedin.com/posts/grauraang-malik_key-takeaways-from-thethe-ai-collective-ugcPost-7387285378489135104-tLOk" target="_blank" rel="noopener noreferrer" class="talk-card__link">View event recap on LinkedIn ↗</a></div>
             </article>
             <article class="talk-card">
               <div class="talk-card__embed"><div class="canva-loader canva-loader--talk" data-src="https://www.canva.com/design/DAG-6E7-gLI/J33dBGe0SMn5nQ-Lu7XypA/view?embed" role="button" tabindex="0" aria-label="Load ML, LLMs, RAG and AI Agents presentation"><img class="canva-loader__poster" src="./assets/img/presentations/talk-agents.webp" alt="Green Simply Voting workshop title slide" width="1280" height="720" loading="lazy" /><span class="canva-loader__overlay"><span class="canva-loader__text">Talk deck · Canva</span><span class="canva-loader__btn">Load preview</span></span></div></div>
-              <div class="talk-card__info"><span class="talk-card__role">Speaker</span><h3 class="talk-card__title">ML, LLMs, RAG &amp; AI Agents</h3><p class="talk-card__meta">Simply Voting Inc. · Montréal · March 2026</p><p class="talk-card__desc">A corporate workshop on ML fundamentals, transformer architecture, RAG systems, and AI-agent components.</p><a href="https://www.linkedin.com/posts/grauraang-malik_ai-machinelearning-agents-share-7436807416261971968-jL7W" target="_blank" rel="noopener noreferrer" class="talk-card__link">View on LinkedIn ↗</a></div>
+              <div class="talk-card__info"><span class="talk-card__role">Past workshop · Speaker</span><h3 class="talk-card__title">ML, LLMs, RAG &amp; AI Agents</h3><p class="talk-card__meta">Simply Voting Inc. · Montréal · March 2026</p><p class="talk-card__desc">A company workshop covering data and ML fundamentals, transformer architecture, retrieval-augmented generation, and the profile–memory–planning–action model of AI agents. Teams finished by sketching real automation ideas, from sales workflows to office-fridge assistance.</p><a href="https://www.linkedin.com/posts/grauraang-malik_ai-machinelearning-agents-share-7436807416261971968-jL7W" target="_blank" rel="noopener noreferrer" class="talk-card__link">View workshop recap on LinkedIn ↗</a></div>
             </article>
-            <article class="talk-card talk-card--text"><div class="talk-card__info"><span class="talk-card__role">Organizer</span><h3 class="talk-card__title">The AI Collective × Deck Meetup</h3><p class="talk-card__meta">Montréal · April 2026 · 150+ attendees</p><p class="talk-card__desc">A community meetup about trust in AI products and building confidence through incremental validation.</p><a href="https://www.linkedin.com/posts/grauraang-malik_great-energy-at-the-ai-collective-deck-ugcPost-7453126705055006721-eM90" target="_blank" rel="noopener noreferrer" class="talk-card__link">View on LinkedIn ↗</a></div></article>
-            <article class="talk-card talk-card--text"><div class="talk-card__info"><span class="talk-card__role">Organizer</span><h3 class="talk-card__title">The AI Collective MTL</h3><p class="talk-card__meta">Montréal · The AI Collective</p><p class="talk-card__desc">A community event bringing together Montréal’s applied AI practitioners.</p><a href="https://luma.com/event/manage/evt-SkGRgNpdffSmxHe" target="_blank" rel="noopener noreferrer" class="talk-card__link">View on Luma ↗</a></div></article>
-          </div>
-        </div>
-      </section>
-
-      <section class="capabilities editorial-section" id="services">
-        <div class="container">
-          <span class="section-label">// Capabilities</span><h2 class="section-title">Three connected practices</h2>
-          <div class="capabilities__strip">
-            <article><span>01</span><h3>Applied AI Systems</h3><p>Multi-agent architecture, RAG, local-model evaluation, and research tooling.</p></article>
-            <article><span>02</span><h3>Building &amp; Energy ML</h3><p>Simulation-informed modelling, HVAC prediction, clustering, and explainability.</p></article>
-            <article><span>03</span><h3>Research Communication</h3><p>Interactive demos, dashboards, workshops, and evidence-aware storytelling.</p></article>
+            <article class="talk-card talk-card--text"><div class="talk-card__info"><span class="talk-card__role">Past event · Host</span><h3 class="talk-card__title">The AI Collective × Deck Meetup</h3><p class="talk-card__meta">Montréal · April 2026 · 150+ attendees</p><p class="talk-card__desc">Hosted with Deck and guest speaker Artem Avdacev on what makes a product AI-native. The discussion focused on building trust through small validated steps, then using context and memory systems to improve products over time.</p><a href="https://www.linkedin.com/posts/grauraang-malik_great-energy-at-the-ai-collective-deck-ugcPost-7453126705055006721-eM90" target="_blank" rel="noopener noreferrer" class="talk-card__link">View event recap on LinkedIn ↗</a></div></article>
+            <article class="talk-card talk-card--text"><div class="talk-card__info"><span class="talk-card__role">Past event · Organizer</span><h3 class="talk-card__title">The Rise of Everyday Data Scientists &amp; Prompt Engineers</h3><p class="talk-card__meta">The AI Collective Montréal · May 20, 2026 · 95 registered guests</p><p class="talk-card__desc">A completed community event about how product teams, marketers, designers, founders, and operators are increasingly working with data and prompts—not only technical specialists. The public event page records the Montréal programme and hosts.</p><a href="https://luma.com/aic-mtl-5-20" target="_blank" rel="noopener noreferrer" class="talk-card__link">View completed event on Luma ↗</a></div></article>
           </div>
         </div>
       </section>
@@ -254,6 +264,6 @@
     </main>
 
     <noscript><style>.nav-overlay{display:none!important}.canva-loader__btn{display:none}.canva-loader:after{content:"Use the external Canva link below to open this presentation.";display:block;margin-top:.5rem}</style></noscript>
-    <script src="./assets/js/app.js?v=20260802r2"></script>
+    <script src="./assets/js/app.js?v=20260802r3"></script>
   </body>
 </html>
