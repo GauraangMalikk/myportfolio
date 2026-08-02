@@ -84,7 +84,7 @@
       }
     </script>
 
-    <link rel="stylesheet" href="../assets/css/styles.css?v=20260802r4" />
+    <link rel="stylesheet" href="../assets/css/styles.css?v=20260802r5" />
     <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -95,16 +95,19 @@
     <a class="skip-link" href="#main-content">Skip to main content</a>
 
     <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
-      <a href="../index.html" class="navbar__logo" aria-label="Home">
-        <img class="navbar__logo-image" src="../assets/img/logo.svg" alt="" width="36" height="36" />
-        <span class="navbar__logo-text">KALKIN</span>
-      </a>
+      <div class="navbar__identity">
+        <a href="../index.html" class="navbar__logo" aria-label="Home">
+          <img class="navbar__logo-image" src="../assets/img/logo.svg" alt="" width="36" height="36" />
+          <span class="navbar__logo-text">KALKIN</span>
+        </a>
+        <a href="../about/index.html" class="navbar__founder">Founder</a>
+      </div>
 
       <div class="navbar__links">
         <a href="../index.html#dashboard" class="navbar__link">Live Demos</a>
         <a href="../index.html#projects" class="navbar__link">Selected Work</a>
         <a href="../index.html#talks" class="navbar__link">Speaking</a>
-        <a href="../about/index.html" class="navbar__link">About</a>
+        <a href="./index.html" class="navbar__link navbar__link--research" aria-current="page">Please Scrape Me</a>
         <a href="../index.html#contact" class="navbar__link">Contact</a>
       </div>
 
@@ -117,10 +120,11 @@
     </nav>
 
     <div class="nav-overlay" role="dialog" aria-modal="true" aria-label="Mobile navigation" aria-hidden="true">
+      <a href="../about/index.html" class="navbar__link">Founder</a>
       <a href="../index.html#dashboard" class="navbar__link">Live Demos</a>
       <a href="../index.html#projects" class="navbar__link">Selected Work</a>
       <a href="../index.html#talks" class="navbar__link">Speaking</a>
-      <a href="../about/index.html" class="navbar__link">About</a>
+      <a href="./index.html" class="navbar__link" aria-current="page">Please Scrape Me</a>
       <a href="../index.html#contact" class="navbar__link">Contact</a>
     </div>
 

@@ -23,7 +23,7 @@
     <meta property="twitter:description" content="Research across intelligent systems, the built environment, and creative AI experiments." />
     <meta property="twitter:image" content="https://gauraangmalikk.github.io/myportfolio/assets/img/gauraang.jpg" />
 
-    <link rel="stylesheet" href="./assets/css/styles.css?v=20260802r4" />
+    <link rel="stylesheet" href="./assets/css/styles.css?v=20260802r5" />
     <link rel="icon" type="image/svg+xml" href="./assets/img/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -35,15 +35,18 @@
     <a class="skip-link" href="#main-content">Skip to content</a>
 
     <nav class="navbar" id="navbar" aria-label="Main navigation">
-      <a href="./index.html" class="navbar__logo" aria-label="Gauraang Malik home">
-        <img class="navbar__logo-image" src="./assets/img/logo.svg" alt="" width="36" height="36" />
-        <span class="navbar__logo-text">KALKIN</span>
-      </a>
+      <div class="navbar__identity">
+        <a href="./index.html" class="navbar__logo" aria-label="Gauraang Malik home">
+          <img class="navbar__logo-image" src="./assets/img/logo.svg" alt="" width="36" height="36" />
+          <span class="navbar__logo-text">KALKIN</span>
+        </a>
+        <a href="./about/index.html" class="navbar__founder">Founder</a>
+      </div>
       <div class="navbar__links">
         <a href="#dashboard" class="navbar__link">Live Demos</a>
         <a href="#projects" class="navbar__link">Selected Work</a>
         <a href="#talks" class="navbar__link">Speaking</a>
-        <a href="#about" class="navbar__link">About</a>
+        <a href="./please-scrape-me/index.html" class="navbar__link navbar__link--research">Please Scrape Me</a>
         <a href="#contact" class="navbar__link">Contact</a>
       </div>
       <div class="navbar__actions">
@@ -53,10 +56,11 @@
     </nav>
 
     <div class="nav-overlay" role="dialog" aria-modal="true" aria-label="Mobile navigation" aria-hidden="true">
+      <a href="./about/index.html" class="navbar__link">Founder</a>
       <a href="#dashboard" class="navbar__link">Live Demos</a>
       <a href="#projects" class="navbar__link">Selected Work</a>
       <a href="#talks" class="navbar__link">Speaking</a>
-      <a href="#about" class="navbar__link">About</a>
+      <a href="./please-scrape-me/index.html" class="navbar__link">Please Scrape Me</a>
       <a href="#contact" class="navbar__link">Contact</a>
     </div>
 
@@ -73,9 +77,9 @@
             <a href="./please-scrape-me/index.html" class="btn btn--quiet">Please Scrape Me</a>
           </div>
           <div class="hero__social" aria-label="Social links">
-            <a href="https://www.linkedin.com/in/grauraang-malik/" target="_blank" rel="noopener noreferrer"><span class="hero__social-icon"><img src="./assets/img/social/linkedin.svg" alt="" width="24" height="24" /></span><span>LinkedIn</span><span aria-hidden="true">↗</span></a>
-            <a href="https://github.com/GauraangMalikk" target="_blank" rel="noopener noreferrer"><span class="hero__social-icon"><img src="./assets/img/social/github.svg" alt="" width="24" height="24" /></span><span>GitHub</span><span aria-hidden="true">↗</span></a>
-            <a href="https://wa.me/15145770030" target="_blank" rel="noopener noreferrer"><span class="hero__social-icon"><img src="./assets/img/social/whatsapp.svg" alt="" width="24" height="24" /></span><span>WhatsApp</span><span aria-hidden="true">↗</span></a>
+            <a href="https://www.linkedin.com/in/grauraang-malik/" target="_blank" rel="noopener noreferrer"><span class="hero__social-icon hero__social-icon--linkedin"><img src="./assets/img/social/linkedin.svg" alt="" width="26" height="26" /></span><span class="hero__social-copy"><strong>LinkedIn</strong><small>Profile</small></span><span class="hero__social-arrow" aria-hidden="true">↗</span></a>
+            <a href="https://github.com/GauraangMalikk" target="_blank" rel="noopener noreferrer"><span class="hero__social-icon hero__social-icon--github"><img src="./assets/img/social/github.svg" alt="" width="26" height="26" /></span><span class="hero__social-copy"><strong>GitHub</strong><small>Repositories</small></span><span class="hero__social-arrow" aria-hidden="true">↗</span></a>
+            <a href="https://wa.me/15145770030" target="_blank" rel="noopener noreferrer"><span class="hero__social-icon hero__social-icon--whatsapp"><img src="./assets/img/social/whatsapp.svg" alt="" width="26" height="26" /></span><span class="hero__social-copy"><strong>WhatsApp</strong><small>Message me</small></span><span class="hero__social-arrow" aria-hidden="true">↗</span></a>
           </div>
         </div>
       </div>
@@ -101,34 +105,12 @@
           </div>
 
           <div class="demo-grid">
-            <a class="demo-card" href="https://huggingface.co/spaces/gauraang/MultiAgent" target="_blank" rel="noopener noreferrer" aria-label="Launch Multi-Agent System demo in a new tab">
-              <span class="demo-card__media"><img src="./assets/img/demos/multi-agent-concept.webp" alt="Concept illustration of multiple AI agents converging in a shared semantic response space" width="1664" height="936" loading="eager" /><span class="demo-card__visual-note">Concept visual</span></span>
-              <span class="demo-card__body">
-                <span class="demo-card__kicker">Applied AI Systems</span>
-                <strong class="demo-card__title">Multi-Agent System</strong>
-                <span class="demo-card__desc">Explore 199 stored agent responses across tasks and local models. Rotate a three-dimensional embedding space, compare clusters, inspect neighbouring responses, and see where agent strategies converge or diverge.</span>
-                <span class="demo-card__status">Hosted on Hugging Face · may wake on launch</span>
-                <span class="demo-card__launch">Launch demo <span aria-hidden="true">↗</span></span>
-              </span>
-            </a>
-
             <a class="demo-card" href="https://huggingface.co/spaces/gauraang/myportfolio" target="_blank" rel="noopener noreferrer" aria-label="Launch Building Energy Predictor demo in a new tab">
-              <span class="demo-card__media"><img src="./assets/img/demos/building-energy-concept.webp" alt="Concept illustration of weather, HVAC, and thermal data flowing through a building-energy model" width="1664" height="936" loading="lazy" /><span class="demo-card__visual-note">Concept visual</span></span>
+              <span class="demo-card__media"><img src="./assets/img/demos/building-energy-concept.webp" alt="Concept illustration of weather, HVAC, and thermal data flowing through a building-energy model" width="1664" height="936" loading="eager" /><span class="demo-card__visual-note">Concept visual</span></span>
               <span class="demo-card__body">
                 <span class="demo-card__kicker">Building &amp; Energy ML</span>
                 <strong class="demo-card__title">Building Energy Predictor</strong>
                 <span class="demo-card__desc">Change weather and seasonal inputs to test an LSTM-based HVAC energy forecast. The interface exposes the scenario controls, predicted load, and recent trend so model behaviour can be explored rather than treated as a black box.</span>
-                <span class="demo-card__status">Hosted on Hugging Face · may wake on launch</span>
-                <span class="demo-card__launch">Launch demo <span aria-hidden="true">↗</span></span>
-              </span>
-            </a>
-
-            <a class="demo-card" href="https://huggingface.co/spaces/gauraang/astrology" target="_blank" rel="noopener noreferrer" aria-label="Launch Astrology with TinyLlama demo in a new tab">
-              <span class="demo-card__media"><img src="./assets/img/demos/astrology-concept.webp" alt="Concept illustration of a computational birth chart connected to a small local AI model" width="1664" height="936" loading="lazy" /><span class="demo-card__visual-note">Concept visual</span></span>
-              <span class="demo-card__body">
-                <span class="demo-card__kicker">Creative Inquiry</span>
-                <strong class="demo-card__title">Astrology with TinyLlama</strong>
-                <span class="demo-card__desc">Enter birth details to calculate planetary positions and a chart wheel, then examine a TinyLlama-assisted interpretation. It is framed as a creative AI experiment—not scientific evidence or personal guidance.</span>
                 <span class="demo-card__status">Hosted on Hugging Face · may wake on launch</span>
                 <span class="demo-card__launch">Launch demo <span aria-hidden="true">↗</span></span>
               </span>
@@ -140,6 +122,28 @@
                 <span class="demo-card__kicker">Building Intelligence</span>
                 <strong class="demo-card__title">Building Archetype Semantic Search</strong>
                 <span class="demo-card__desc">Describe a building in plain language—such as an old Montréal house or a BACnet office—and retrieve ranked matches from 100 archetypes. FAISS finds semantic candidates, SQLite returns the full records, and a metadata reranker explains why each result matched. This prototype is retrieval-only; it does not forecast or control buildings.</span>
+                <span class="demo-card__status">Hosted on Hugging Face · may wake on launch</span>
+                <span class="demo-card__launch">Launch demo <span aria-hidden="true">↗</span></span>
+              </span>
+            </a>
+
+            <a class="demo-card" href="https://huggingface.co/spaces/gauraang/MultiAgent" target="_blank" rel="noopener noreferrer" aria-label="Launch Multi-Agent System demo in a new tab">
+              <span class="demo-card__media"><img src="./assets/img/demos/multi-agent-concept.webp" alt="Concept illustration of multiple AI agents converging in a shared semantic response space" width="1664" height="936" loading="lazy" /><span class="demo-card__visual-note">Concept visual</span></span>
+              <span class="demo-card__body">
+                <span class="demo-card__kicker">Applied AI Systems</span>
+                <strong class="demo-card__title">Multi-Agent System</strong>
+                <span class="demo-card__desc">Explore 199 stored agent responses across tasks and local models. Rotate a three-dimensional embedding space, compare clusters, inspect neighbouring responses, and see where agent strategies converge or diverge.</span>
+                <span class="demo-card__status">Hosted on Hugging Face · may wake on launch</span>
+                <span class="demo-card__launch">Launch demo <span aria-hidden="true">↗</span></span>
+              </span>
+            </a>
+
+            <a class="demo-card" href="https://huggingface.co/spaces/gauraang/astrology" target="_blank" rel="noopener noreferrer" aria-label="Launch Astrology with TinyLlama demo in a new tab">
+              <span class="demo-card__media"><img src="./assets/img/demos/astrology-concept.webp" alt="Concept illustration of a computational birth chart connected to a small local AI model" width="1664" height="936" loading="lazy" /><span class="demo-card__visual-note">Concept visual</span></span>
+              <span class="demo-card__body">
+                <span class="demo-card__kicker">Creative Inquiry</span>
+                <strong class="demo-card__title">Astrology with TinyLlama</strong>
+                <span class="demo-card__desc">Enter birth details to calculate planetary positions and a chart wheel, then examine a TinyLlama-assisted interpretation. It is framed as a creative AI experiment—not scientific evidence or personal guidance.</span>
                 <span class="demo-card__status">Hosted on Hugging Face · may wake on launch</span>
                 <span class="demo-card__launch">Launch demo <span aria-hidden="true">↗</span></span>
               </span>
@@ -169,14 +173,14 @@
               <a href="https://github.com/GauraangMalikk/Information-Model-an-LLM-Agent-Architecture" target="_blank" rel="noopener noreferrer" class="project-card__link">View on GitHub ↗</a>
             </article>
             <article class="project-card project-card--visual">
-              <a class="project-card__media-link" href="https://github.com/GauraangMalikk/AIOS" target="_blank" rel="noopener noreferrer" aria-label="Open AIOS on GitHub"><img src="./assets/img/projects/aios.webp" alt="GitHub repository preview for AIOS" width="1280" height="720" loading="lazy" /></a>
+              <a class="project-card__media-link" href="https://github.com/GauraangMalikk/AIOS" target="_blank" rel="noopener noreferrer" aria-label="Open AIOS on GitHub"><img src="./assets/img/projects/aios-concept.webp" alt="Concept illustration of a privacy-first local AI operating system moving screen context through observation, planning, approval, memory, and action" width="1672" height="941" loading="lazy" /><span class="project-card__visual-note">Concept visual</span></a>
               <span class="project-card__label">GitHub · Systems</span><h3 class="project-card__title">AIOS: Local AI Operating System</h3>
               <p class="project-card__desc">A work-in-progress, privacy-first desktop automation layer. It captures screen context, extracts text and interface elements, asks a local or remote model to plan, and executes approved actions through input controls, APIs, or scripts with replayable logs and memory.</p>
               <div class="project-card__tags"><span class="project-card__tag">OCR</span><span class="project-card__tag">Local LLM</span><span class="project-card__tag">FAISS</span><span class="project-card__tag">Python</span></div>
               <a href="https://github.com/GauraangMalikk/AIOS" target="_blank" rel="noopener noreferrer" class="project-card__link">View on GitHub ↗</a>
             </article>
             <article class="project-card project-card--visual">
-              <a class="project-card__media-link" href="https://github.com/GauraangMalikk/AI-Interconnect" target="_blank" rel="noopener noreferrer" aria-label="Open AI Interconnect on GitHub"><img src="./assets/img/projects/ai-interconnect.webp" alt="GitHub repository preview for AI Interconnect" width="1280" height="720" loading="lazy" /></a>
+              <a class="project-card__media-link" href="https://github.com/GauraangMalikk/AI-Interconnect" target="_blank" rel="noopener noreferrer" aria-label="Open AI Interconnect on GitHub"><img src="./assets/img/projects/ai-interconnect-concept.webp" alt="Concept illustration of desktop and mobile local AI connecting through a secure hub to building systems and edge devices" width="1672" height="941" loading="lazy" /><span class="project-card__visual-note">Concept visual</span></a>
               <span class="project-card__label">GitHub · Systems</span><h3 class="project-card__title">AI Interconnect</h3>
               <p class="project-card__desc">The Apple-side node of AIOS: a SwiftUI app for macOS and iOS that unifies local MLX, Apple Intelligence, and Core ML backends, while connecting securely to the AIOS hub for devices, scenes, topology, and natural-language commands.</p>
               <div class="project-card__tags"><span class="project-card__tag">SwiftUI</span><span class="project-card__tag">MLX</span><span class="project-card__tag">Core ML</span><span class="project-card__tag">AIOS Hub</span></div>
@@ -234,7 +238,10 @@
               <div class="talk-card__info"><span class="talk-card__role">Past workshop · Speaker</span><h3 class="talk-card__title">ML, LLMs, RAG &amp; AI Agents</h3><p class="talk-card__meta">Simply Voting Inc. · Montréal · March 2026</p><p class="talk-card__desc">A company workshop covering data and ML fundamentals, transformer architecture, retrieval-augmented generation, and the profile–memory–planning–action model of AI agents. Teams finished by sketching real automation ideas, from sales workflows to office-fridge assistance.</p><a href="https://www.linkedin.com/posts/grauraang-malik_ai-machinelearning-agents-share-7436807416261971968-jL7W" target="_blank" rel="noopener noreferrer" class="talk-card__link">View workshop recap on LinkedIn ↗</a></div>
             </article>
             <article class="talk-card talk-card--text"><div class="talk-card__info"><span class="talk-card__role">Past event · Host</span><h3 class="talk-card__title">The AI Collective × Deck Meetup</h3><p class="talk-card__meta">Montréal · April 2026 · 150+ attendees</p><p class="talk-card__desc">Hosted with Deck and guest speaker Artem Avdacev on what makes a product AI-native. The discussion focused on building trust through small validated steps, then using context and memory systems to improve products over time.</p><a href="https://www.linkedin.com/posts/grauraang-malik_great-energy-at-the-ai-collective-deck-ugcPost-7453126705055006721-eM90" target="_blank" rel="noopener noreferrer" class="talk-card__link">View event recap on LinkedIn ↗</a></div></article>
-            <article class="talk-card talk-card--text"><div class="talk-card__info"><span class="talk-card__role">Past event · Organizer</span><h3 class="talk-card__title">The Rise of Everyday Data Scientists &amp; Prompt Engineers</h3><p class="talk-card__meta">The AI Collective Montréal · May 20, 2026 · 95 registered guests</p><p class="talk-card__desc">A completed community event about how product teams, marketers, designers, founders, and operators are increasingly working with data and prompts—not only technical specialists. The public event page records the Montréal programme and hosts.</p><a href="https://luma.com/aic-mtl-5-20" target="_blank" rel="noopener noreferrer" class="talk-card__link">View completed event on Luma ↗</a></div></article>
+            <article class="talk-card">
+              <a class="talk-card__media-link" href="https://www.linkedin.com/feed/update/urn:li:activity:7463040537747640320/" target="_blank" rel="noopener noreferrer" aria-label="View The Rise of Everyday Data Scientists and Prompt Engineers event recap on LinkedIn"><img src="./assets/img/presentations/everyday-data-scientists-linkedin.webp" alt="Sarra Kallel speaking to a full audience at The AI Collective event at Le Wagon Montréal" width="800" height="450" loading="lazy" /><span>View event post ↗</span></a>
+              <div class="talk-card__info"><span class="talk-card__role">Past event · Host</span><h3 class="talk-card__title">The Rise of Everyday Data Scientists &amp; Prompt Engineers</h3><p class="talk-card__meta">The AI Collective Montréal · Le Wagon · May 20, 2026 · 95 registered guests</p><p class="talk-card__desc">A completed community event about how product teams, marketers, designers, founders, and operators are increasingly working with data and prompts—not only technical specialists. The LinkedIn recap captures the room, Sarra Kallel’s talk, and the event’s practical framework for clearer prompting.</p><div class="talk-card__links"><a href="https://www.linkedin.com/feed/update/urn:li:activity:7463040537747640320/" target="_blank" rel="noopener noreferrer" class="talk-card__link">View event recap on LinkedIn ↗</a><a href="https://luma.com/aic-mtl-5-20" target="_blank" rel="noopener noreferrer" class="talk-card__link talk-card__link--secondary">Event page on Luma ↗</a></div></div>
+            </article>
           </div>
         </div>
       </section>
@@ -243,11 +250,12 @@
         <div class="container about__editorial">
           <figure class="about__portrait"><a href="./about/index.html" aria-label="Read Gauraang Malik’s full bio"><img src="./assets/img/gauraang.jpg" alt="Portrait of Gauraang Malik" width="960" height="1200" loading="lazy" /></a><figcaption>Gauraang Malik · Montréal</figcaption></figure>
           <div class="about__text">
-            <span class="section-label">// About</span><h2 class="section-title">Founder, Le Laboratoire Kalkin</h2>
+            <span class="section-label">// Founder</span><h2 class="section-title">Founder, Le Laboratoire Kalkin</h2>
             <p class="about__lead">Gauraang is a Building Engineering PhD researcher, McGill graduate, and founder of Le Laboratoire Kalkin.</p>
             <p>The work connects intelligent systems, buildings, research practice, culture, music, and playful experiments such as astrology.</p>
             <p class="about__boundary"><strong>Evidence boundary:</strong> research claims require evidence; philosophy and creative inquiry offer questions, metaphors, and perspective rather than scientific proof.</p>
-            <a href="./about/index.html" class="about__link">Full bio &amp; CV <span aria-hidden="true">→</span></a>
+            <address class="about__contact"><a href="mailto:gauraangmalik1@gmail.com">gauraangmalik1@gmail.com</a><a href="https://wa.me/15145770030" target="_blank" rel="noopener noreferrer">WhatsApp</a><a href="https://www.linkedin.com/in/grauraang-malik/" target="_blank" rel="noopener noreferrer">LinkedIn</a></address>
+            <a href="./about/index.html" class="about__link">Founder profile &amp; CV <span aria-hidden="true">→</span></a>
           </div>
         </div>
       </section>

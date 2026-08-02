@@ -1,10 +1,18 @@
-**Design QA — Portfolio Visual Polish**
+**Design QA — Portfolio Founder, Navigation & Media Polish**
 
 source visual truth path: `/Users/gauraangmalik/.codex/generated_images/019fc11b-04c9-7cd0-946a-4deea74b8b2e/exec-053098ef-f9aa-4fe9-932e-947acd9c8d0c.png`
+
+current public homepage reference: `/private/tmp/portfolio-contact-polish-before-home.png`
+
+current public About reference: `/private/tmp/portfolio-contact-polish-before-about.png`
 
 implementation screenshot path: `/private/tmp/portfolio-final-1440x1024-dark.png`
 
 combined full-view comparison: `/private/tmp/portfolio-qa-side-by-side.png`
+
+latest homepage before/after comparison: `/private/tmp/portfolio-contact-polish-compare-home.png`
+
+latest About before/after comparison: `/private/tmp/portfolio-contact-polish-compare-about.png`
 
 focused demo comparison: `/private/tmp/portfolio-qa-demos-side-by-side.png`
 
@@ -23,6 +31,8 @@ state: homepage at the top of `/`, dark theme, navigation closed, hero animation
 - The source direction and final browser render were placed together in one `2880 × 1068` comparison image.
 - The implementation retains the source’s dark observatory palette, cyan-to-violet identity treatment, fixed navigation, mono supporting type, three adjacent primary actions, and crisp editorial section dividers.
 - The simpler single-line name, removal of the coordinate ornament, larger social tiles, and placement of “Three connected practices” before Live Demos are intentional responses to the latest user direction.
+- The latest pass separates `Founder` from the main navigation beside the animated Kalkin identity, keeps `Please Scrape Me` in the primary navigation, and preserves Contact as the final main-nav item.
+- The homepage social treatment is now a border-led editorial rail with large, branded LinkedIn, GitHub, and WhatsApp marks, concise labels, and persistent external-link arrows. It is visually stronger and less card-like than the public reference.
 - Typography uses the existing Space Grotesk, Inter, and JetBrains Mono stack. The hierarchy, wrapping, weights, and line height remain readable at desktop and mobile widths without adding a font dependency.
 - Spacing is deliberately more generous than the original direction: the hero reads as a calm introduction, then hands off to the three-practice strip before the media-heavy work.
 - Colors continue to use the project’s existing cyan, violet, amber, surface, border, and light-theme tokens. Contrast and visible focus states were checked in both themes.
@@ -37,6 +47,9 @@ state: homepage at the top of `/`, dark theme, navigation closed, hero animation
 - Generated media follows one art direction across agents, building energy, astrology, and archetype retrieval; crops remain sharp at `16:9`, with persistent “Open live interface ↗” and “Concept visual” labels.
 - `/private/tmp/portfolio-polish-archetype-demo-320-light-2.png` confirms the longest title, description, status line, and launch link remain readable without horizontal overflow at 320 px.
 - Focused checks were also made on the compact circular portrait, project media overlays, large social-logo buttons, and mobile menu. No visible icon, crop, or alignment defects remain.
+- The full About portrait changed from the public page’s dominant 4:5 rectangle to a true `340 × 340` circle on desktop and `250 × 250` on a 320 px viewport. The homepage and full About page now use the same portrait language.
+- AIOS and AI Interconnect received purpose-built concept visuals in the established dark observatory palette; both are visibly labelled “Concept visual.” The completed Everyday Data Scientists event uses the authentic 16:9 photograph from the supplied LinkedIn post.
+- The Live Demo reading order is now Building Energy Predictor, Building Archetype Semantic Search, Multi-Agent System, and Astrology with TinyLlama. Mobile media is intentionally shortened to approximately `2.2:1` at 320/390 px and `2:1` at 768 px.
 
 **Findings**
 
@@ -62,6 +75,13 @@ state: homepage at the top of `/`, dark theme, navigation closed, hero animation
 4. Final comparison.
    - Source and implementation were reviewed together in `/private/tmp/portfolio-qa-side-by-side.png`; the demo region was reviewed together in `/private/tmp/portfolio-qa-demos-side-by-side.png`.
    - Result: no actionable P0/P1/P2 mismatch remained.
+5. Founder, navigation, social, and event-media pass.
+   - Earlier P2: About still behaved as a normal in-page navigation item, the full About portrait remained a large 4:5 rectangle, and social destinations still read as small generic cards.
+   - Fix: moved Founder beside Kalkin with direct `/about/` routing, added contact details to the founder introduction, converted the full portrait to a compact circle, and rebuilt the social row with branded marks and larger hit targets.
+   - Earlier P2: AIOS and AI Interconnect lacked meaningful media, while the Everyday Data Scientists event had no authentic image and could read as upcoming.
+   - Fix: added clearly labelled generated concept art to both repositories, used the supplied LinkedIn event photograph and recap destination, and labelled the event `Past event · Host`.
+   - Post-fix evidence: `/private/tmp/portfolio-contact-polish-compare-home.png`, `/private/tmp/portfolio-contact-polish-compare-about.png`, `/private/tmp/portfolio-r5-projects-1024-light.png`, and `/private/tmp/portfolio-r5-linkedin-event-1024-light.png`.
+   - Result: no actionable P0/P1/P2 mismatch remains.
 
 **Primary interactions tested**
 
@@ -79,6 +99,11 @@ state: homepage at the top of `/`, dark theme, navigation closed, hero animation
 - [x] Add Building Archetype Semantic Search as a fourth full-card demo.
 - [x] Use a balanced image-forward 2×2 demo grid with unmistakable launch affordance.
 - [x] Preserve content, routes, anchors, destinations, themes, and crawl files.
+- [x] Make Founder a distinct identity-level destination and keep Please Scrape Me in desktop/mobile navigation.
+- [x] Add visible founder contact details and match the About portrait to the homepage circle.
+- [x] Reorder live demos with building-energy work first and shorten media on phones.
+- [x] Add honest generated media to AIOS/AI Interconnect and authentic LinkedIn event media.
+- [x] Add StarTalk to Ideas I Follow without treating it as technical evidence.
 - [x] Verify desktop/mobile, dark/light, image crops, overflow, links, and browser diagnostics.
 
 **Follow-up Polish**
