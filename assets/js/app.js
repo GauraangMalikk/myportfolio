@@ -66,6 +66,19 @@
   });
   document.addEventListener("keydown", e => {
     if (e.key === "Escape") closeNav();
+    if (e.key === "Tab" && nav.classList.contains("navbar--open")) {
+      const focusable = [...overlay.querySelectorAll("a[href]")];
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
   });
 })();
 
@@ -107,16 +120,21 @@
 (function () {
   document.querySelectorAll(".canva-loader").forEach(loader => {
     function load() {
+      if (!loader.isConnected) return;
       const iframe = document.createElement("iframe");
       iframe.src = loader.dataset.src;
       iframe.className = "canva-embed-frame";
+      iframe.title = loader.getAttribute("aria-label") || "Canva presentation";
       iframe.allowFullscreen = true;
       iframe.loading = "lazy";
       loader.parentElement.replaceChild(iframe, loader);
     }
     loader.addEventListener("click", load);
     loader.addEventListener("keydown", e => {
-      if (e.key === "Enter" || e.key === " ") load();
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        load();
+      }
     });
   });
 })();
