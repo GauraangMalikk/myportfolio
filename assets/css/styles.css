@@ -2841,3 +2841,222 @@ html:not(.js) .portfolio-refresh .hero--editorial { padding-top: 76px; }
   .portfolio-refresh .influence-grid a:hover,
   .portfolio-refresh .influence-grid a:focus-visible { transform: none; }
 }
+
+/* === DOCK NAVIGATION + SOCIAL LAUNCHER REFINEMENT ========= */
+.navbar--dock .navbar__identity {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 1.6vw, 24px);
+  min-width: 0;
+}
+
+.navbar--dock .navbar__about,
+.navbar--dock .navbar__scrape {
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: .66rem;
+  font-weight: 500;
+  letter-spacing: .09em;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: color .2s ease;
+}
+
+.navbar--dock .navbar__about {
+  padding-left: clamp(14px, 1.6vw, 24px);
+  border-left: 1px solid var(--border-dim);
+}
+
+.navbar--dock .navbar__about:hover,
+.navbar--dock .navbar__about:focus-visible,
+.navbar--dock .navbar__about[aria-current="page"],
+.navbar--dock .navbar__scrape:hover,
+.navbar--dock .navbar__scrape:focus-visible,
+.navbar--dock .navbar__scrape[aria-current="page"] {
+  color: var(--cyan);
+}
+
+.navbar--dock .navbar__about:focus-visible,
+.navbar--dock .navbar__scrape:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 6px;
+}
+
+.navbar--dock .navbar__links {
+  gap: clamp(12px, 1.7vw, 26px);
+  padding: 9px clamp(14px, 1.7vw, 24px);
+  border: 1px solid var(--border-dim);
+  border-radius: 18px;
+  background: rgba(19, 27, 35, .72);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, .18), inset 0 1px 0 rgba(255, 255, 255, .04);
+  backdrop-filter: blur(18px) saturate(125%);
+  -webkit-backdrop-filter: blur(18px) saturate(125%);
+}
+
+[data-theme="light"] .navbar--dock .navbar__links {
+  background: rgba(255, 255, 255, .72);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, .08), inset 0 1px 0 rgba(255, 255, 255, .72);
+}
+
+.navbar--dock .navbar__scrape {
+  color: var(--cyan);
+}
+
+.portfolio-refresh .hero__social {
+  width: min(100%, 590px);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  padding: 13px;
+  border: 1px solid var(--editorial-line);
+  border-radius: 24px;
+  background: rgba(19, 27, 35, .74);
+  box-shadow: 0 22px 54px rgba(0, 0, 0, .22), inset 0 1px 0 rgba(255, 255, 255, .05);
+  backdrop-filter: blur(20px) saturate(125%);
+  -webkit-backdrop-filter: blur(20px) saturate(125%);
+}
+
+[data-theme="light"] .portfolio-refresh .hero__social {
+  background: rgba(255, 255, 255, .74);
+  box-shadow: 0 22px 52px rgba(15, 23, 42, .10), inset 0 1px 0 rgba(255, 255, 255, .78);
+}
+
+.portfolio-refresh .hero__social a,
+.portfolio-refresh .hero__social a:last-child {
+  min-height: 104px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 8px;
+  border: 0;
+  border-radius: 14px;
+  background: transparent;
+  text-align: center;
+  transition: color .2s ease, background .2s ease, transform .2s ease;
+}
+
+.portfolio-refresh .hero__social a:hover,
+.portfolio-refresh .hero__social a:focus-visible {
+  background: rgba(255, 255, 255, .055);
+  transform: translateY(-2px);
+}
+
+[data-theme="light"] .portfolio-refresh .hero__social a:hover,
+[data-theme="light"] .portfolio-refresh .hero__social a:focus-visible {
+  background: rgba(15, 23, 42, .055);
+}
+
+.portfolio-refresh .hero__social-icon {
+  flex: 0 0 52px;
+  width: 52px;
+  height: 52px;
+  border: 1px solid rgba(255, 255, 255, .13);
+  border-radius: 14px;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, .28), inset 0 1px 0 rgba(255, 255, 255, .18);
+}
+
+.portfolio-refresh .hero__social-label {
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.portfolio-refresh .hero__social-label strong {
+  font-family: var(--font-display);
+  font-size: .86rem;
+  letter-spacing: -.01em;
+}
+
+.portfolio-refresh .hero__social-arrow {
+  margin-left: 0;
+  color: var(--cyan);
+  font-size: .7rem;
+}
+
+.portfolio-refresh .demo-grid {
+  width: min(100%, 1000px);
+  margin-inline: auto;
+  gap: clamp(22px, 2.5vw, 30px);
+}
+
+.research-hero__author {
+  margin: -10px 0 30px;
+  color: var(--cyan);
+  font-family: var(--font-mono);
+  font-size: clamp(.8rem, 1.2vw, 1rem);
+  letter-spacing: .1em;
+}
+
+@media (min-width: 1101px) {
+  .portfolio-refresh .demo-grid { margin-inline: auto; }
+}
+
+@media (max-width: 1120px) {
+  .navbar--dock .navbar__links { gap: 12px; padding-inline: 14px; }
+  .navbar--dock .navbar__link { font-size: .63rem; }
+}
+
+@media (max-width: 960px) {
+  .navbar--dock .navbar__links { display: none; }
+}
+
+@media (max-width: 600px) {
+  .navbar--dock .navbar__about,
+  .navbar--dock .navbar__scrape { display: none; }
+
+  .portfolio-refresh .hero__social {
+    width: min(100%, 330px);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 4px;
+    padding: 9px;
+    border-radius: 20px;
+  }
+
+  .portfolio-refresh .hero__social a,
+  .portfolio-refresh .hero__social a:last-child {
+    width: auto;
+    min-height: 92px;
+    padding: 8px 2px;
+    border: 0;
+  }
+
+  .portfolio-refresh .hero__social-icon {
+    flex-basis: 46px;
+    width: 46px;
+    height: 46px;
+    border-radius: 13px;
+  }
+
+  .portfolio-refresh .hero__social-icon img { width: 22px; height: 22px; }
+  .portfolio-refresh .hero__social-label { gap: 4px; }
+  .portfolio-refresh .hero__social-label strong { font-size: clamp(.64rem, 3vw, .76rem); }
+  .portfolio-refresh .hero__social-arrow { font-size: .62rem; }
+
+  .research-hero h1 { font-size: clamp(2.8rem, 15.2vw, 4.8rem); }
+  .research-hero__author { margin-top: -8px; }
+}
+
+html:not(.js) .navbar--dock {
+  position: static;
+  height: auto;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-block: 12px;
+}
+
+html:not(.js) .navbar--dock .navbar__links {
+  order: 3;
+  width: 100%;
+  display: flex !important;
+  overflow-x: auto;
+}
+
+html:not(.js) .navbar--dock .navbar__about,
+html:not(.js) .navbar--dock .navbar__scrape { display: inline-flex !important; }
+html:not(.js) .navbar--dock .navbar__hamburger,
+html:not(.js) .navbar--dock + .nav-overlay { display: none !important; }

@@ -1,131 +1,105 @@
-**Design QA — Portfolio Navigation & Social Clarity**
+**Design QA — Dock Navigation, Social Launcher & Energy Article**
 
-source visual truth path: `/Users/gauraangmalik/.codex/generated_images/019fc11b-04c9-7cd0-946a-4deea74b8b2e/exec-053098ef-f9aa-4fe9-932e-947acd9c8d0c.png`
+source visual truth path: `/var/folders/1h/jzkc4s554818r0wfvp5d90zw0000gn/T/codex-clipboard-d91f6e66-af70-4b97-b0d0-3f3107c38b1c.png`
 
-current public homepage reference: `/private/tmp/portfolio-nav-social-before-1024.png`
+current public homepage reference: `/private/tmp/portfolio-before-1024.jpg`
 
-current public About reference: `/private/tmp/portfolio-contact-polish-before-about.png`
+implementation screenshot path: `/private/tmp/portfolio-after-dock-1024.jpg`
 
-implementation screenshot path: `/private/tmp/portfolio-nav-social-after-1024.png`
+combined full-view comparison: `/private/tmp/portfolio-dock-before-after.jpg`
 
-combined full-view comparison: `/private/tmp/portfolio-qa-side-by-side.png`
+focused dock/mobile comparison: `/private/tmp/dock-reference-vs-mobile.jpg`
 
-latest homepage before/after comparison: `/private/tmp/portfolio-nav-social-comparison-1024.png`
+research desktop evidence: `/private/tmp/reducing-ai-energy-1440.jpg`
 
-latest research-title comparison: `/private/tmp/portfolio-scrape-title-comparison-1024.png`
+research mobile evidence: `/private/tmp/reducing-ai-energy-320.jpg`
 
-latest About before/after comparison: `/private/tmp/portfolio-contact-polish-compare-about.png`
+viewport: matched public-before and local-after captures at `1024 × 800 CSS px`, desktop, dark theme, device density 1. Responsive checks also covered `320`, `390`, `768`, `960`, and `1440` CSS px in dark and light themes.
 
-focused demo comparison: `/private/tmp/portfolio-qa-demos-side-by-side.png`
+source pixels: supplied dock reference `172 × 1328`; current public homepage reference `1019 × 796`.
 
-viewport: `1024 × 800 CSS px`, desktop, dark theme, device density 1; responsive checks also cover `320`, `390`, `768`, `960`, and `1440` CSS px.
+implementation pixels: desktop `1019 × 796`; mobile `315 × 768`.
 
-source pixels: `1019 × 796`
+density normalization: the public-before and local-after homepage images have identical pixel dimensions and were placed side by side without resampling. The supplied dock image is an inspiration crop rather than a same-screen mock; the focused comparison preserves its pixels and evaluates its shared-surface and icon hierarchy instead of claiming literal pixel equivalence.
 
-implementation pixels: `1019 × 796`
-
-density normalization: the current public reference and local implementation were captured at the same `1024 × 800` CSS viewport and produced matching `1019 × 796` screenshots. They were combined without resampling.
-
-state: homepage at the top of `/`, dark theme, navigation closed, hero animations settled. A second matched comparison uses the top of `/please-scrape-me/` in dark theme.
+state: homepage at the top of `/`, dark theme, navigation closed, hero animation settled. Additional states cover the open phone menu, light theme, About route, and the research hero.
 
 **Full-view comparison evidence**
 
-- The source direction and final browser render were placed together in one `2880 × 1068` comparison image.
-- The implementation retains the source’s dark observatory palette, cyan-to-violet identity treatment, fixed navigation, mono supporting type, three adjacent primary actions, and crisp editorial section dividers.
-- The simpler single-line name, removal of the coordinate ornament, larger social tiles, and placement of “Three connected practices” before Live Demos are intentional responses to the latest user direction.
-- The latest pass separates site sections from page-level destinations: Live Demos, Selected Work, Speaking, and Contact remain the central navigation; Home, About, Scrape Me, and the theme control form a distinct utility cluster.
-- Home is always a labelled circular control. It receives the cyan current-page treatment only on the homepage, while About and Scrape Me receive their own current-page states on their routes.
-- The homepage social treatment is now a border-led editorial rail with full `283 × 90` destinations, large branded marks, a single readable title, and persistent external-link arrows. The previous build inherited a base `44px` width that visibly compressed every link; the implementation explicitly resets width, height, alignment, radius, and typography.
-- Typography uses the existing Space Grotesk, Inter, and JetBrains Mono stack. The hierarchy, wrapping, weights, and line height remain readable at desktop and mobile widths without adding a font dependency.
-- Spacing is deliberately more generous than the original direction: the hero reads as a calm introduction, then hands off to the three-practice strip before the media-heavy work.
-- Colors continue to use the project’s existing cyan, violet, amber, surface, border, and light-theme tokens. Contrast and visible focus states were checked in both themes.
-- The rotating Kalkin mark uses the original `logoGlow` and `logoSpin` keyframes. The existing reduced-motion rule collapses both animations for users who request less motion.
-- All four demo images are high-resolution WebP concept illustrations and are visibly labelled “Concept visual,” so they cannot be mistaken for product screenshots.
-- Copy is grounded in the linked project and event sources. Demo status text uses “Hosted on Hugging Face · may wake on launch,” and the Building Archetype card states its retrieval-only boundary.
+- `/private/tmp/portfolio-dock-before-after.jpg` places the current public homepage and the local implementation together at the same viewport and state.
+- The Home circle is gone. About Me now belongs to the Kalkin identity group, while Live Demos, Selected Work, Speaking, and Contact sit in one shared translucent homepage dock. Scrape Me is immediately beside the theme control.
+- The homepage-section dock is a single surface with no individual outlined pills. It borrows the reference’s visual grouping without copying desktop chrome or adding fake assets.
+- The hero keeps the existing Space Grotesk, Inter, and JetBrains Mono stack, editorial spacing, and cyan-led palette. Type weight, wrapping, line height, and hierarchy remain consistent with the portfolio.
+- The social links now use one shared launcher surface and genuine LinkedIn, GitHub, and WhatsApp SVG assets in compact app tiles. Individual outlined cards and duplicated secondary labels are absent.
+- At 1440 px, Live Demo cards measure `485px` and Selected Work cards measure `388px`, a `1.25×` ratio. This is visibly larger without dominating the next section.
+- Light-theme evidence at `/private/tmp/portfolio-after-dock-light-1024.jpg` confirms that the shared surfaces, shadows, borders, labels, and icons retain contrast without becoming heavy white cards.
+- “Reducing AI’s Energy Footprint” replaces the abstract working title in visible copy, metadata, Article JSON-LD, `llms.txt`, About links, and reusable attribution. `— Gauraang Malik` appears directly beneath the H1.
 
 **Focused region comparison evidence**
 
-- The source demo region and `/private/tmp/portfolio-final-demos-1440x900-dark.png` were placed together in one comparison input.
-- The implementation intentionally changes the source’s three-card row into a larger two-column grid. This gives the new fourth demo equal visual weight and makes each full-card launch affordance easier to scan and click.
-- Generated media follows one art direction across agents, building energy, astrology, and archetype retrieval; crops remain sharp at `16:9`, with persistent “Open live interface ↗” and “Concept visual” labels.
-- `/private/tmp/portfolio-polish-archetype-demo-320-light-2.png` confirms the longest title, description, status line, and launch link remain readable without horizontal overflow at 320 px.
-- Focused checks were also made on the compact circular portrait, project media overlays, large social-logo buttons, and mobile menu. No visible icon, crop, or alignment defects remain.
-- The full About portrait changed from the public page’s dominant 4:5 rectangle to a true `340 × 340` circle on desktop and `250 × 250` on a 320 px viewport. The homepage and full About page now use the same portrait language.
-- AIOS and AI Interconnect received purpose-built concept visuals in the established dark observatory palette; both are visibly labelled “Concept visual.” The completed Everyday Data Scientists event uses the authentic 16:9 photograph from the supplied LinkedIn post.
-- The Live Demo reading order is now Building Energy Predictor, Building Archetype Semantic Search, Multi-Agent System, and Astrology with TinyLlama. Mobile media is intentionally shortened to approximately `2.2:1` at 320/390 px and `2:1` at 768 px.
-- `/private/tmp/portfolio-nav-social-comparison-1024.png` confirms that the social-link duplication is gone and the Home / About / Scrape Me hierarchy reads clearly at the last desktop breakpoint.
-- `/private/tmp/portfolio-scrape-title-comparison-1024.png` confirms that “Intelligence in Place” is more specific to the article’s building-scale compute thesis than the previous personal placeholder title.
-- At `320px`, Home remains a `38 × 38` circle, About and Scrape Me move into a labelled Pages group in the scrollable menu, all social destinations remain `275 × 72`, and document width remains within the viewport.
+- `/private/tmp/dock-reference-vs-mobile.jpg` places the supplied macOS dock reference and the 320 px implementation together. Both use one containing surface, consistent icon tiles, compact labels, and strong grouping; the portfolio intentionally remains horizontal and web-native.
+- At 320 px, the shared social launcher is `275 × 112`, each destination is approximately `82 × 92`, all three destinations remain visible in one row, and document width remains inside the viewport.
+- The phone header contains Kalkin, theme, and menu only. The open menu visibly separates Pages (About Me, Scrape Me) from Homepage Sections (Live Demos, Selected Work, Speaking, Contact).
+- At 768 and 960 px, About Me and Scrape Me remain visible in the header while the homepage dock moves into the menu. At 1024 px, all three navigation groups fit without overlap.
+- `/private/tmp/reducing-ai-energy-320.jpg` confirms the longer research title wraps cleanly at 320 px, the byline remains attached to the title, and the lede stays readable without horizontal overflow.
+- The About portrait remains an authentic `340 × 340` circle at desktop, matching the homepage portrait language rather than reverting to a stretched rectangle.
+
+**Required fidelity surfaces**
+
+- Fonts and typography: existing font families and optical hierarchy preserved; no clipped or truncated navigation, social, demo, or research-title text at tested widths.
+- Spacing and layout rhythm: identity, homepage dock, and utility actions read as three groups; the social launcher has a single shared boundary; demo-to-project scale is controlled at 1.25× on wide desktop.
+- Colors and tokens: existing cyan, muted text, surface, border, dark, and light tokens are reused; focus rings remain cyan and visible.
+- Image quality and asset fidelity: supplied social SVGs, portfolio logo, demo concept WebPs, project media, and portrait remain intact. No placeholder, CSS-drawn icon, emoji, or fabricated screenshot was introduced.
+- Copy and content: page labels match their routes; the article title explicitly communicates AI energy reduction and includes Gauraang Malik’s byline.
 
 **Findings**
 
 - No actionable P0, P1, or P2 findings remain.
-- Accepted intentional difference: the implementation uses a quieter, plainer hero and places capabilities before demos because the user explicitly preferred that hierarchy over the first visual direction.
-- Accepted intentional difference: the current demo media is conceptual rather than literal. Every image is explicitly labelled to preserve honesty.
-- P3: the Building Archetype description is the longest live-demo summary. It remains readable, but could be shortened later if a more magazine-like card rhythm is preferred.
+- Accepted intentional difference: the supplied image is a vertical operating-system dock, while the site needs a responsive horizontal navigation and social launcher. The implementation carries over grouping, translucency, icon hierarchy, and shared-surface logic rather than cloning device chrome.
+- P3: the homepage-section dock uses an `18px` radius to echo the reference. It can be squared further later if a sharper editorial treatment is preferred, but it no longer reads as multiple circular buttons.
 
 **Comparison history**
 
-1. Earlier refinement pass.
-   - Earlier P2: the hero included a coordinate/status panel the user found too stylized, social links were visually small, and the portrait was oversized.
-   - Fix: simplified the hero, expanded social links into logo tiles, removed the coordinate ornament, and restored the portrait to a compact circle.
-   - Post-fix evidence: `/private/tmp/portfolio-polish-top-1440-dark.png` and `/private/tmp/portfolio-polish-about-1440-dark-3.png`.
-2. Media and content pass.
-   - Earlier P2: demos and GitHub projects did not have enough imagery or explanation, and speaking details were too generic.
-   - Fix: introduced consistent demo concept art, authentic repository media where available, richer source-backed descriptions, and completed-event language.
-   - Post-fix evidence: `/private/tmp/portfolio-polish-demos-1440-dark.png` and `/private/tmp/portfolio-polish-projects-1440-dark-2.png`.
-3. Fourth-demo and logo pass.
-   - Earlier P2: adding a fourth demo to the three-column composition would have left a visually stranded final card; the external logo asset was no longer receiving the original spin/glow animation.
-   - Fix: changed the demo grid to a balanced 2×2 desktop layout, added the Building Archetype concept visual and source-backed copy, and applied the original animation keyframes to `.navbar__logo-image`.
-   - Post-fix evidence: `/private/tmp/portfolio-final-demos-1440x900-dark.png` and `/private/tmp/portfolio-polish-archetype-demo-320-light-2.png`.
-4. Final comparison.
-   - Source and implementation were reviewed together in `/private/tmp/portfolio-qa-side-by-side.png`; the demo region was reviewed together in `/private/tmp/portfolio-qa-demos-side-by-side.png`.
-   - Result: no actionable P0/P1/P2 mismatch remained.
-5. Founder, navigation, social, and event-media pass.
-   - Earlier P2: About still behaved as a normal in-page navigation item, the full About portrait remained a large 4:5 rectangle, and social destinations still read as small generic cards.
-   - Fix: moved Founder beside Kalkin with direct `/about/` routing, added contact details to the founder introduction, converted the full portrait to a compact circle, and rebuilt the social row with branded marks and larger hit targets.
-   - Earlier P2: AIOS and AI Interconnect lacked meaningful media, while the Everyday Data Scientists event had no authentic image and could read as upcoming.
-   - Fix: added clearly labelled generated concept art to both repositories, used the supplied LinkedIn event photograph and recap destination, and labelled the event `Past event · Host`.
-   - Post-fix evidence: `/private/tmp/portfolio-contact-polish-compare-home.png`, `/private/tmp/portfolio-contact-polish-compare-about.png`, `/private/tmp/portfolio-r5-projects-1024-light.png`, and `/private/tmp/portfolio-r5-linkedin-event-1024-light.png`.
-   - Result: no actionable P0/P1/P2 mismatch remains.
-6. Navigation and social clarity pass.
-   - Earlier P1: the visible LinkedIn, GitHub, and WhatsApp links inherited the original icon-only `44px` width, compressing the title, secondary label, and arrow into an unreadable stack.
-   - Fix: reset the legacy dimensions and remove redundant Profile / Repositories / Message Me subtitles. Each destination is now one full-width branded row with a single title and arrow.
-   - Earlier P2: Home, About, and the research article were mixed into the same navigation hierarchy, so the site’s page structure was not immediately obvious.
-   - Fix: added a circular labelled Home control and a distinct About / Scrape Me utility group beside the theme control; the phone menu explicitly labels Pages and On the homepage.
-   - Earlier P2: “The Gauraang Idea” and “Please Scrape Me” were personal placeholder language rather than a concise editorial title and navigation label.
-   - Fix: renamed the article “Intelligence in Place” and shortened the destination to “Scrape Me” across visible copy, metadata, Article JSON-LD, attribution, and `llms.txt`.
-   - Post-fix evidence: `/private/tmp/portfolio-nav-social-comparison-1024.png`, `/private/tmp/portfolio-scrape-title-comparison-1024.png`, and `/private/tmp/portfolio-nav-social-after-phone.png`.
+1. Initial state.
+   - P2: the circular Home control made the homepage look like a peer page rather than the parent of the section links.
+   - P2: social destinations were three rigid outlined panels, which did not match the supplied app-dock grouping.
+   - P2: the two-column Live Demo grid was roughly 1.5× the width of Selected Work cards on wide screens and remained visually dominant.
+   - P2: “Intelligence in Place” did not state the article’s AI-energy purpose, and the author was not directly attached to the title.
+2. Fixes made.
+   - Removed the Home circle, moved About Me beside Kalkin, grouped homepage anchors in one dock, and placed Scrape Me beside the theme control.
+   - Rebuilt social destinations as one app-style launcher with genuine brand assets and retained full-link hit areas.
+   - Constrained the demo grid to `1000px`, producing a measured 1.25× desktop ratio against Selected Work.
+   - Renamed the article “Reducing AI’s Energy Footprint” and added `— Gauraang Malik` immediately below the H1 across visible and machine-readable interfaces.
+3. Post-fix visual evidence.
+   - `/private/tmp/portfolio-dock-before-after.jpg`, `/private/tmp/dock-reference-vs-mobile.jpg`, `/private/tmp/reducing-ai-energy-1440.jpg`, and `/private/tmp/reducing-ai-energy-320.jpg` show the resolved desktop, phone, navigation, social, scale, and title states.
    - Result: no actionable P0/P1/P2 mismatch remains.
 
 **Primary interactions tested**
 
-- Desktop and mobile navigation, mobile menu open/close, section navigation, and fixed-nav behavior.
-- Dark/light theme controls and responsive states at 320, 390, 768, 960, 1024, and 1440 px.
-- Full demo-card pointer surface, semantic anchors, keyboard focus, declared `target="_blank"`, and `rel="noopener noreferrer"` behavior.
-- Canva poster click-to-load behavior and external-link fallback.
-- Homepage, About, Scrape Me, CV, project, speaking, social, contact, sitemap, and machine-readable routes.
-- Browser console checked on the final local render: no console errors.
+- Desktop navigation at 1024 and 1440 px; tablet/mobile collapse at 960, 768, 390, and 320 px.
+- Mobile menu open state, labels, scrolling bounds, close control, and page/section grouping.
+- Dark/light theme switching and light-theme surface contrast.
+- Full-card demo anchors, pointer cursor, `target="_blank"`, `rel="noopener noreferrer"`, and visible keyboard focus (`3px` cyan outline).
+- Social-link destinations, new-tab attributes, and visible keyboard focus (`3px` cyan outline).
+- About and Scrape Me current-page states, circular About portrait, local anchors, sitemap, `llms.txt`, CSS, JS, SVGs, and all edited routes.
+- Reduced-motion CSS remains present. Static no-JavaScript navigation rules expose the homepage dock and page links while hiding the inoperable menu control.
+- Browser console checked on the final local homepage: no console errors. Below-fold unloaded images were confirmed to be intentional `loading="lazy"` assets, and every referenced local asset returned HTTP 200.
 
 **Implementation Checklist**
 
-- [x] Preserve the selected editorial identity while simplifying the hero.
-- [x] Restore the animated Kalkin mark with reduced-motion compatibility.
-- [x] Add Building Archetype Semantic Search as a fourth full-card demo.
-- [x] Use a balanced image-forward 2×2 demo grid with unmistakable launch affordance.
-- [x] Preserve content, routes, anchors, destinations, themes, and crawl files.
-- [x] Separate Home, About, and Scrape Me from the homepage section navigation.
-- [x] Make Home an unmistakable circular destination on desktop and mobile.
-- [x] Remove social-link subtitle duplication and restore full clickable width.
-- [x] Rename the research article to Intelligence in Place across visible and machine-readable interfaces.
-- [x] Add visible founder contact details and match the About portrait to the homepage circle.
-- [x] Reorder live demos with building-energy work first and shorten media on phones.
-- [x] Add honest generated media to AIOS/AI Interconnect and authentic LinkedIn event media.
-- [x] Add StarTalk to Ideas I Follow without treating it as technical evidence.
-- [x] Verify desktop/mobile, dark/light, image crops, overflow, links, and browser diagnostics.
+- [x] Remove the Home circle.
+- [x] Place About Me beside Kalkin.
+- [x] Group homepage-only anchors inside one shared dock.
+- [x] Place Scrape Me beside the theme control.
+- [x] Replace the social card rail with one app-style launcher surface.
+- [x] Keep genuine social logos and full clickable destinations.
+- [x] Make Live Demos only modestly larger than Selected Work.
+- [x] Rename the research article and place Gauraang Malik’s byline below the H1.
+- [x] Preserve routes, anchors, imagery, themes, reduced motion, semantic HTML, and machine-readable discovery.
+- [x] Verify desktop, tablet, phone, dark, light, focus, overflow, links, and browser diagnostics.
 
 **Follow-up Polish**
 
-- P3: the circular Home label is intentionally compact. A future icon-library pass could add a familiar home mark while retaining the visible text, but the current labelled control is clearer than an icon-only destination.
+- P3: if the shared homepage dock should feel even more editorial, reduce its radius from `18px` to `14px`; no usability fix is required.
 
 final result: passed

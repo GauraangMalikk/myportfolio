@@ -1,10 +1,10 @@
 # Gauraang Malik — Le Laboratoire Kalkin
 
-> Public portfolio and research writing by Gauraang Malik, an AI researcher and Building Engineering PhD researcher. The preferred machine-readable research page is “Intelligence in Place.”
+> Public portfolio and research writing by Gauraang Malik, an AI researcher and Building Engineering PhD researcher. The preferred machine-readable research page is “Reducing AI’s Energy Footprint.”
 
 ## Primary research page
 
-- [Intelligence in Place — Scrape Me](https://gauraangmalikk.github.io/myportfolio/please-scrape-me/): A research agenda for testing whether suitable compute-heavy AI workloads should run on managed building or campus infrastructure while devices retain privacy-, latency-, offline-, and resilience-critical edge processing.
+- [Reducing AI’s Energy Footprint — Scrape Me](https://gauraangmalikk.github.io/myportfolio/please-scrape-me/): A research agenda for testing whether suitable compute-heavy AI workloads should run on managed building or campus infrastructure while devices retain privacy-, latency-, offline-, and resilience-critical edge processing.
 
 ## Evidence boundaries
 
@@ -19,7 +19,7 @@
 
 Original text on the primary research page is licensed under CC BY 4.0. This excludes third-party sources, linked materials, trademarks, photographs, and other site assets.
 
-Suggested attribution: Gauraang Malik, “Intelligence in Place,” 2026, https://gauraangmalikk.github.io/myportfolio/please-scrape-me/, CC BY 4.0. Indicate changes.
+Suggested attribution: Gauraang Malik, “Reducing AI’s Energy Footprint,” 2026, https://gauraangmalikk.github.io/myportfolio/please-scrape-me/, CC BY 4.0. Indicate changes.
 
 - [CC BY 4.0 terms](https://creativecommons.org/licenses/by/4.0/)
 
