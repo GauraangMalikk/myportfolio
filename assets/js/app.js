@@ -28,6 +28,54 @@
   setTheme(localStorage.getItem("theme") || "dark");
 })();
 
+/* === 9. LINKED CARDS ======================================= */
+(function () {
+  const cards = [
+    ...document.querySelectorAll("[data-card-link]"),
+    ...document.querySelectorAll(".project-card:not(.project-card--media)")
+  ];
+
+  cards.forEach(card => {
+    const mediaLink = card.querySelector(".project-card__media-link[href]");
+    const url = card.dataset.cardLink || mediaLink?.href;
+    if (!url) return;
+
+    card.dataset.cardLink = url;
+    card.dataset.cardTarget ||= mediaLink?.target || "_blank";
+    const hasNestedControl = card.querySelector("a, button, input, select, textarea, [role='button']");
+    if (hasNestedControl) {
+      card.removeAttribute("role");
+      card.removeAttribute("tabindex");
+    } else {
+      card.tabIndex = 0;
+      card.setAttribute("role", "link");
+      if (!card.getAttribute("aria-label")) {
+        const title = card.querySelector(".project-card__title, .talk-card__title")?.textContent?.trim();
+        card.setAttribute("aria-label", title ? `Open ${title}` : "Open linked card");
+      }
+    }
+
+    const isNestedControl = target => target.closest("a, button, input, select, textarea, [role='button']");
+    const open = () => {
+      if (card.dataset.cardTarget === "_blank") {
+        window.open(card.dataset.cardLink, "_blank", "noopener,noreferrer");
+      } else {
+        window.location.assign(card.dataset.cardLink);
+      }
+    };
+
+    card.addEventListener("click", event => {
+      if (!isNestedControl(event.target)) open();
+    });
+    card.addEventListener("keydown", event => {
+      if ((event.key === "Enter" || event.key === " ") && !isNestedControl(event.target)) {
+        event.preventDefault();
+        open();
+      }
+    });
+  });
+})();
+
 /* === 3. MOBILE NAVBAR ===================================== */
 (function () {
   const nav        = document.querySelector(".navbar");

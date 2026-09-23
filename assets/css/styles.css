@@ -2291,6 +2291,8 @@ section {
 .portfolio-refresh .hero__index { display: none; }
 
 .portfolio-refresh .editorial-section { border-top: 1px solid var(--editorial-line); }
+.portfolio-refresh #services { border-top: 0; padding-block: clamp(32px, 4vw, 56px); }
+.portfolio-refresh #talks { border-top: 0; }
 .portfolio-refresh #dashboard { padding-top: clamp(72px, 8vw, 112px); }
 .portfolio-refresh #dashboard .section-heading-row { margin-bottom: clamp(36px, 5vw, 58px); }
 .portfolio-refresh .section-heading-row {
@@ -2551,12 +2553,15 @@ section {
 .portfolio-refresh .talk-card__embed { padding: 0; }
 .portfolio-refresh .canva-loader--talk { margin: 0; border: 0; border-bottom: 1px solid var(--editorial-line); }
 .portfolio-refresh .talk-card__media {
+  position: relative;
   aspect-ratio: 16 / 9;
   overflow: hidden;
   border-bottom: 1px solid var(--editorial-line);
   background: #05080c;
 }
 .portfolio-refresh .talk-card__media img {
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -2609,7 +2614,7 @@ section {
 .capabilities__strip {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  margin-top: 42px;
+  margin-top: 0;
   border-top: 1px solid var(--editorial-line);
   border-bottom: 1px solid var(--editorial-line);
 }
@@ -3417,3 +3422,33 @@ html:not(.js) .bookbar { position: static; }
   .booking-modal { width: 100vw; height: 100dvh; border-radius: 0; border: 0; }
   .booking__frame { min-height: 560px; }
 }
+
+/* === LINKED CARDS ========================================== */
+.talk-card[data-card-link],
+.project-card[data-card-link] { cursor: pointer; }
+
+.talk-card[data-card-link]:focus-visible,
+.project-card[data-card-link]:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 4px;
+}
+
+.talk-card__media-action {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  z-index: 2;
+  padding: 8px 10px;
+  border: 1px solid rgba(255, 255, 255, .22);
+  background: rgba(3, 8, 12, .84);
+  color: #f8fafc;
+  font-family: var(--font-mono);
+  font-size: .6rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.talk-card__media-action:hover,
+.talk-card__media-action:focus-visible { border-color: var(--cyan); color: var(--cyan); }
+.talk-card__media-action:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; }
