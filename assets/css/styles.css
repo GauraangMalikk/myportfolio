@@ -41,7 +41,13 @@
   --shadow-glow:   0 0 40px rgba(0, 212, 255, 0.18);
   --shadow-purple: 0 0 40px rgba(124, 58, 237, 0.18);
 
-  --nav-height:    56px;
+  /* Top chrome: booking bar sits above the navbar.
+     --nav-bar-h  = the navbar's own height
+     --bookbar-h  = the booking strip pinned above it
+     --nav-height = total top chrome; every content offset derives from this */
+  --nav-bar-h:     56px;
+  --bookbar-h:     42px;
+  --nav-height:    calc(var(--nav-bar-h) + var(--bookbar-h));
   --max-width:     1200px;
 }
 
@@ -183,10 +189,10 @@ section {
 /* === NAVBAR ================================================ */
 .navbar {
   position: fixed;
-  top: 0;
+  top: var(--bookbar-h);
   left: 0;
   width: 100%;
-  height: var(--nav-height);
+  height: var(--nav-bar-h);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -2076,7 +2082,8 @@ section {
    ============================================================ */
 .portfolio-refresh {
   --max-width: 1320px;
-  --nav-height: 68px;
+  --nav-bar-h: 68px;
+  --nav-height: calc(68px + var(--bookbar-h));
   --editorial-line: rgba(148, 163, 184, 0.18);
   --editorial-soft: rgba(148, 163, 184, 0.07);
   --editorial-ink: #05080c;
@@ -2121,7 +2128,7 @@ section {
 
 .portfolio-refresh .navbar {
   min-width: 0;
-  height: var(--nav-height);
+  height: var(--nav-bar-h);
   padding-inline: clamp(20px, 3vw, 48px);
   background: rgba(5, 8, 12, .86);
   border-color: var(--editorial-line);
@@ -2271,6 +2278,13 @@ section {
 .portfolio-refresh .hero__social-icon--whatsapp img { filter: brightness(0) invert(1); }
 .portfolio-refresh .hero__social-icon--github { background: #f8fafc; }
 .portfolio-refresh .hero__social-icon--whatsapp { background: #25d366; }
+.portfolio-refresh .hero__social-icon--book {
+  background: #f8fafc;
+}
+.portfolio-refresh .hero__social-icon--book img {
+  width: 34px;
+  height: 34px;
+}
 .portfolio-refresh .hero__social a > strong { font-family: var(--font-display); font-size: 1.05rem; letter-spacing: -.01em; }
 .portfolio-refresh .hero__social-arrow { margin-left: auto; color: var(--cyan); font-size: .78rem; }
 
@@ -2536,6 +2550,19 @@ section {
 }
 .portfolio-refresh .talk-card__embed { padding: 0; }
 .portfolio-refresh .canva-loader--talk { margin: 0; border: 0; border-bottom: 1px solid var(--editorial-line); }
+.portfolio-refresh .talk-card__media {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-bottom: 1px solid var(--editorial-line);
+  background: #05080c;
+}
+.portfolio-refresh .talk-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .35s ease, filter .35s ease;
+}
+.portfolio-refresh .talk-card:hover .talk-card__media img { transform: scale(1.015); filter: brightness(.94); }
 .portfolio-refresh .talk-card__info { padding: clamp(26px, 3vw, 38px); }
 .portfolio-refresh .talk-card__role { color: var(--cyan); letter-spacing: .16em; }
 .portfolio-refresh .talk-card__title { font-family: var(--font-display); font-size: clamp(1.4rem, 2.4vw, 2.15rem); line-height: 1.08; }
@@ -2906,7 +2933,7 @@ html:not(.js) .portfolio-refresh .hero--editorial { padding-top: 76px; }
 
 .portfolio-refresh .hero__social {
   width: min(100%, 590px);
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 8px;
   padding: 13px;
   border: 1px solid var(--editorial-line);
@@ -3011,7 +3038,7 @@ html:not(.js) .portfolio-refresh .hero--editorial { padding-top: 76px; }
 
   .portfolio-refresh .hero__social {
     width: min(100%, 330px);
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 4px;
     padding: 9px;
     border-radius: 20px;
@@ -3060,3 +3087,333 @@ html:not(.js) .navbar--dock .navbar__about,
 html:not(.js) .navbar--dock .navbar__scrape { display: inline-flex !important; }
 html:not(.js) .navbar--dock .navbar__hamburger,
 html:not(.js) .navbar--dock + .nav-overlay { display: none !important; }
+
+/* === BOOKING BAR (top of every page) ====================== */
+.bookbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--bookbar-h);
+  z-index: 210;
+  display: flex;
+  align-items: center;
+  padding-inline: clamp(16px, 3vw, 48px);
+  background:
+    linear-gradient(90deg, var(--cyan-dim), transparent 42%, var(--cyan-dim)),
+    rgba(5, 8, 12, .94);
+  border-bottom: 1px solid var(--border-cyan);
+  backdrop-filter: blur(14px) saturate(130%);
+  -webkit-backdrop-filter: blur(14px) saturate(130%);
+}
+
+[data-theme="light"] .bookbar {
+  background:
+    linear-gradient(90deg, var(--cyan-dim), transparent 42%, var(--cyan-dim)),
+    rgba(255, 255, 255, .94);
+}
+
+.bookbar__inner {
+  width: min(100%, var(--max-width));
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.bookbar__status {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+  font-family: var(--font-mono);
+  font-size: .64rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bookbar__pulse {
+  flex: 0 0 7px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--green-on);
+  box-shadow: 0 0 0 0 rgba(34, 211, 165, .55);
+  animation: bookbarPulse 2.4s ease-out infinite;
+}
+
+@keyframes bookbarPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(34, 211, 165, .5); }
+  70%  { box-shadow: 0 0 0 7px rgba(34, 211, 165, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(34, 211, 165, 0); }
+}
+
+.bookbar__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 30px;
+  padding: 6px 15px;
+  border: 1px solid var(--border-cyan);
+  border-radius: 999px;
+  background: var(--cyan-dim);
+  color: var(--cyan);
+  font-family: var(--font-mono);
+  font-size: .66rem;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background .2s ease, border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+
+.bookbar__cta:hover,
+.bookbar__cta:focus-visible {
+  background: var(--cyan);
+  border-color: var(--cyan);
+  color: var(--editorial-ink, #05080c);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px var(--cyan-glow);
+}
+
+[data-theme="light"] .bookbar__cta:hover,
+[data-theme="light"] .bookbar__cta:focus-visible { color: #fff; }
+
+.bookbar__cta:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; }
+
+.bookbar__cta-meta {
+  padding-left: 10px;
+  border-left: 1px solid currentColor;
+  font-size: .6rem;
+  font-weight: 400;
+  letter-spacing: .07em;
+  opacity: .78;
+}
+
+.bookbar__cta-arrow { font-size: .8rem; line-height: 1; }
+
+/* Navbar booking button (desktop) */
+.navbar__book {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 8px 16px;
+  border: 1px solid var(--cyan);
+  border-radius: 999px;
+  background: var(--cyan);
+  color: var(--editorial-ink, #05080c);
+  font-family: var(--font-mono);
+  font-size: .66rem;
+  font-weight: 500;
+  letter-spacing: .09em;
+  line-height: 1;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background .2s ease, color .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+
+[data-theme="light"] .navbar__book { color: #fff; }
+
+.navbar__book:hover,
+.navbar__book:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px var(--cyan-glow);
+}
+
+.navbar__book:focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; }
+
+/* Mobile menu booking entry */
+.nav-overlay .navbar__link--book {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 12px 26px;
+  border-radius: 999px;
+  background: var(--cyan);
+  color: var(--editorial-ink, #05080c);
+  font-weight: 500;
+}
+
+[data-theme="light"] .nav-overlay .navbar__link--book { color: #fff; }
+.nav-overlay .navbar__link--book:hover,
+.nav-overlay .navbar__link--book:focus-visible { color: var(--editorial-ink, #05080c); }
+[data-theme="light"] .nav-overlay .navbar__link--book:hover,
+[data-theme="light"] .nav-overlay .navbar__link--book:focus-visible { color: #fff; }
+
+@media (max-width: 960px) {
+  /* The booking bar already leads on mobile — keep the navbar uncluttered */
+  .navbar__book { display: none; }
+}
+
+@media (max-width: 760px) {
+  .bookbar__status { display: none; }
+  .bookbar__inner { justify-content: center; }
+  .bookbar__cta { width: 100%; justify-content: center; }
+}
+
+@media (max-width: 460px) {
+  :root { --bookbar-h: 40px; }
+  .bookbar { padding-inline: 12px; }
+  .bookbar__cta { gap: 8px; padding: 6px 12px; font-size: .62rem; letter-spacing: .07em; }
+  .bookbar__cta-meta { padding-left: 8px; font-size: .55rem; letter-spacing: .04em; }
+}
+
+@media (max-width: 360px) {
+  .bookbar__cta-meta { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bookbar__pulse { animation: none; }
+  .bookbar__cta,
+  .navbar__book { transition: none; }
+  .bookbar__cta:hover,
+  .bookbar__cta:focus-visible,
+  .navbar__book:hover,
+  .navbar__book:focus-visible { transform: none; }
+}
+
+/* No-JS: the navbar becomes static, so the bar must flow with it */
+html:not(.js) .bookbar { position: static; }
+
+/* === BOOKING SECTION — inline calendar ==================== */
+.booking {
+  scroll-margin-top: calc(var(--nav-height) + 24px);
+}
+
+.booking__embed {
+  position: relative;
+  margin-top: clamp(28px, 4vw, 48px);
+  padding: clamp(8px, 1.4vw, 18px);
+  border: 1px solid var(--editorial-line, var(--border-mid));
+  border-radius: var(--radius-lg);
+  background: rgba(19, 27, 35, .58);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+/* Hold the box open only while the calendar is loading — once Cal.com
+   reports back, the iframe drives its own height. */
+.booking__embed[aria-busy="true"] { min-height: 620px; }
+
+[data-theme="light"] .booking__embed { background: rgba(255, 255, 255, .72); }
+
+.booking__embed iframe,
+.booking__embed .cal-inline-container {
+  width: 100% !important;
+  border: 0;
+  border-radius: var(--radius-md);
+}
+
+.booking__loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  color: var(--text-dim);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.booking__fallback {
+  margin-top: 18px;
+  font-family: var(--font-mono);
+  font-size: .68rem;
+  color: var(--text-dim);
+  letter-spacing: .05em;
+}
+
+.booking__fallback a {
+  color: var(--cyan);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--border-cyan);
+}
+
+.booking__fallback a:hover,
+.booking__fallback a:focus-visible { border-bottom-style: solid; }
+
+@media (max-width: 600px) {
+  .booking__embed { min-height: 560px; padding: 6px; }
+}
+
+/* === BOOKING — Google appointment-schedule embed ========== */
+.booking__frame {
+  display: block;
+  width: 100%;
+  min-height: 620px;
+  border: 0;
+  border-radius: var(--radius-md);
+  background: #fff;
+}
+
+/* Booking dialog (used when the link is a Google appointment schedule —
+   Google ships no popup API, so the page opens in a native <dialog>) */
+.booking-modal {
+  width: min(96vw, 840px);
+  max-width: none;
+  height: min(88vh, 780px);
+  padding: 0;
+  border: 1px solid var(--border-cyan);
+  border-radius: var(--radius-lg);
+  background: var(--bg-surface);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, .45);
+  overflow: hidden;
+}
+
+.booking-modal::backdrop {
+  background: rgba(5, 8, 12, .72);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.booking-modal__frame {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #fff;
+}
+
+.booking-modal__close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  z-index: 2;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-mid);
+  border-radius: 50%;
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: border-color .2s ease, color .2s ease;
+}
+
+.booking-modal__close:hover,
+.booking-modal__close:focus-visible {
+  border-color: var(--cyan);
+  color: var(--cyan);
+}
+
+.booking-modal__close:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
+
+@media (max-width: 600px) {
+  .booking-modal { width: 100vw; height: 100dvh; border-radius: 0; border: 0; }
+  .booking__frame { min-height: 560px; }
+}

@@ -16,6 +16,7 @@
     localStorage.setItem("theme", theme);
     btn.innerHTML = theme === "dark" ? MOON : SUN;
     btn.setAttribute("aria-label", theme === "dark" ? "Switch to light mode" : "Switch to dark mode");
+    document.dispatchEvent(new CustomEvent("themechange", { detail: { theme } }));
   }
 
   btn.addEventListener("click", () => {
@@ -149,4 +150,216 @@
       }
     }, { rootMargin: "200px" }).observe(iframe);
   });
+})();
+
+/* === 8. BOOKING — scheduler embed ========================== */
+/*  ONE EDIT switches the whole site on. Paste EITHER kind of link:
+ *
+ *  A) Google Calendar appointment schedule — no new account needed.
+ *     Google Calendar → Create → Appointment schedule → set your hours →
+ *     Open the booking page → Share → Website embed → copy the URL.
+ *     Looks like:
+ *       "https://calendar.google.com/calendar/appointments/schedules/AcZssZ...?gv=true"
+ *     Google checks your Gmail calendar for conflicts itself and attaches
+ *     a Google Meet link. Free Gmail accounts get one booking page.
+ *
+ *  B) Cal.com link — use this when you want Zoom and Teams as options
+ *     alongside Meet. Just the part after "cal.com/":
+ *       "gauraang-malik/30min"
+ *
+ *  Full walkthrough for both: BOOKING-SETUP.md in the repo root.
+ */
+const BOOKING = {
+  link: "",
+
+  /* Printed in the top bar and the "Pick a time" section. Keep it honest —
+     don't advertise Zoom or Teams until they're actually connected. */
+  platforms: "Google Meet",
+  duration: "30 min"
+};
+
+(function () {
+  const section  = document.querySelector("[data-booking-section]");
+  const inlineEl = document.getElementById("cal-inline");
+  const triggers = [...document.querySelectorAll("[data-booking-cta]")];
+  if (!triggers.length && !section) return;
+
+  const scrollCta = triggers.filter(el => el.dataset.bookingCta === "inline");
+  const modalCta  = triggers.filter(el => el.dataset.bookingCta !== "inline");
+  const link      = (BOOKING.link || "").trim();
+
+  /* Not configured yet: drop the calendar section and the button that jumps
+     to it rather than shipping anchors to something that isn't there, and
+     send the remaining buttons to the contact block. */
+  if (!link) {
+    if (section) section.remove();
+    scrollCta.forEach(el => el.remove());
+    modalCta.forEach(el => { el.href = el.getAttribute("href").replace("#book", "#contact"); });
+    return;
+  }
+
+  const isGoogle = /^https:\/\/calendar\.google\.com\/calendar\/appointments\//.test(link);
+  const pageUrl  = isGoogle ? link : "https://cal.com/" + link.replace(/^https?:\/\/cal\.com\//, "");
+
+  if (section) section.hidden = false;
+
+  /* Keep the advertised platforms in step with the config */
+  document.querySelectorAll("[data-booking-platforms]").forEach(el => {
+    el.textContent = BOOKING.platforms;
+  });
+  document.querySelectorAll(".bookbar__cta-meta").forEach(el => {
+    el.textContent = BOOKING.duration + " · " + BOOKING.platforms;
+  });
+  document.querySelectorAll("[data-booking-direct]").forEach(a => { a.href = pageUrl; });
+
+  /* Real link on every button first: if an embed is blocked or still
+     loading, the click just opens the booking page in a new tab. */
+  modalCta.forEach(el => {
+    el.href = pageUrl;
+    el.target = "_blank";
+    el.rel = "noopener noreferrer";
+  });
+
+  /* ---------- A) Google Calendar appointment schedule ---------- */
+  if (isGoogle) {
+    const embedSrc = link.includes("gv=true")
+      ? link
+      : link + (link.includes("?") ? "&" : "?") + "gv=true";
+
+    if (inlineEl) {
+      const mount = () => {
+        const frame = document.createElement("iframe");
+        frame.src = embedSrc;
+        frame.title = "Booking calendar";
+        frame.loading = "lazy";
+        frame.className = "booking__frame";
+        inlineEl.innerHTML = "";
+        inlineEl.appendChild(frame);
+        frame.addEventListener("load", () => inlineEl.setAttribute("aria-busy", "false"));
+      };
+      new IntersectionObserver((entries, obs) => {
+        if (entries[0].isIntersecting) { obs.disconnect(); mount(); }
+      }, { rootMargin: "400px" }).observe(inlineEl);
+    }
+
+    /* Google has no popup API of its own, so the buttons open its booking
+       page inside a native <dialog> — the visitor stays on the site. */
+    let dialog;
+    function openDialog(e) {
+      if (typeof HTMLDialogElement === "undefined") return;   // let the link through
+      e.preventDefault();
+      if (!dialog) {
+        dialog = document.createElement("dialog");
+        dialog.className = "booking-modal";
+        dialog.setAttribute("aria-label", "Book a meeting");
+        const close = document.createElement("button");
+        close.className = "booking-modal__close";
+        close.type = "button";
+        close.setAttribute("aria-label", "Close booking");
+        close.innerHTML = "&times;";
+        close.addEventListener("click", () => dialog.close());
+        const frame = document.createElement("iframe");
+        frame.src = embedSrc;
+        frame.title = "Booking calendar";
+        frame.className = "booking-modal__frame";
+        dialog.append(close, frame);
+        dialog.addEventListener("click", ev => {
+          if (ev.target === dialog) dialog.close();          // click the backdrop
+        });
+        document.body.appendChild(dialog);
+      }
+      dialog.showModal();
+    }
+    modalCta.forEach(el => el.addEventListener("click", openDialog));
+    return;
+  }
+
+  /* ---------- B) Cal.com ---------- */
+  const CAL_LINK  = link.replace(/^https?:\/\/cal\.com\//, "");
+  const NAMESPACE = "kalkin-booking";
+  const root      = document.documentElement;
+  const uiConfig  = () => ({
+    theme: root.getAttribute("data-theme") === "light" ? "light" : "dark",
+    layout: "month_view",
+    hideEventTypeDetails: false
+  });
+  let booted = false;
+
+  modalCta.forEach(el => {
+    el.setAttribute("data-cal-link", CAL_LINK);
+    el.setAttribute("data-cal-namespace", NAMESPACE);
+    el.setAttribute("data-cal-config", JSON.stringify({ layout: "month_view" }));
+  });
+
+  function boot() {
+    if (booted) return;
+    booted = true;
+
+    /* Official Cal.com embed loader */
+    (function (C, A, L) {
+      let p = function (a, ar) { a.q.push(ar); };
+      let d = C.document;
+      C.Cal = C.Cal || function () {
+        let cal = C.Cal;
+        let ar = arguments;
+        if (!cal.loaded) {
+          cal.ns = {};
+          cal.q = cal.q || [];
+          d.head.appendChild(d.createElement("script")).src = A;
+          cal.loaded = true;
+        }
+        if (ar[0] === L) {
+          const api = function () { p(api, arguments); };
+          const namespace = ar[1];
+          api.q = api.q || [];
+          if (typeof namespace === "string") {
+            cal.ns[namespace] = cal.ns[namespace] || api;
+            p(cal.ns[namespace], ar);
+            p(cal, ["initNamespace", namespace]);
+          } else p(cal, ar);
+          return;
+        }
+        p(cal, ar);
+      };
+    })(window, "https://app.cal.com/embed/embed.js", "init");
+
+    Cal("init", NAMESPACE, { origin: "https://app.cal.com" });
+    Cal.ns[NAMESPACE]("ui", uiConfig());
+    document.addEventListener("themechange", () => Cal.ns[NAMESPACE]("ui", uiConfig()));
+  }
+
+  if (inlineEl) {
+    const mount = () => {
+      boot();
+      Cal.ns[NAMESPACE]("inline", {
+        elementOrSelector: "#cal-inline",
+        calLink: CAL_LINK,
+        config: { layout: "month_view" }
+      });
+      Cal.ns[NAMESPACE]("on", {
+        action: "linkReady",
+        callback: () => {
+          inlineEl.setAttribute("aria-busy", "false");
+          const loading = inlineEl.querySelector(".booking__loading");
+          if (loading) loading.remove();
+        }
+      });
+    };
+    new IntersectionObserver((entries, obs) => {
+      if (entries[0].isIntersecting) { obs.disconnect(); mount(); }
+    }, { rootMargin: "400px" }).observe(inlineEl);
+  }
+
+  ["pointerenter", "touchstart", "focus"].forEach(evt => {
+    modalCta.forEach(el => el.addEventListener(evt, () => {
+      boot();
+      Cal.ns[NAMESPACE]("preload", { calLink: CAL_LINK });
+    }, { once: true, passive: true }));
+  });
+
+  if ("requestIdleCallback" in window) {
+    requestIdleCallback(boot, { timeout: 4000 });
+  } else {
+    setTimeout(boot, 2500);
+  }
 })();

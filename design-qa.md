@@ -103,3 +103,65 @@ state: homepage at the top of `/`, dark theme, navigation closed, hero animation
 - P3: if the shared homepage dock should feel even more editorial, reduce its radius from `18px` to `14px`; no usability fix is required.
 
 final result: passed
+
+---
+
+**Design QA — Speaking & Presentations**
+
+source visual truth path: `/var/folders/1h/jzkc4s554818r0wfvp5d90zw0000gn/T/codex-clipboard-1bfbe18e-7924-4c30-b627-37e61cb70df7.png`
+
+implementation screenshot: browser-rendered capture in the Codex in-app preview (the preview surface does not expose a filesystem screenshot path).
+
+viewport: desktop `1966 × 1248 CSS px`, dark theme, speaking section at its default state. The supplied source is `3052 × 1938 px`; its displayed `1966 × 1248 px` version and the browser capture were compared as the section region, excluding the source's intentional top crop.
+
+state: homepage, dark theme, two-column Speaking & Presentations grid; phone layout verified at `390 × 844 CSS px`.
+
+**Full-view comparison evidence**
+
+- The browser-rendered desktop section shows the same photo-led treatment for the first talk and workshop cards: 16:9 event imagery, square dark cards, thin slate borders, cyan mono roles, white display headings, muted metadata and body copy, and cyan recap links.
+- The source's first two card images were extracted from the user-supplied reference into dedicated local PNG assets, retaining the authentic event imagery instead of substituting generated or placeholder art.
+- The existing two-column grid, card padding, typography, and colour tokens already matched the supplied editorial direction; the implementation removes the Canva deck-overlay treatment that was the visible mismatch.
+
+**Focused region comparison evidence**
+
+- The two lead-card media regions were checked against the supplied screenshot. Their displayed images use `object-fit: cover` in a `16 / 9` frame, preserving the talk collage and the Simply Voting group portrait without letterboxing.
+- At `390px`, the talks grid computes to one `345px` column, its first card is `345px` wide, and the document has no horizontal overflow.
+
+**Required fidelity surfaces**
+
+- Fonts and typography: existing Space Grotesk display headings, Inter body copy, and JetBrains Mono labels are preserved; desktop title wrapping follows the existing editorial layout.
+- Spacing and layout rhythm: two equal cards remain separated by a consistent gap at desktop and collapse into one readable column on phones.
+- Colors and visual tokens: the existing near-black surface, thin slate line, cool-white text, muted copy, and cyan labels/links are retained.
+- Image quality and asset fidelity: authentic reference photos are used in dedicated raster files. No generated people, placeholder, CSS art, or fabricated image treatment was introduced.
+- Copy and content: event titles, dates, descriptions, accessibility text, and LinkedIn recap links remain unchanged.
+
+**Findings**
+
+- No actionable P0, P1, or P2 findings remain.
+- Accepted capture difference: the supplied reference begins at the Speaking section, whereas the standalone local preview retains the site's fixed navigation above it.
+
+**Comparison history**
+
+1. Initial state: the first two lead cards showed Canva title-slide previews and loading overlays rather than the event photography in the reference.
+2. Fix: replaced those preview loaders with dedicated, accessible event-photo media regions and added the narrow photo-frame styling.
+3. Post-fix: browser-rendered desktop and computed phone-layout checks show the intended image-led cards, two-column desktop treatment, single-column mobile treatment, no horizontal overflow, and no console warnings or errors.
+
+**Primary interactions tested**
+
+- Speaking section navigation and browser render at desktop size.
+- LinkedIn recap destinations remain semantic external links with `target="_blank"` and `rel="noopener noreferrer"`.
+- Phone breakpoint computation and overflow check at `390px`.
+- Browser console check: no warnings or errors.
+
+**Implementation Checklist**
+
+- [x] Replace Canva-preview visuals with the supplied event photography.
+- [x] Preserve talk copy, recap links, and accessible image descriptions.
+- [x] Preserve the editorial card styling and two-column desktop grid.
+- [x] Verify no phone horizontal overflow.
+
+**Follow-up Polish**
+
+- P3: Replace the extracted reference images with the original camera files if they become available, to allow larger future layouts without any upscaling.
+
+final result: passed
