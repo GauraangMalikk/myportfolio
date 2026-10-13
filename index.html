@@ -124,7 +124,7 @@
             <div><span class="section-label">// 01</span><h2 class="section-title">Talks &amp; Events</h2></div>
             <p>Technical ideas made legible through workshops, talks, and community events.</p>
           </div>
-          <div class="talks__grid talks__grid--editorial">
+          <div class="talks__grid talks__grid--editorial" id="talks-grid" data-collection data-collection-limit="2" data-collection-name="Talks &amp; Events">
             <article class="talk-card" data-card-link="https://www.linkedin.com/posts/grauraang-malik_key-takeaways-from-thethe-ai-collective-ugcPost-7387285378489135104-tLOk" data-card-target="_blank" aria-label="Open Cracking the Formula for AI and ML event recap">
               <div class="talk-card__media"><img src="./assets/img/presentations/talk-ai-ml-event.png" alt="Gauraang Malik presenting an AI and machine learning talk at McGill University" width="1176" height="658" loading="lazy" /><a class="talk-card__media-action" href="https://www.canva.com/design/DAG2MOxF0tY/-ZkPRPADrcql62Pn5y7KWg/view?utm_content=DAG2MOxF0tY&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener noreferrer" aria-label="Open Lecture 1: ML and AI basics presentation in Canva">View presentation ↗</a></div>
               <div class="talk-card__info"><span class="talk-card__role">Past talk · Speaker</span><h3 class="talk-card__title">Cracking the Formula for AI &amp; ML</h3><p class="talk-card__meta">The AI Collective × McHacks · McGill University · Plotly-sponsored · October 2025</p><p class="talk-card__desc">A practical map of AI beyond language models: supervised and unsupervised learning for structure, RAG for factual grounding, and agents for planning, memory, and action. A playful embedding-space example showed how relationships in meaning space can help explain one path to model hallucination.</p></div>
@@ -147,6 +147,9 @@
               <div class="talk-card__info"><span class="talk-card__role">Past event · Host</span><h3 class="talk-card__title">The Rise of Everyday Data Scientists &amp; Prompt Engineers</h3><p class="talk-card__meta">The AI Collective Montréal · Le Wagon · May 20, 2026 · 95 registered guests</p><p class="talk-card__desc">A completed community event about how product teams, marketers, designers, founders, and operators are increasingly working with data and prompts—not only technical specialists. The LinkedIn recap captures the room, Sarra Kallel’s talk, and the event’s practical framework for clearer prompting.</p></div>
             </article>
           </div>
+          <div class="collection-toggle">
+            <button class="collection-toggle__button" type="button" data-collection-toggle="talks-grid" aria-controls="talks-grid" aria-expanded="false"><span data-collection-label>More Talks &amp; Events</span><span class="collection-toggle__arrow" aria-hidden="true">↓</span></button>
+          </div>
         </div>
       </section>
 
@@ -157,7 +160,7 @@
             <p>Working experiments hosted on Hugging Face Spaces. Each card launches the real interface; a sleeping Space may take a moment to wake.</p>
           </div>
 
-          <div class="demo-grid">
+          <div class="demo-grid" id="demos-grid" data-collection data-collection-limit="2" data-collection-name="Live Demos">
             <a class="demo-card" href="https://huggingface.co/spaces/gauraang/myportfolio" target="_blank" rel="noopener noreferrer" aria-label="Launch Building Energy Predictor demo in a new tab">
               <span class="demo-card__media"><img src="./assets/img/demos/building-energy-concept.webp" alt="Concept illustration of weather, HVAC, and thermal data flowing through a building-energy model" width="1664" height="936" loading="eager" /><span class="demo-card__visual-note">Concept visual</span></span>
               <span class="demo-card__body">
@@ -203,11 +206,14 @@
             </a>
           </div>
 
-          <article class="development-card" aria-labelledby="vector-memory-title">
+          <article class="development-card" aria-labelledby="vector-memory-title" data-collection-extra="demos-grid">
             <span class="development-card__status">In development</span>
             <div><h3 id="vector-memory-title">Vector Memory</h3><p>Semantic search across project knowledge using cosine and Euclidean similarity. This module is not yet a live demo.</p></div>
             <span class="development-card__meta">FAISS · UMAP · PCA</span>
           </article>
+          <div class="collection-toggle">
+            <button class="collection-toggle__button" type="button" data-collection-toggle="demos-grid" aria-controls="demos-grid" aria-expanded="false"><span data-collection-label>More Live Demos</span><span class="collection-toggle__arrow" aria-hidden="true">↓</span></button>
+          </div>
         </div>
       </section>
 
@@ -217,7 +223,7 @@
             <div><span class="section-label">// 03</span><h2 class="section-title">Selected Work</h2></div>
             <p>Research systems, local AI infrastructure, data products, and visual research communication.</p>
           </div>
-          <div class="projects__grid projects__grid--editorial">
+          <div class="projects__grid projects__grid--editorial" id="projects-grid" data-collection data-collection-limit="3" data-collection-name="Selected Work">
             <article class="project-card project-card--visual" data-card-link="https://github.com/GauraangMalikk/Information-Model-an-LLM-Agent-Architecture" data-card-target="_blank" tabindex="0" role="link" aria-label="Open Multi-Agent LLM System on GitHub">
               <div class="project-card__media-link"><img src="./assets/img/projects/multi-agent.webp" alt="Energy-efficient agent-routing diagram from the Multi-Agent LLM System repository" width="1280" height="720" loading="lazy" /></div>
               <span class="project-card__label">GitHub · Research</span><h3 class="project-card__title">Multi-Agent LLM System</h3>
@@ -267,6 +273,9 @@
               <div class="project-card__tags"><span class="project-card__tag">Survey Study</span><span class="project-card__tag">Privacy Signals</span><span class="project-card__tag">Qualitative</span></div>
             </article>
           </div>
+          <div class="collection-toggle">
+            <button class="collection-toggle__button" type="button" data-collection-toggle="projects-grid" aria-controls="projects-grid" aria-expanded="false"><span data-collection-label>More Selected Work</span><span class="collection-toggle__arrow" aria-hidden="true">↓</span></button>
+          </div>
         </div>
       </section>
 
@@ -278,6 +287,7 @@
             <p class="about__lead">Gauraang is a Building Engineering PhD researcher, McGill graduate, and founder of Le Laboratoire Kalkin.</p>
             <p>The work connects intelligent systems, buildings, research practice, culture, music, and playful experiments such as astrology.</p>
             <p class="about__boundary"><strong>Evidence boundary:</strong> research claims require evidence; philosophy and creative inquiry offer questions, metaphors, and perspective rather than scientific proof.</p>
+            <div class="about__actions" aria-label="Learn more about Gauraang Malik"><a href="./about/index.html" class="btn btn--primary">About Me <span aria-hidden="true">→</span></a><a href="./please-scrape-me/index.html" class="btn btn--outline">My Research <span aria-hidden="true">→</span></a></div>
             <address class="about__contact"><a href="mailto:gauraangmalik1@gmail.com">gauraangmalik1@gmail.com</a><a href="https://wa.me/15145770030" target="_blank" rel="noopener noreferrer">WhatsApp</a><a href="https://www.linkedin.com/in/grauraang-malik/" target="_blank" rel="noopener noreferrer">LinkedIn</a></address>
             <a href="./about/index.html" class="about__link">Founder profile &amp; CV <span aria-hidden="true">→</span></a>
           </div>

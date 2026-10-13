@@ -2315,6 +2315,51 @@ section {
   gap: clamp(22px, 3vw, 36px);
 }
 
+.collection-toggle {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(28px, 4vw, 42px);
+}
+.collection-toggle__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 48px;
+  padding: 13px 18px;
+  border: 1px solid var(--editorial-line);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: .68rem;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  transition: border-color .2s ease, color .2s ease, background .2s ease;
+}
+.collection-toggle__button:hover,
+.collection-toggle__button:focus-visible {
+  border-color: var(--cyan);
+  background: var(--editorial-soft);
+  color: var(--cyan);
+}
+.collection-toggle__button:focus-visible { outline: 3px solid var(--cyan); outline-offset: 4px; }
+.collection-toggle__arrow {
+  color: var(--cyan);
+  font-size: 1.1rem;
+  line-height: 1;
+  transition: transform .2s ease;
+}
+.collection-toggle__button[aria-expanded="true"] .collection-toggle__arrow { transform: rotate(180deg); }
+
+.about__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
 .demo-card {
   min-width: 0;
   display: block;
@@ -2825,9 +2870,11 @@ html:not(.js) .portfolio-refresh .hero--editorial { padding-top: 76px; }
   .portfolio-refresh .hero__tagline { margin-top: 32px; }
   .portfolio-refresh .hero__index { display: none; }
   .portfolio-refresh .hero__cta,
+  .about__actions,
   .about-story__actions,
   .about-story__cta > .container > div { align-items: stretch; flex-direction: column; }
   .portfolio-refresh .hero__cta .btn,
+  .about__actions .btn,
   .about-story__actions .btn,
   .about-story__cta .btn { width: 100%; }
   .portfolio-refresh .hero__social { grid-template-columns: 1fr; }
@@ -2872,6 +2919,8 @@ html:not(.js) .portfolio-refresh .hero--editorial { padding-top: 76px; }
   .portfolio-refresh .hero__social a:focus-visible,
   .portfolio-refresh .influence-grid a:hover,
   .portfolio-refresh .influence-grid a:focus-visible { transform: none; }
+  .collection-toggle__button,
+  .collection-toggle__arrow { transition: none; }
 }
 
 /* === DOCK NAVIGATION + SOCIAL LAUNCHER REFINEMENT ========= */
