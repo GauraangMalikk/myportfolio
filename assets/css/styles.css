@@ -2484,7 +2484,7 @@ section {
 .development-card p { margin-top: 4px; color: var(--text-muted); }
 
 .portfolio-refresh .projects__grid--editorial {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 22px;
 }
 .portfolio-refresh .project-card {

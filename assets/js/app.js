@@ -86,37 +86,6 @@
   });
 })();
 
-/* === 2. COMPACT COLLECTIONS =============================== */
-(function () {
-  const extraItems = [...document.querySelectorAll("[data-collection-extra]")];
-
-  document.querySelectorAll("[data-collection]").forEach(collection => {
-    const limit = Number.parseInt(collection.dataset.collectionLimit, 10);
-    const name = collection.dataset.collectionName || "items";
-    const control = document.querySelector(`[data-collection-toggle="${collection.id}"]`);
-    const items = [...collection.children];
-    const extras = extraItems.filter(item => item.dataset.collectionExtra === collection.id);
-
-    if (!control || !Number.isFinite(limit) || items.length <= limit && !extras.length) return;
-
-    const label = control.querySelector("[data-collection-label]");
-    const moreCount = items.length - limit + extras.length;
-
-    function setExpanded(expanded) {
-      items.forEach((item, index) => { item.hidden = !expanded && index >= limit; });
-      extras.forEach(item => { item.hidden = !expanded; });
-      control.setAttribute("aria-expanded", String(expanded));
-      control.setAttribute("aria-label", expanded ? `Show fewer ${name}` : `Show ${moreCount} more ${name}`);
-      if (label) label.textContent = expanded ? `Show less ${name}` : `More ${name}`;
-    }
-
-    setExpanded(false);
-    control.addEventListener("click", () => {
-      setExpanded(control.getAttribute("aria-expanded") !== "true");
-    });
-  });
-})();
-
 /* === 3. MOBILE NAVBAR ===================================== */
 (function () {
   const nav        = document.querySelector(".navbar");
