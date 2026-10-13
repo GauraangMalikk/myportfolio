@@ -2367,6 +2367,12 @@ section {
   margin-top: 28px;
 }
 
+.portfolio-refresh .about__actions .btn {
+  min-height: 48px;
+  padding: 13px 24px;
+  font-size: .8rem;
+}
+
 .demo-card {
   min-width: 0;
   display: block;
