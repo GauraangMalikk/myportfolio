@@ -13,7 +13,11 @@
 
   function setTheme(theme) {
     root.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme);
+    try {
+      localStorage.setItem("theme", theme);
+    } catch {
+      // File previews and privacy-restricted browsers can block local storage.
+    }
     btn.innerHTML = theme === "dark" ? MOON : SUN;
     btn.setAttribute("aria-label", theme === "dark" ? "Switch to light mode" : "Switch to dark mode");
     document.dispatchEvent(new CustomEvent("themechange", { detail: { theme } }));
@@ -25,7 +29,13 @@
   });
 
   // Init on load
-  setTheme(localStorage.getItem("theme") || "dark");
+  let savedTheme = null;
+  try {
+    savedTheme = localStorage.getItem("theme");
+  } catch {
+    // The default theme still works when local storage is unavailable.
+  }
+  setTheme(savedTheme || "dark");
 })();
 
 /* === 9. LINKED CARDS ======================================= */
