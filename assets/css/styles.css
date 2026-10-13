@@ -2315,6 +2315,13 @@ section {
   gap: clamp(22px, 3vw, 36px);
 }
 
+/* Card display rules must never override the collapsed collection state. */
+[data-collection] > [hidden],
+[data-collection-extra][hidden],
+[data-collection-toggle][hidden] {
+  display: none !important;
+}
+
 .collection-toggle {
   display: flex;
   justify-content: center;
