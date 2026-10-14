@@ -3030,7 +3030,8 @@ html:not(.js) .portfolio-refresh .hero--editorial { padding-top: 76px; }
 }
 
 .portfolio-refresh .hero__social {
-  width: min(100%, 590px);
+  width: 100%;
+  margin-inline: auto;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 8px;
   padding: 13px;
@@ -3135,7 +3136,6 @@ html:not(.js) .portfolio-refresh .hero--editorial { padding-top: 76px; }
   .navbar--dock .navbar__scrape { display: none; }
 
   .portfolio-refresh .hero__social {
-    width: min(100%, 330px);
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 4px;
     padding: 9px;
