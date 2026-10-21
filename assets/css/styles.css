@@ -3612,7 +3612,7 @@ button,
   border-radius: var(--radius-button);
 }
 
-/* Lightweight depth: static vector geometry, no render loop or 3D runtime. */
+/* A quiet hero gallery built from the six Talks & Events images. */
 .portfolio-refresh .hero::before,
 .portfolio-refresh .navbar__logo-image,
 .portfolio-refresh .navbar__logo img,
@@ -3620,15 +3620,113 @@ button,
 .portfolio-refresh .module-card__status-dot,
 .portfolio-refresh .bookbar__pulse { animation: none; }
 
-.portfolio-refresh .hero--editorial::after {
-  content: "";
-  display: block;
+.portfolio-refresh .hero__copy { position: static; }
+.portfolio-refresh .hero__copy > :not(.hero__collage) { position: relative; z-index: 2; }
+.portfolio-refresh .hero__collage {
   position: absolute;
-  inset: 0;
-  background: url("../img/lab-depth.svg") right -120px center / 580px auto no-repeat;
-  opacity: .3;
+  top: calc(var(--nav-height) + 26px);
+  right: max(-24px, calc((100vw - 1540px) / 2));
+  width: min(67vw, 880px);
+  height: min(40vw, 530px);
+  min-height: 420px;
   pointer-events: none;
   z-index: 0;
+  -webkit-mask-image: linear-gradient(90deg, transparent, rgba(0, 0, 0, .24) 32%, #000 68%);
+  mask-image: linear-gradient(90deg, transparent, rgba(0, 0, 0, .24) 32%, #000 68%);
+}
+.portfolio-refresh .hero__collage-photo {
+  position: absolute;
+  overflow: hidden;
+  border: 1px solid rgba(230, 244, 250, .32);
+  border-radius: 12px;
+  background: var(--bg-elevated);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, .38);
+}
+.portfolio-refresh .hero__collage-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(.88) brightness(.83);
+}
+.portfolio-refresh .hero__collage-photo--talk { left: 11%; top: 7%; width: 43%; height: 38%; transform: rotate(-5deg); z-index: 2; }
+.portfolio-refresh .hero__collage-photo--workshop { left: 1%; top: 47%; width: 44%; height: 37%; transform: rotate(4deg); z-index: 1; }
+.portfolio-refresh .hero__collage-photo--video { left: 73%; top: 69%; width: 25%; height: 27%; transform: rotate(5deg); z-index: 5; }
+.portfolio-refresh .hero__collage-photo--devday { left: 58%; top: 0; width: 38%; height: 53%; transform: rotate(4deg); z-index: 3; }
+.portfolio-refresh .hero__collage-photo--meetup { left: 42%; top: 42%; width: 43%; height: 31%; transform: rotate(-3deg); z-index: 4; }
+.portfolio-refresh .hero__collage-photo--everyday { left: 36%; top: 73%; width: 39%; height: 25%; transform: rotate(2deg); z-index: 6; }
+.portfolio-refresh .hero__collage-photo--devday img { object-position: 46% center; }
+.portfolio-refresh .hero__collage-photo--video img { object-position: 65% center; }
+[data-theme="light"] .portfolio-refresh .hero__collage-photo img { filter: saturate(.9) brightness(.94); }
+[data-theme="light"] .portfolio-refresh .hero__name {
+  background: linear-gradient(135deg, #0f172a, #0369a1 65%, #5b21b6);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+@media (max-width: 800px) {
+  .portfolio-refresh .hero__collage {
+    position: absolute;
+    inset: calc(var(--nav-height) + 8px) 0 0;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    margin: 0;
+    opacity: .58;
+    -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 66%, transparent 100%);
+    mask-image: linear-gradient(180deg, #000 0%, #000 66%, transparent 100%);
+  }
+  .portfolio-refresh .hero__collage-photo {
+    position: absolute;
+    border: 0;
+    border-radius: 8px;
+    box-shadow: none;
+  }
+  .portfolio-refresh .hero__collage-photo img { filter: saturate(.75) brightness(.78); }
+  .portfolio-refresh .hero--editorial::after {
+    content: "";
+    display: block;
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+      linear-gradient(90deg, rgba(8, 12, 16, .66), rgba(8, 12, 16, .45)),
+      linear-gradient(180deg, transparent, rgba(8, 12, 16, .3) 60%, var(--bg-base));
+  }
+  .portfolio-refresh .hero__tagline,
+  .portfolio-refresh .hero__sub { text-shadow: 0 2px 14px rgba(0, 0, 0, .9); }
+  [data-theme="light"] .portfolio-refresh .hero__collage { opacity: .42; }
+  [data-theme="light"] .portfolio-refresh .hero--editorial::after {
+    background: linear-gradient(90deg, rgba(248, 250, 252, .75), rgba(248, 250, 252, .54));
+  }
+  [data-theme="light"] .portfolio-refresh .hero__tagline,
+  [data-theme="light"] .portfolio-refresh .hero__sub { text-shadow: none; }
+}
+@media (max-width: 600px) {
+  .portfolio-refresh .hero__collage {
+    opacity: .68;
+    -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 62%, transparent 100%);
+    mask-image: linear-gradient(180deg, #000 0%, #000 62%, transparent 100%);
+  }
+  .portfolio-refresh .hero__collage-photo--talk { left: -9%; top: 5%; width: 73%; height: 27%; transform: rotate(-6deg); z-index: 2; }
+  .portfolio-refresh .hero__collage-photo--workshop { left: -15%; top: 34%; width: 68%; height: 26%; transform: rotate(4deg); z-index: 1; }
+  .portfolio-refresh .hero__collage-photo--video { left: 55%; top: 64%; width: 54%; height: 25%; transform: rotate(5deg); z-index: 6; }
+  .portfolio-refresh .hero__collage-photo--devday { left: 53%; top: 0; width: 56%; height: 38%; transform: rotate(5deg); z-index: 4; }
+  .portfolio-refresh .hero__collage-photo--meetup { left: 34%; top: 37%; width: 78%; height: 27%; transform: rotate(-5deg); z-index: 3; }
+  .portfolio-refresh .hero__collage-photo--everyday { left: -10%; top: 61%; width: 70%; height: 25%; transform: rotate(-4deg); z-index: 5; }
+  .portfolio-refresh #services { padding-block: 20px; }
+  .portfolio-refresh .capability-link { padding: 20px 20px 18px; }
+  .portfolio-refresh .capabilities__strip h3 {
+    margin-top: 10px;
+    font-size: clamp(1.22rem, 5.1vw, 1.45rem);
+    line-height: 1.18;
+  }
+  .portfolio-refresh .capabilities__strip p {
+    margin-top: 8px;
+    font-size: .9rem;
+    line-height: 1.48;
+  }
+  .portfolio-refresh .capability-link__destination { padding-top: 14px; }
 }
 .portfolio-refresh .hero__social {
   background: #131b23;
@@ -3660,13 +3758,6 @@ button,
   .portfolio-refresh .talk-card:hover,
   .portfolio-refresh .demo-card:hover,
   .portfolio-refresh .project-card:hover { transform: translateY(-3px); }
-}
-@media (max-width: 800px) {
-  .portfolio-refresh .hero--editorial::after {
-    background-size: 360px auto;
-    background-position: right -165px top 65px;
-    opacity: .16;
-  }
 }
 @media (prefers-reduced-motion: reduce) {
   .portfolio-refresh .capability-link,
