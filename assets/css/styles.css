@@ -2147,7 +2147,7 @@ section {
   min-height: 0;
   display: flex;
   align-items: center;
-  padding: calc(var(--nav-height) + clamp(54px, 7vw, 94px)) 0 clamp(64px, 8vw, 108px);
+  padding: calc(var(--nav-height) + clamp(42px, 5vw, 64px)) 0 0;
   text-align: left;
   overflow: hidden;
 }
@@ -2198,6 +2198,38 @@ section {
   justify-content: flex-start;
   margin-top: 28px;
   margin-bottom: 0;
+}
+
+.portfolio-refresh .hero__cta .btn { gap: 9px; }
+
+.hero__technologies {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  align-items: center;
+  gap: 22px 18px;
+  margin-top: 40px;
+  padding: 0;
+  list-style: none;
+}
+
+.hero__technology {
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  height: 42px;
+}
+.hero__technology img { display: block; width: 40px; height: 40px; max-width: 100%; object-fit: contain; }
+.hero__technology--monochrome img { mix-blend-mode: multiply; }
+[data-theme="dark"] .hero__technology--monochrome img { filter: invert(1); mix-blend-mode: screen; }
+[data-theme="dark"] .hero__technology img[alt="pandas"] { content: url("../img/technologies/pandas-white.svg"); }
+
+@media (max-width: 900px) {
+  .hero__technologies { grid-template-columns: repeat(8, minmax(0, 1fr)); }
+}
+
+@media (max-width: 600px) {
+  .hero__technologies { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 18px 12px; margin-top: 32px; }
+  .hero__technology img { width: 36px; height: 36px; }
 }
 
 .portfolio-refresh .btn {
@@ -2926,7 +2958,7 @@ html:not(.js) .portfolio-refresh .hero--editorial { padding-top: 76px; }
 
 @media (max-width: 800px) {
   .portfolio-refresh section { padding-block: 72px; }
-  .portfolio-refresh .hero--editorial { min-height: auto; padding: calc(var(--nav-height) + 60px) 0 64px; }
+  .portfolio-refresh .hero--editorial { min-height: auto; padding: calc(var(--nav-height) + 60px) 0 0; }
   .portfolio-refresh .hero--editorial::after { display: none; }
   .portfolio-refresh .hero__layout { grid-template-columns: 1fr; gap: 48px; }
   .portfolio-refresh .hero__name { font-size: clamp(4rem, 17vw, 7.2rem); }
@@ -3209,6 +3241,13 @@ html:not(.js) .portfolio-refresh .hero--editorial { padding-top: 76px; }
   .portfolio-refresh .hero__social-label { gap: 4px; }
   .portfolio-refresh .hero__social-label strong { font-size: clamp(.64rem, 3vw, .76rem); }
   .portfolio-refresh .hero__social-arrow { font-size: .62rem; }
+
+  .portfolio-refresh .hero--editorial { padding-top: calc(var(--nav-height) + 32px); }
+  .portfolio-refresh .hero__tagline { margin-top: 24px; line-height: 1.2; }
+  .portfolio-refresh .hero__sub { font-family: var(--font-body); letter-spacing: 0; }
+  .portfolio-refresh .hero__cta { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 20px; }
+  .portfolio-refresh .hero__cta .btn { min-width: 0; padding-inline: 10px; }
+  .portfolio-refresh .hero__cta .btn--primary { grid-column: 1 / -1; }
 
   .research-hero h1 { font-size: clamp(2.8rem, 15.2vw, 4.8rem); }
   .research-hero__author { margin-top: -8px; }
